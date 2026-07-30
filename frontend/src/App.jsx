@@ -28,7 +28,7 @@ export default function App() {
       case 'auth':
         return <AuthPage onNavigate={setActiveRoute} setCurrentUser={setCurrentUser} />;
       case 'patient':
-        return <PatientDashboard onNavigate={setActiveRoute} />;
+        return <PatientDashboard onNavigate={setActiveRoute} currentUser={currentUser} />;
       case 'doctor':
         return <DoctorDashboard />;
       case 'admin':

@@ -156,11 +156,13 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
         setSuccessMsg('Registration successful! You can now log in.');
         setIsLogin(true);
       }
-    } catch (err) {
       // Instant Fallback User Simulation if backend DB is offline
+      const derivedName = formData.full_name || (formData.email ? formData.email.split('@')[0] : (role === 'Doctor' ? 'Dr. Sarah Jenkins' : 'Revanth Polamreddy'));
+      const displayName = (derivedName.length < 3 || /^\d+$/.test(derivedName)) ? 'Revanth Polamreddy' : derivedName;
+
       const userObj = {
         id: Math.floor(Math.random() * 9000) + 1000,
-        full_name: formData.full_name || (formData.email ? formData.email.split('@')[0] : (role === 'Doctor' ? 'Dr. Sarah Jenkins' : 'Revanth Polamreddy')),
+        full_name: displayName,
         email: formData.email || `${role.toLowerCase()}@smarthospital.ai`,
         role: role
       };

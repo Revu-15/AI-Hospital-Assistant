@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { apiService } from '../api/client';
 
-export default function PatientDashboard({ onNavigate }) {
+export default function PatientDashboard({ onNavigate, currentUser }) {
   const [profile, setProfile] = useState(null);
   const [appointments, setAppointments] = useState([]);
   const [timeline, setTimeline] = useState([]);
@@ -51,7 +51,7 @@ export default function PatientDashboard({ onNavigate }) {
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-teal-200">Patient Health Portal</span>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Welcome Back, {profile?.full_name || 'John Doe'} 👋
+              Welcome Back, {currentUser?.full_name || profile?.full_name || 'Revanth Polamreddy'} 👋
             </h1>
             <p className="text-xs sm:text-sm text-blue-100 max-w-xl">
               Insurance Status: <strong className="text-white">{profile?.insurance_provider || 'Star Health Care'}</strong> (Policy #{profile?.insurance_policy_number || 'POL-9842019'}). Your 80% outpatient co-pay is active.
