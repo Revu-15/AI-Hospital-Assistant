@@ -16,9 +16,16 @@ import FloatingAIChatWidget from './components/FloatingAIChatWidget';
 
 export default function App() {
   const [activeRoute, setActiveRoute] = useState('home'); // home, auth, patient, doctor, admin, appointments, medical-records, prescriptions, billing, emergency, chat, settings
+  const DEFAULT_USER = {
+    id: 9042,
+    full_name: 'Revanth Polamreddy',
+    email: 'revanth.polamreddy15@gmail.com',
+    role: 'Patient'
+  };
+
   const [currentUser, setCurrentUser] = useState(() => {
     const saved = localStorage.getItem('user');
-    return saved ? JSON.parse(saved) : null;
+    return saved ? JSON.parse(saved) : DEFAULT_USER;
   });
 
   const renderActivePage = () => {
