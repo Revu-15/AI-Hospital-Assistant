@@ -44,6 +44,13 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
     { id: 3, title: 'Invoice Ready', desc: 'Lab report invoice #INV-9402 generated', time: '3h ago' }
   ];
 
+  const handleLogout = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
+    setCurrentUser(null);
+    onNavigate('home');
+  };
+
   return (
     <div className="min-h-screen bg-medicalBg dark:bg-darkMedicalBg text-slate-800 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
       
@@ -138,14 +145,25 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
 
           {/* User Profile / Auth Toggle */}
           {currentUser ? (
-            <div className="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-apolloBlue to-teal-400 flex items-center justify-center text-white font-bold text-sm shadow">
-                {currentUser.full_name ? currentUser.full_name[0] : 'P'}
+            <div className="flex items-center gap-3 pl-2 border-l border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-apolloBlue to-teal-400 flex items-center justify-center text-white font-bold text-sm shadow">
+                  {currentUser.full_name ? currentUser.full_name[0] : 'U'}
+                </div>
+                <div className="hidden lg:block text-left">
+                  <p className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">{currentUser.full_name || 'User'}</p>
+                  <p className="text-[10px] font-semibold text-apolloBlue capitalize">{currentUser.role || 'Patient'}</p>
+                </div>
               </div>
-              <div className="hidden lg:block text-left">
-                <p className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">{currentUser.full_name || 'Patient User'}</p>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400">ID: #PT-9042</p>
-              </div>
+
+              <button
+                onClick={handleLogout}
+                className="p-2 rounded-xl text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors flex items-center gap-1 text-xs font-bold"
+                title="Logout Account"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="hidden sm:inline">Logout</span>
+              </button>
             </div>
           ) : (
             <button 
@@ -207,14 +225,26 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
           </div>
 
           {/* Quick Swarm Agent Info Widget */}
-          <div className="p-3.5 rounded-2xl bg-gradient-to-br from-apolloSky to-blue-50 dark:from-slate-800/80 dark:to-slate-800 border border-blue-100 dark:border-slate-700">
-            <div className="flex items-center gap-2 mb-1.5">
-              <Bot className="w-4 h-4 text-apolloBlue" />
-              <span className="text-xs font-bold text-apolloBlue dark:text-blue-300">OpenAI Swarm Engine</span>
+          <div className="space-y-2 mt-4">
+            <div className="p-3.5 rounded-2xl bg-gradient-to-br from-apolloSky to-blue-50 dark:from-slate-800/80 dark:to-slate-800 border border-blue-100 dark:border-slate-700">
+              <div className="flex items-center gap-2 mb-1.5">
+                <Bot className="w-4 h-4 text-apolloBlue" />
+                <span className="text-xs font-bold text-apolloBlue dark:text-blue-300">OpenAI Swarm Engine</span>
+              </div>
+              <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                8 Multi-Agent Collaboration Network active & online.
+              </p>
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
-              8 Multi-Agent Collaboration Network active & online.
-            </p>
+
+            {currentUser && (
+              <button
+                onClick={handleLogout}
+                className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl font-bold text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 border border-rose-200/60 transition-all"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Logout ({currentUser.full_name?.split(' ')[0] || 'User'})</span>
+              </button>
+            )}
           </div>
         </aside>
 
