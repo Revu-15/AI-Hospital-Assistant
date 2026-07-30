@@ -11,10 +11,10 @@ import BillingPage from './pages/BillingPage';
 import EmergencyPage from './pages/EmergencyPage';
 import AIChatPage from './pages/AIChatPage';
 import SettingsPage from './pages/SettingsPage';
-import FloatingAIChatWidget from './components/FloatingAIChatWidget';
+import AdminDashboard from './pages/AdminDashboard';
 
 export default function App() {
-  const [activeRoute, setActiveRoute] = useState('home'); // home, auth, patient, doctor, appointments, medical-records, prescriptions, billing, emergency, chat, settings
+  const [activeRoute, setActiveRoute] = useState('home'); // home, auth, patient, doctor, admin, appointments, medical-records, prescriptions, billing, emergency, chat, settings
   const [currentUser, setCurrentUser] = useState(() => {
     const saved = localStorage.getItem('user');
     return saved ? JSON.parse(saved) : null;
@@ -30,6 +30,8 @@ export default function App() {
         return <PatientDashboard onNavigate={setActiveRoute} />;
       case 'doctor':
         return <DoctorDashboard />;
+      case 'admin':
+        return <AdminDashboard currentUser={currentUser} />;
       case 'appointments':
         return <AppointmentBooking onNavigate={setActiveRoute} />;
       case 'medical-records':

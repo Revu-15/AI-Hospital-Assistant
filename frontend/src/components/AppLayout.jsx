@@ -28,6 +28,7 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
     { id: 'home', label: 'Home Page', icon: Home },
     { id: 'patient', label: 'Patient Dashboard', icon: Activity },
     { id: 'doctor', label: 'Doctor Portal', icon: Stethoscope },
+    { id: 'admin', label: 'Admin Portal', icon: Shield, badge: 'Root', color: 'text-amber-500' },
     { id: 'appointments', label: 'Appointments', icon: Calendar },
     { id: 'medical-records', label: 'Medical Records', icon: FileText },
     { id: 'prescriptions', label: 'Prescriptions', icon: Pill },

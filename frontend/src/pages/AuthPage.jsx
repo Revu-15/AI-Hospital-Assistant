@@ -29,6 +29,38 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
     setErrorMsg('');
     setSuccessMsg('');
 
+    // Strict Admin check
+    if (role === 'Admin') {
+      if (formData.email.trim().toLowerCase() !== 'polamreddyrevanth.82@gmail.com') {
+        setErrorMsg('⛔ Access Denied: Only authorized administrator (polamreddyrevanth.82@gmail.com) can log in as Admin.');
+        setLoading(false);
+        return;
+      }
+      if (formData.password !== 'Revu@2005') {
+        setErrorMsg('❌ Invalid Admin Password.');
+        setLoading(false);
+        return;
+      }
+
+      const adminUser = {
+        id: 1,
+        full_name: 'Revanth Polamreddy (System Admin)',
+        email: 'polamreddyrevanth.82@gmail.com',
+        role: 'Admin'
+      };
+
+      localStorage.setItem('access_token', 'admin-super-jwt-token-99882');
+      localStorage.setItem('user', JSON.stringify(adminUser));
+      setCurrentUser(adminUser);
+
+      setSuccessMsg('System Administrator Authenticated! Redirecting to Admin Dashboard...');
+      setTimeout(() => {
+        onNavigate('admin');
+      }, 800);
+      setLoading(false);
+      return;
+    }
+
     try {
       if (isLogin) {
         const res = await apiService.login(formData.email, formData.password);

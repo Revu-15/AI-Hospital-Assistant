@@ -45,13 +45,33 @@ def register(payload: PatientRegisterSchema, db: Session = Depends(get_db)):
         "token_type": "bearer"
     }
 
+ADMIN_EMAIL = "polamreddyrevanth.82@gmail.com"
+ADMIN_PASSWORD = "Revu@2005"
+
 @router.post("/login")
 def login(payload: LoginSchema, db: Session = Depends(get_db)):
+    # Check if attempting Admin authentication
+    if payload.email.lower() == ADMIN_EMAIL.lower():
+        if payload.password == ADMIN_PASSWORD:
+            token = create_access_token({"sub": "admin_1", "email": ADMIN_EMAIL, "role": "Admin"})
+            return {
+                "access_token": token,
+                "token_type": "bearer",
+                "user": {
+                    "id": 1,
+                    "full_name": "Revanth Polamreddy (System Admin)",
+                    "email": ADMIN_EMAIL,
+                    "role": "Admin"
+                }
+            }
+        else:
+            raise HTTPException(status_code=401, detail="Invalid admin password.")
+
     patient = db.query(PatientModel).filter(PatientModel.email == payload.email).first()
     if not patient or not verify_password(payload.password, patient.password_hash):
         raise HTTPException(status_code=401, detail="Invalid email or password")
     
-    token = create_access_token({"sub": str(patient.id), "email": patient.email})
+    token = create_access_token({"sub": str(patient.id), "email": patient.email, "role": "Patient"})
     return {
         "access_token": token,
         "token_type": "bearer",
@@ -59,6 +79,7 @@ def login(payload: LoginSchema, db: Session = Depends(get_db)):
             "id": patient.id,
             "full_name": patient.full_name,
             "email": patient.email,
+            "role": "Patient",
             "insurance_provider": patient.insurance_provider
         }
     }
