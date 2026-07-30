@@ -2,10 +2,57 @@ import React, { useState, useEffect } from 'react';
 import { Calendar as CalendarIcon, Clock, User, Stethoscope, Star, CheckCircle2, Shield, AlertCircle } from 'lucide-react';
 import { apiService } from '../api/client';
 
+const DEFAULT_DOCTORS = [
+  {
+    id: 101,
+    full_name: "Dr. Sarah Jenkins",
+    department: "Cardiology",
+    specialization: "Interventional Cardiology",
+    experience_years: 15,
+    rating: 4.95,
+    available_slots: ["09:00 AM", "10:30 AM", "02:00 PM"],
+    hospital: "SmartHospital Central Hospital",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    id: 102,
+    full_name: "Dr. Rajesh Sharma",
+    department: "Internal Medicine",
+    specialization: "General Physician & Diabetologist",
+    experience_years: 18,
+    rating: 4.90,
+    available_slots: ["09:30 AM", "11:30 AM", "03:30 PM"],
+    hospital: "SmartHospital Central Hospital",
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    id: 103,
+    full_name: "Dr. Emily Chen",
+    department: "Pediatrics",
+    specialization: "Pediatric Care & Immunology",
+    experience_years: 10,
+    rating: 4.88,
+    available_slots: ["10:00 AM", "01:00 PM", "04:00 PM"],
+    hospital: "SmartHospital Women & Child Care",
+    image: "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    id: 104,
+    full_name: "Dr. Marcus Vance",
+    department: "Neurology",
+    specialization: "Neuro-Physiology & Spine Care",
+    experience_years: 14,
+    rating: 4.92,
+    available_slots: ["11:00 AM", "02:30 PM", "05:00 PM"],
+    hospital: "SmartHospital Neuro Institute",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
+  }
+];
+
 export default function AppointmentBooking({ onNavigate }) {
-  const [doctors, setDoctors] = useState([]);
+  const [doctors, setDoctors] = useState(DEFAULT_DOCTORS);
   const [selectedDept, setSelectedDept] = useState('All');
-  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [selectedDoctor, setSelectedDoctor] = useState(DEFAULT_DOCTORS[0]);
   const [date, setDate] = useState('2026-08-01');
   const [selectedSlot, setSelectedSlot] = useState('10:30 AM');
   const [symptoms, setSymptoms] = useState('');
@@ -16,12 +63,13 @@ export default function AppointmentBooking({ onNavigate }) {
     async function loadDoctors() {
       try {
         const res = await apiService.getDoctors();
-        setDoctors(res.data.doctors || []);
         if (res.data.doctors && res.data.doctors.length > 0) {
+          setDoctors(res.data.doctors);
           setSelectedDoctor(res.data.doctors[0]);
         }
       } catch (err) {
-        console.log('Doctor list fallback');
+        setDoctors(DEFAULT_DOCTORS);
+        setSelectedDoctor(DEFAULT_DOCTORS[0]);
       }
     }
     loadDoctors();
