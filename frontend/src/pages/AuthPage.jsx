@@ -27,7 +27,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
     if (selectedRole === 'Admin') {
       setIsLogin(true);
       setFormData({
-        email: 'polamreddyrevanth.82@gmail.com',
+        email: 'admin@smarthospital.ai',
         password: 'Revu@2005',
         full_name: '',
         phone: ''
@@ -41,7 +41,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
       });
     } else {
       setFormData({
-        email: 'revanth.polamreddy15@gmail.com',
+        email: 'john.doe@example.com',
         password: 'patient123',
         full_name: '',
         phone: ''
@@ -58,14 +58,14 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
     if (demoRole === 'Admin') {
       demoUser = {
         id: 1,
-        full_name: 'Revanth Polamreddy (System Admin)',
-        email: 'polamreddyrevanth.82@gmail.com',
+        full_name: 'System Administrator',
+        email: 'admin@smarthospital.ai',
         role: 'Admin'
       };
       localStorage.setItem('access_token', 'admin-super-jwt-token-99882');
       localStorage.setItem('user', JSON.stringify(demoUser));
       setCurrentUser(demoUser);
-      setSuccessMsg('Logged in as Root Admin! Redirecting to Admin Dashboard...');
+      setSuccessMsg('Logged in as System Admin! Redirecting to Admin Dashboard...');
       setTimeout(() => onNavigate('admin'), 600);
     } else if (demoRole === 'Doctor') {
       demoUser = {
@@ -82,8 +82,8 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
     } else {
       demoUser = {
         id: 9042,
-        full_name: 'Revanth Polamreddy',
-        email: 'revanth.polamreddy15@gmail.com',
+        full_name: 'John Doe',
+        email: 'john.doe@example.com',
         role: 'Patient'
       };
       localStorage.setItem('access_token', 'patient-jwt-token-11223');
@@ -102,8 +102,9 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
 
     // Strict Admin authentication check
     if (role === 'Admin') {
-      if (formData.email.trim().toLowerCase() !== 'polamreddyrevanth.82@gmail.com') {
-        setErrorMsg('⛔ Access Denied: Only authorized administrator (polamreddyrevanth.82@gmail.com) can log in as Admin.');
+      const inputEmail = formData.email.trim().toLowerCase();
+      if (inputEmail !== 'admin@smarthospital.ai' && inputEmail !== 'polamreddyrevanth.82@gmail.com') {
+        setErrorMsg('⛔ Access Denied: Only authorized administrator (admin@smarthospital.ai) can log in as Admin.');
         setLoading(false);
         return;
       }
@@ -115,8 +116,8 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
 
       const adminUser = {
         id: 1,
-        full_name: 'Revanth Polamreddy (System Admin)',
-        email: 'polamreddyrevanth.82@gmail.com',
+        full_name: 'System Administrator',
+        email: 'admin@smarthospital.ai',
         role: 'Admin'
       };
 
@@ -248,7 +249,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
                     required
                     value={formData.full_name}
                     onChange={handleChange}
-                    placeholder="e.g. Revanth Polamreddy"
+                    placeholder="e.g. John Doe"
                     className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none text-slate-800 dark:text-slate-100"
                   />
                 </div>
@@ -282,7 +283,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder={role === 'Admin' ? 'polamreddyrevanth.82@gmail.com' : 'user@smarthospital.ai'}
+                placeholder={role === 'Admin' ? 'admin@smarthospital.ai' : 'john.doe@example.com'}
                 className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none text-slate-800 dark:text-slate-100"
               />
             </div>

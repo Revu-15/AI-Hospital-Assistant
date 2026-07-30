@@ -56,18 +56,18 @@ export default function AdminDashboard({ currentUser }) {
       <div className="medical-card p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-blue-900/50">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-apolloBlue to-teal-400 flex items-center justify-center font-black text-2xl text-white shadow-lg shadow-apolloBlue/30">
-            RP
+            SA
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-extrabold tracking-tight">Revanth Polamreddy</h1>
+              <h1 className="text-2xl font-extrabold tracking-tight">{currentUser?.full_name || 'System Administrator'}</h1>
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Root Administrator
               </span>
             </div>
             <p className="text-xs text-slate-300 mt-1">
-              Authorized Email: <span className="font-mono text-teal-300">polamreddyrevanth.82@gmail.com</span>
+              Authorized Email: <span className="font-mono text-teal-300">{currentUser?.email || 'admin@smarthospital.ai'}</span>
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function AdminDashboard({ currentUser }) {
             <span>Admin Security Policy Active</span>
           </div>
           <p className="text-[11px] text-slate-300">
-            Unauthorized admin logins restricted. Admin access strictly bound to polamreddyrevanth.82@gmail.com.
+            Unauthorized admin logins restricted. Admin access strictly bound to authorized system credentials.
           </p>
         </div>
       </div>
