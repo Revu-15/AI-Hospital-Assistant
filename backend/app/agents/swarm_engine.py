@@ -225,7 +225,7 @@ class SwarmRunner:
 
         if name == "Main Hospital Agent":
             return (
-                "👋 Hello! I am the **Main AI Hospital Coordinator** at Apollo Healthcare.\n\n"
+                "👋 Hello! I am the **Main AI Hospital Coordinator** at SmartHospital Healthcare.\n\n"
                 "I can route your request to our specialized AI agents:\n"
                 "• 📅 **Appointment Agent**: Book, reschedule, or cancel doctor visits\n"
                 "• 💳 **Billing & Insurance Agent**: Payments, insurance claims & invoices\n"
@@ -245,7 +245,7 @@ class SwarmRunner:
                 return "📅 **Appointment Booking**: I can help you schedule a consultation with our specialists! We have top doctors available in Cardiology, Neurology, Pediatrics, and Orthopedics. Would you like me to show available slots for today or tomorrow?"
         elif name == "Billing & Insurance Agent":
             if "insurance" in q:
-                return "💳 **Insurance Verification**: We accept Star Health, BlueCross, Aetna, Cigna, and Apollo Care. Your active policy ending in #8492 covers up to 80% of outpatient consultation and lab diagnostics."
+                return "💳 **Insurance Verification**: We accept Star Health, BlueCross, Aetna, Cigna, and SmartHospital Care. Your active policy ending in #8492 covers up to 80% of outpatient consultation and lab diagnostics."
             elif "download" in q or "invoice" in q:
                 return "🧾 **Invoice Download**: Your latest invoice #INV-9402 for $150.00 is generated. You can download the PDF invoice directly from the Billing tab or request an email copy."
             else:
@@ -255,10 +255,10 @@ class SwarmRunner:
         elif name == "Prescription Agent":
             return "💊 **Prescription & Medication Safety**: Active regimen: **Aspirin 81mg** (1 tablet daily) and **Clopidogrel 75mg** (1 tablet daily with food). ⚠️ *Drug Interaction Alert*: Avoid combining with unprescribed NSAIDs such as Ibuprofen."
         elif name == "Emergency Triage Agent":
-            return "🚨 **EMERGENCY DIRECTIVE**: If you are experiencing severe chest pain, shortness of breath, or sudden weakness, **call Emergency Services at 911 / 108 immediately**.\n\n🚑 **Ambulance Hotline**: +1 (800) 555-9111\n🏥 **Nearest ER**: Apollo Central Hospital, 4th Block Main Road (1.2 miles away)."
+            return "🚨 **EMERGENCY DIRECTIVE**: If you are experiencing severe chest pain, shortness of breath, or sudden weakness, **call Emergency Services at 911 / 108 immediately**.\n\n🚑 **Ambulance Hotline**: +1 (800) 555-9111\n🏥 **Nearest ER**: SmartHospital Central Hospital, 4th Block Main Road (1.2 miles away)."
         elif name == "Symptom Checker Agent":
             return "🩺 **Symptom Analysis**: Based on your reported symptoms (mild fever and persistent dry cough), recommended department is **Internal Medicine / Pulmonology**. Suggested specialist: Dr. Marcus Vance. Please stay hydrated and monitor body temperature."
         elif name == "Hospital FAQ Agent":
-            return "🏥 **Apollo Hospital FAQs**:\n• **Visiting Hours**: 10:00 AM - 01:00 PM & 04:00 PM - 08:00 PM daily.\n• **Pharmacy**: 24/7 OPD Pharmacy at Ground Floor.\n• **Emergency Room**: Open 24/7 with dedicated Cardiac ICU and Trauma Care."
+            return "🏥 **SmartHospital FAQs**:\n• **Visiting Hours**: 10:00 AM - 01:00 PM & 04:00 PM - 08:00 PM daily.\n• **Pharmacy**: 24/7 OPD Pharmacy at Ground Floor.\n• **Emergency Room**: Open 24/7 with dedicated Cardiac ICU and Trauma Care."
         else:
             return f"Hello! I am the **{name}**. How can I help you with your health query today?"

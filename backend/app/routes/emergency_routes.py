@@ -10,7 +10,7 @@ class EmergencyTriageSchema(BaseModel):
 NEAREST_HOSPITALS = [
     {
         "id": 1,
-        "name": "Apollo Central Super-Specialty Hospital",
+        "name": "SmartHospital Central Super-Specialty Hospital",
         "distance_miles": "1.2 miles",
         "address": "4th Block Main Road, Healthcare Square",
         "er_hotline": "+1 (800) 555-9111",
@@ -22,7 +22,7 @@ NEAREST_HOSPITALS = [
     },
     {
         "id": 2,
-        "name": "Apollo Emergency & Trauma Care Clinic",
+        "name": "SmartHospital Emergency & Trauma Care Clinic",
         "distance_miles": "2.8 miles",
         "address": "88 North Avenue, Westside Medical Park",
         "er_hotline": "+1 (800) 555-9222",

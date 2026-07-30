@@ -80,7 +80,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
           <Heart className="w-7 h-7 fill-white/20" />
         </div>
         <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">
-          {isLogin ? 'Welcome Back to Apollo AI' : 'Create Patient Account'}
+          {isLogin ? 'Welcome Back to SmartHospital AI' : 'Create Patient Account'}
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           Access your digital health records, appointments & AI medical assistants.

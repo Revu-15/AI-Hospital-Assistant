@@ -65,7 +65,7 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
             </div>
             <div>
               <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-apolloBlue via-blue-600 to-teal-500 bg-clip-text text-transparent">
-                Apollo AI
+                SmartHospital AI
               </span>
               <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-apolloSky text-apolloBlue dark:bg-blue-900/40 dark:text-blue-300">
                 Swarm Healthcare

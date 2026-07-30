@@ -20,7 +20,7 @@ export default function LandingPage({ onNavigate }) {
       spec: "Interventional Cardiology",
       exp: "15 Years Exp",
       rating: 4.95,
-      hospital: "Apollo Central Hospital",
+      hospital: "SmartHospital Central Hospital",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
     },
     {
@@ -29,7 +29,7 @@ export default function LandingPage({ onNavigate }) {
       spec: "Internal Medicine & Diabetology",
       exp: "18 Years Exp",
       rating: 4.90,
-      hospital: "Apollo Central Hospital",
+      hospital: "SmartHospital Central Hospital",
       image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
     },
     {
@@ -38,7 +38,7 @@ export default function LandingPage({ onNavigate }) {
       spec: "Neurology & Spine Specialist",
       exp: "14 Years Exp",
       rating: 4.92,
-      hospital: "Apollo Neuro Institute",
+      hospital: "SmartHospital Neuro Institute",
       image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
     }
   ];
@@ -73,7 +73,7 @@ export default function LandingPage({ onNavigate }) {
             </h1>
 
             <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-xl">
-              Experience next-generation patient care with Apollo AI. Instant doctor appointments, AI report summarization, drug interaction checking, and 24/7 emergency guidance coordinated by 8 specialized Swarm agents.
+              Experience next-generation patient care with SmartHospital AI. Instant doctor appointments, AI report summarization, drug interaction checking, and 24/7 emergency guidance coordinated by 8 specialized Swarm agents.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">

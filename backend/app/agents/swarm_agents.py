@@ -72,7 +72,7 @@ def get_emergency_guidance_tool(symptom: str) -> str:
 
 def get_hospital_info_tool(query: str) -> str:
     """Search hospital directory, timings, and department info."""
-    return "Apollo Central Hospital: Open 24/7. OPD Hours: 08:00 AM - 08:00 PM. Emergency & ICU: 24 Hours. Location: 4th Block Main Road."
+    return "SmartHospital Central Hospital: Open 24/7. OPD Hours: 08:00 AM - 08:00 PM. Emergency & ICU: 24 Hours. Location: 4th Block Main Road."
 
 
 # ================= Agent Instances =================
@@ -80,7 +80,7 @@ def get_hospital_info_tool(query: str) -> str:
 main_agent = Agent(
     name="Main Hospital Agent",
     instructions=(
-        "You are the Main AI Hospital Coordinator for Apollo Healthcare System. "
+        "You are the Main AI Hospital Coordinator for SmartHospital Healthcare System. "
         "Your primary job is to greet users warmly, analyze their intent, and route them to the specialized agent best suited for their query. "
         "Available Agents: Appointment Agent, Medical Records Agent, Billing Agent, Prescription Agent, Emergency Agent, Symptom Agent, FAQ Agent. "
         "Always prioritize urgent medical symptoms by transferring to the Emergency Agent immediately."
@@ -99,7 +99,7 @@ main_agent = Agent(
 appointment_agent = Agent(
     name="Appointment Agent",
     instructions=(
-        "You are the specialized Appointment Booking Agent for Apollo Healthcare. "
+        "You are the specialized Appointment Booking Agent for SmartHospital Healthcare. "
         "You manage scheduling, rescheduling, cancellation of doctor appointments, and checking doctor slot availability. "
         "Provide clear appointment dates, times, token numbers, and doctor details."
     ),

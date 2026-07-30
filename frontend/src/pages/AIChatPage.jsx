@@ -7,7 +7,7 @@ export default function AIChatPage() {
     {
       role: 'assistant',
       content: (
-        "👋 Hello! I am the **Main AI Hospital Coordinator** at Apollo Healthcare.\n\n" +
+        "👋 Hello! I am the **Main AI Hospital Coordinator** at SmartHospital Healthcare.\n\n" +
         "I can coordinate with our 8 specialized OpenAI Swarm Agents:\n" +
         "• 📅 **Appointment Agent**: Schedule, cancel, or check doctor slots\n" +
         "• 💳 **Billing & Insurance Agent**: Invoices, co-pay & coverage\n" +

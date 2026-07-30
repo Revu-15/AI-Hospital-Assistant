@@ -61,7 +61,7 @@ export default function HomePage({ onNavigate, onOpenChat }) {
       <section className="relative pt-12 pb-16 px-6 max-w-7xl mx-auto text-center space-y-8">
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-600 text-xs font-bold shadow-sm">
           <Sparkles className="w-4 h-4" />
-          <span>Apollo 24/7 & Practo Inspired • AI Healthcare Platform</span>
+          <span>SmartHospital AI • Healthcare Platform</span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight">

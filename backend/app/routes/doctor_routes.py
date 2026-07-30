@@ -16,7 +16,7 @@ DOCTORS_DIRECTORY = [
         "experience_years": 15,
         "rating": 4.95,
         "available_slots": ["09:00 AM", "10:30 AM", "02:00 PM"],
-        "hospital": "Apollo Central Hospital",
+        "hospital": "SmartHospital Central Hospital",
         "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
     },
     {
@@ -27,7 +27,7 @@ DOCTORS_DIRECTORY = [
         "experience_years": 18,
         "rating": 4.90,
         "available_slots": ["09:30 AM", "11:30 AM", "03:30 PM"],
-        "hospital": "Apollo Central Hospital",
+        "hospital": "SmartHospital Central Hospital",
         "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
     },
     {
@@ -38,7 +38,7 @@ DOCTORS_DIRECTORY = [
         "experience_years": 10,
         "rating": 4.88,
         "available_slots": ["10:00 AM", "01:00 PM", "04:00 PM"],
-        "hospital": "Apollo Women & Child Care",
+        "hospital": "SmartHospital Women & Child Care",
         "image": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=300&q=80"
     },
     {
@@ -49,7 +49,7 @@ DOCTORS_DIRECTORY = [
         "experience_years": 14,
         "rating": 4.92,
         "available_slots": ["11:00 AM", "02:30 PM", "05:00 PM"],
-        "hospital": "Apollo Neuro Institute",
+        "hospital": "SmartHospital Neuro Institute",
         "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
     }
 ]
