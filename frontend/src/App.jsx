@@ -12,6 +12,7 @@ import EmergencyPage from './pages/EmergencyPage';
 import AIChatPage from './pages/AIChatPage';
 import SettingsPage from './pages/SettingsPage';
 import AdminDashboard from './pages/AdminDashboard';
+import FloatingAIChatWidget from './components/FloatingAIChatWidget';
 
 export default function App() {
   const [activeRoute, setActiveRoute] = useState('home'); // home, auth, patient, doctor, admin, appointments, medical-records, prescriptions, billing, emergency, chat, settings
