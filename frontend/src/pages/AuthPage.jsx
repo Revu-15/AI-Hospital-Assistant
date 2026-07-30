@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Heart, User, Lock, Mail, Phone, Shield, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Heart, User, Lock, Mail, Phone, Shield, ArrowRight, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { apiService } from '../api/client';
 
 export default function AuthPage({ onNavigate, setCurrentUser }) {
-  const [isLogin, setIsLogin] = useState(true);
   const [role, setRole] = useState('Patient'); // Patient, Doctor, Admin
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -11,16 +10,78 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
 
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-    full_name: '',
-    phone: '',
-    age: 32,
-    gender: 'Male',
-    insurance_provider: 'Star Health Care'
+    password: ''
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleRoleSwitch = (selectedRole) => {
+    setRole(selectedRole);
+    setErrorMsg('');
+    setSuccessMsg('');
+    if (selectedRole === 'Admin') {
+      setFormData({
+        email: 'polamreddyrevanth.82@gmail.com',
+        password: 'Revu@2005'
+      });
+    } else if (selectedRole === 'Doctor') {
+      setFormData({
+        email: 'dr.jenkins@smarthospital.ai',
+        password: 'doctor123'
+      });
+    } else {
+      setFormData({
+        email: 'patient@smarthospital.ai',
+        password: 'patient123'
+      });
+    }
+  };
+
+  const handleQuickLogin = (demoRole) => {
+    setLoading(true);
+    setErrorMsg('');
+    setSuccessMsg('');
+
+    let demoUser;
+    if (demoRole === 'Admin') {
+      demoUser = {
+        id: 1,
+        full_name: 'Revanth Polamreddy (System Admin)',
+        email: 'polamreddyrevanth.82@gmail.com',
+        role: 'Admin'
+      };
+      localStorage.setItem('access_token', 'admin-super-jwt-token-99882');
+      localStorage.setItem('user', JSON.stringify(demoUser));
+      setCurrentUser(demoUser);
+      setSuccessMsg('Logged in as Root Admin! Redirecting to Admin Dashboard...');
+      setTimeout(() => onNavigate('admin'), 600);
+    } else if (demoRole === 'Doctor') {
+      demoUser = {
+        id: 101,
+        full_name: 'Dr. Sarah Jenkins',
+        email: 'dr.jenkins@smarthospital.ai',
+        role: 'Doctor'
+      };
+      localStorage.setItem('access_token', 'doctor-jwt-token-44552');
+      localStorage.setItem('user', JSON.stringify(demoUser));
+      setCurrentUser(demoUser);
+      setSuccessMsg('Logged in as Dr. Sarah Jenkins! Redirecting to Doctor Portal...');
+      setTimeout(() => onNavigate('doctor'), 600);
+    } else {
+      demoUser = {
+        id: 9042,
+        full_name: 'John Doe',
+        email: 'john.doe@smarthospital.ai',
+        role: 'Patient'
+      };
+      localStorage.setItem('access_token', 'patient-jwt-token-11223');
+      localStorage.setItem('user', JSON.stringify(demoUser));
+      setCurrentUser(demoUser);
+      setSuccessMsg('Logged in as Patient! Redirecting to Patient Dashboard...');
+      setTimeout(() => onNavigate('patient'), 600);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -62,42 +123,41 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
     }
 
     try {
-      if (isLogin) {
-        const res = await apiService.login(formData.email, formData.password);
-        const token = res.data.access_token;
-        const user = res.data.user || { full_name: formData.email.split('@')[0], email: formData.email, role };
-        
-        localStorage.setItem('access_token', token);
-        localStorage.setItem('user', JSON.stringify(user));
-        setCurrentUser(user);
-
-        setSuccessMsg('Login successful! Redirecting to dashboard...');
-        setTimeout(() => {
-          if (role === 'Doctor') onNavigate('doctor');
-          else onNavigate('patient');
-        }, 1000);
-      } else {
-        await apiService.register(formData);
-        setSuccessMsg('Registration successful! You can now log in.');
-        setIsLogin(true);
-      }
-    } catch (err) {
-      // Fallback demo user simulation if backend DB is offline
-      const demoUser = {
-        id: 1,
-        full_name: formData.full_name || (role === 'Doctor' ? 'Dr. Sarah Jenkins' : 'John Doe'),
-        email: formData.email || 'patient@apollo.com',
-        role: role
+      const res = await apiService.login(formData.email, formData.password);
+      const token = res.data.access_token;
+      const user = res.data.user || { 
+        full_name: formData.email ? formData.email.split('@')[0] : 'User', 
+        email: formData.email, 
+        role: role 
       };
-      localStorage.setItem('access_token', 'demo-jwt-token-12345');
-      localStorage.setItem('user', JSON.stringify(demoUser));
-      setCurrentUser(demoUser);
+      
+      localStorage.setItem('access_token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      setCurrentUser(user);
 
-      setSuccessMsg('Demo Login Verified! Redirecting...');
+      setSuccessMsg('Login successful! Redirecting...');
       setTimeout(() => {
         if (role === 'Doctor') onNavigate('doctor');
         else onNavigate('patient');
       }, 800);
+    } catch (err) {
+      // Instant Direct Login Fallback (No registration required!)
+      const userObj = {
+        id: Math.floor(Math.random() * 9000) + 1000,
+        full_name: formData.email ? formData.email.split('@')[0] : (role === 'Doctor' ? 'Dr. Sarah Jenkins' : 'John Doe'),
+        email: formData.email || `${role.toLowerCase()}@smarthospital.ai`,
+        role: role
+      };
+
+      localStorage.setItem('access_token', 'direct-login-token-99002');
+      localStorage.setItem('user', JSON.stringify(userObj));
+      setCurrentUser(userObj);
+
+      setSuccessMsg(`Welcome ${userObj.full_name}! Redirecting to ${role} Portal...`);
+      setTimeout(() => {
+        if (role === 'Doctor') onNavigate('doctor');
+        else onNavigate('patient');
+      }, 700);
     } finally {
       setLoading(false);
     }
@@ -112,10 +172,10 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
           <Heart className="w-7 h-7 fill-white/20" />
         </div>
         <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">
-          {isLogin ? 'Welcome Back to SmartHospital AI' : 'Create Patient Account'}
+          SmartHospital AI Sign In
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400">
-          Access your digital health records, appointments & AI medical assistants.
+          Instant access to patient dashboard, doctor queue, or admin portal.
         </p>
       </div>
 
@@ -125,7 +185,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
           <button
             key={r}
             type="button"
-            onClick={() => setRole(r)}
+            onClick={() => handleRoleSwitch(r)}
             className={`
               flex-1 py-2 text-xs font-bold rounded-xl transition-all
               ${role === r 
@@ -158,42 +218,6 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           
-          {!isLogin && (
-            <>
-              <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
-                <div className="relative">
-                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-                  <input
-                    type="text"
-                    name="full_name"
-                    required
-                    value={formData.full_name}
-                    onChange={handleChange}
-                    placeholder="e.g. John Doe"
-                    className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
-                <div className="relative">
-                  <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-                  <input
-                    type="text"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
-                    className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none"
-                  />
-                </div>
-              </div>
-            </>
-          )}
-
           <div>
             <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
             <div className="relative">
@@ -204,8 +228,8 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="patient@apollo.com"
-                className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none"
+                placeholder={role === 'Admin' ? 'polamreddyrevanth.82@gmail.com' : 'user@smarthospital.ai'}
+                className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none text-slate-800 dark:text-slate-100"
               />
             </div>
           </div>
@@ -221,7 +245,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none"
+                className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none text-slate-800 dark:text-slate-100"
               />
             </div>
           </div>
@@ -235,7 +259,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
               <span>Authenticating...</span>
             ) : (
               <>
-                <span>{isLogin ? `Sign In as ${role}` : 'Create Account'}</span>
+                <span>Sign In as {role}</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
@@ -243,14 +267,34 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
 
         </form>
 
-        <div className="pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
-          <button
-            type="button"
-            onClick={() => setIsLogin(!isLogin)}
-            className="text-xs font-bold text-apolloBlue hover:underline"
-          >
-            {isLogin ? "Don't have an account? Register here" : 'Already registered? Login here'}
-          </button>
+        {/* 1-Click Instant Demo Login Buttons */}
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2">
+          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider text-center">Or 1-Click Quick Login:</p>
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              type="button"
+              onClick={() => handleQuickLogin('Patient')}
+              className="py-2 px-1 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-apolloBlue dark:text-blue-300 hover:bg-blue-100 text-[11px] font-bold transition-all text-center border border-blue-200/60"
+            >
+              Patient Demo
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleQuickLogin('Doctor')}
+              className="py-2 px-1 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 hover:bg-teal-100 text-[11px] font-bold transition-all text-center border border-teal-200/60"
+            >
+              Doctor Demo
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleQuickLogin('Admin')}
+              className="py-2 px-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 text-[11px] font-bold transition-all text-center border border-amber-200/60"
+            >
+              Admin Demo
+            </button>
+          </div>
         </div>
 
       </div>
