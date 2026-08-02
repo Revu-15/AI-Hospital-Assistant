@@ -129,7 +129,7 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
 
     # All validations passed -> Save to database
     token = f"TK-CARD-{random.randint(100, 999)}"
-    initial_status = "Upcoming" if appt_date == today else "Confirmed"
+    initial_status = "Upcoming" if appt_date == today_date else "Confirmed"
     symptoms = payload.symptoms_summary or payload.notes or "General Consultation"
     
     appointment = AppointmentModel(
