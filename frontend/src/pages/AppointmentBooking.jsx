@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Calendar as CalendarIcon, Clock, User, Stethoscope, Star, 
   CheckCircle2, Shield, AlertCircle, Search, Sparkles, 
-  ChevronRight, Building2, UserCheck, MessageSquare 
+  ChevronRight, Building2, UserCheck, MessageSquare, Check 
 } from 'lucide-react';
 import { apiService } from '../api/client';
 import DoctorDetailPage from './DoctorDetailPage';
