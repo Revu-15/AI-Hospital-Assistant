@@ -147,14 +147,14 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
   const [dynamicSlots, setDynamicSlots] = useState([]);
   const [isHoliday, setIsHoliday] = useState(false);
 
-  // Real-time auto-refresh polling every 3 seconds when booking modal is active
+  // Real-time auto-refresh polling every 2 seconds when booking modal is active
   useEffect(() => {
     let intervalId = null;
     if (bookingDoctor && bookingDate) {
       fetchSlots(bookingDoctor.id, bookingDate);
       intervalId = setInterval(() => {
         fetchSlots(bookingDoctor.id, bookingDate);
-      }, 3000);
+      }, 2000);
     }
     return () => {
       if (intervalId) clearInterval(intervalId);

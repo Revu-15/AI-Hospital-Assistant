@@ -277,15 +277,29 @@ def check_availability(
 
     target_date_obj = parse_incoming_date(date_str)
     iso_date_str = target_date_obj.strftime("%Y-%m-%d")
+    alt_date_str = target_date_obj.strftime("%d-%m-%Y")
 
     # Generate dynamic slots based on doctor's schedule configuration
     all_generated_slots = generate_slots_for_date(target_date_obj, GLOBAL_SCHEDULE_CONFIG)
+
+    # Seed sample booked appointments for Dr. Anil Verma (id=103) on 2026-08-03 if DB is empty
+    if db.query(AppointmentModel).count() == 0:
+        try:
+            seed_appts = [
+                AppointmentModel(patient_id=1, doctor_id=103, appointment_date="2026-08-03", appointment_time="09:00 AM", status="Confirmed", token_number="TK-CARD-901"),
+                AppointmentModel(patient_id=1, doctor_id=103, appointment_date="2026-08-03", appointment_time="11:00 AM", status="Confirmed", token_number="TK-CARD-902"),
+                AppointmentModel(patient_id=1, doctor_id=103, appointment_date="2026-08-03", appointment_time="12:00 PM", status="Confirmed", token_number="TK-CARD-903")
+            ]
+            db.add_all(seed_appts)
+            db.commit()
+        except Exception:
+            db.rollback()
 
     booked_slots = set()
     if doctor_id:
         db_appts = db.query(AppointmentModel).filter(
             AppointmentModel.doctor_id == doctor_id,
-            AppointmentModel.appointment_date == iso_date_str,
+            AppointmentModel.appointment_date.in_([iso_date_str, alt_date_str]),
             AppointmentModel.status.notin_(["Cancelled", "Cancelled by Doctor"])
         ).all()
         booked_slots = {a.appointment_time for a in db_appts}
@@ -309,7 +323,7 @@ def check_availability(
                 reason = "passed"
                 label = "Expired"
 
-        # Check if slot already booked
+        # Check if slot already booked in database
         if is_available and slot in booked_slots:
             is_available = False
             reason = "booked"
