@@ -116,13 +116,13 @@ def login(payload: LoginSchema, db: Session = Depends(get_db)):
         else:
             raise HTTPException(status_code=401, detail="Invalid admin password.")
 
-    # 2. Doctor Authentication (ONLY 20 Approved Doctor Emails Allowed)
-    if any(approved.lower() == e_lower for approved in APPROVED_DOCTOR_EMAILS):
+    # 2. Doctor Authentication (Master doctor@mediconnect.ai or 20 Approved Doctor Emails)
+    if e_lower == "doctor@mediconnect.ai" or any(approved.lower() == e_lower for approved in APPROVED_DOCTOR_EMAILS):
         doctor = find_doctor_by_email(payload.email)
-        doc_id = doctor["id"] if doctor else 101
-        doc_name = doctor["full_name"] if doctor else e_lower.replace("dr.", "Dr. ").replace("@mediconnect.ai", "").title()
-        doc_dept = doctor["department"] if doctor else "Medical Specialist"
-        doc_hosp = doctor["hospital_name"] if doctor else "SmartHospital Central Hospital"
+        doc_id = doctor["id"] if doctor else 999
+        doc_name = doctor["full_name"] if doctor else "Doctor Portal Master"
+        doc_dept = doctor["department"] if doctor else "All Specialty Departments"
+        doc_hosp = doctor["hospital_name"] if doctor else "SmartHospital AI Network"
 
         token = create_access_token({"sub": str(doc_id), "email": e_lower, "role": "Doctor"})
         return {

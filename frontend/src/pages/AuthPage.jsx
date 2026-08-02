@@ -3,6 +3,7 @@ import { Heart, User, Lock, Mail, Phone, ArrowRight, CheckCircle2, AlertCircle, 
 import { apiService } from '../api/client';
 
 const AUTHORIZED_DOCTOR_EMAILS = [
+  "doctor@mediconnect.ai",
   "dr.rajesh@mediconnect.ai",
   "dr.priya@mediconnect.ai",
   "dr.anil@mediconnect.ai",
@@ -33,7 +34,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
   const [successMsg, setSuccessMsg] = useState('');
 
   const [formData, setFormData] = useState({
-    email: (initialRole === 'Admin') ? 'admin@smarthospital.ai' : (initialRole === 'Doctor' ? 'dr.rajesh@mediconnect.ai' : ''),
+    email: (initialRole === 'Admin') ? 'admin@smarthospital.ai' : (initialRole === 'Doctor' ? 'doctor@mediconnect.ai' : ''),
     password: '',
     full_name: '',
     phone: ''
@@ -58,7 +59,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
       });
     } else if (selectedRole === 'Doctor') {
       setFormData({
-        email: 'dr.rajesh@mediconnect.ai',
+        email: 'doctor@mediconnect.ai',
         password: '',
         full_name: '',
         phone: ''
@@ -90,7 +91,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
     } else if (demoRole === 'Doctor') {
       setRole('Doctor');
       setFormData({
-        email: 'dr.rajesh@mediconnect.ai',
+        email: 'doctor@mediconnect.ai',
         password: '',
         full_name: '',
         phone: ''
