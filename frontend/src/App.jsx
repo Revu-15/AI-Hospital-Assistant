@@ -44,7 +44,7 @@ export default function App() {
       case 'patient':
         return <PatientDashboard onNavigate={setActiveRoute} currentUser={currentUser || GUEST_PATIENT} />;
       case 'doctor':
-        return <DoctorDashboard />;
+        return <DoctorDashboard currentUser={currentUser} />;
       case 'admin':
         return currentUser?.role === 'Admin' 
           ? <AdminDashboard currentUser={currentUser} /> 

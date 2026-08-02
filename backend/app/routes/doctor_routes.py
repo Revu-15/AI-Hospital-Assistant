@@ -78,7 +78,6 @@ def match_symptoms_with_doctors(payload: SymptomMatchSchema):
     symptoms_lower = payload.symptom_description.lower()
     all_doctors = load_doctors()
 
-    # Department mapping keyword rules
     dept_keywords = {
         "Cardiology": ["chest pain", "heart", "blood pressure", "breath", "cardiac", "palpitation", "cholesterol", "arm pain"],
         "Neurology": ["headache", "migraine", "stroke", "numbness", "seizure", "epilepsy", "parkinson", "dizziness", "nerve", "paralysis"],
@@ -120,31 +119,79 @@ def match_symptoms_with_doctors(payload: SymptomMatchSchema):
 
 @router.get("/doctors/queue/patient-queue")
 @router.get("/api/v1/doctor/queue")
-def get_patient_queue():
-    return {
-        "status": "success",
-        "queue": [
+def get_patient_queue(doctor_id: Optional[int] = Query(None), doctor_name: Optional[str] = Query(None)):
+    all_queue = [
+        {
+            "appointment_id": 1,
+            "token_number": "TK-CARD-892",
+            "doctor_id": 101,
+            "doctor_name": "Dr. Rajesh Kumar",
+            "patient_name": "Rahul Verma",
+            "age": 42,
+            "gender": "Male",
+            "symptoms": "Chest tightness on physical exertion, mild dizziness",
+            "triage_urgency": "URGENT",
+            "time_slot": "10:30 AM",
+            "status": "Waiting"
+        },
+        {
+            "appointment_id": 2,
+            "token_number": "TK-NEURO-441",
+            "doctor_id": 102,
+            "doctor_name": "Dr. Priya Sharma",
+            "patient_name": "Sarah Connor",
+            "age": 35,
+            "gender": "Female",
+            "symptoms": "Persistent migraine headaches for 3 days",
+            "triage_urgency": "ROUTINE",
+            "time_slot": "11:30 AM",
+            "status": "In Consultation"
+        },
+        {
+            "appointment_id": 3,
+            "token_number": "TK-ORTHO-192",
+            "doctor_id": 103,
+            "doctor_name": "Dr. Anil Mehta",
+            "patient_name": "Vikram Singh",
+            "age": 58,
+            "gender": "Male",
+            "symptoms": "Knee joint stiffness and chronic arthritis pain",
+            "triage_urgency": "ROUTINE",
+            "time_slot": "02:00 PM",
+            "status": "Waiting"
+        }
+    ]
+
+    filtered = all_queue
+    if doctor_id:
+        filtered = [q for q in filtered if q.get("doctor_id") == doctor_id]
+    elif doctor_name:
+        d_lower = doctor_name.strip().lower()
+        filtered = [q for q in filtered if d_lower in q.get("doctor_name", "").lower()]
+
+    # Fallback to doctor 101's queue if specific doctor filter has no active queue
+    if not filtered and (doctor_id or doctor_name):
+        doc_label = doctor_name or f"Doctor #{doctor_id}"
+        filtered = [
             {
-                "appointment_id": 1,
-                "token_number": "TK-CARD-892",
+                "appointment_id": 101,
+                "token_number": f"TK-DOC-{doctor_id or 101}",
+                "doctor_id": doctor_id or 101,
+                "doctor_name": doc_label,
                 "patient_name": "John Doe",
-                "age": 42,
+                "age": 45,
                 "gender": "Male",
-                "symptoms": "Chest tightness on physical exertion, mild dizziness",
-                "triage_urgency": "URGENT",
-                "status": "Waiting"
-            },
-            {
-                "appointment_id": 2,
-                "token_number": "TK-CARD-441",
-                "patient_name": "Sarah Connor",
-                "age": 35,
-                "gender": "Female",
-                "symptoms": "Persistent migraine headaches for 3 days",
+                "symptoms": "Routine consultation & symptom review",
                 "triage_urgency": "ROUTINE",
-                "status": "In Consultation"
+                "time_slot": "11:00 AM",
+                "status": "Waiting"
             }
         ]
+
+    return {
+        "status": "success",
+        "total": len(filtered),
+        "queue": filtered
     }
 
 @router.post("/doctor/consultation/complete")
@@ -157,13 +204,13 @@ def complete_consultation(payload: CompleteConsultationSchema, db: Session = Dep
     
     return {
         "status": "completed",
-        "consultation_id": 101,
+        "consultation_id": payload.appointment_id,
         "appointment_id": payload.appointment_id,
         "diagnosis": payload.diagnosis,
         "clinical_notes": payload.clinical_notes,
         "lab_tests": payload.recommended_lab_tests,
         "ai_drug_safety_report": {
             "status": "APPROVED",
-            "message": "Prescription reviewed by AI Pharmacy Agent. No adverse drug interactions detected."
+            "message": "Prescription reviewed by AI Pharmacy Agent. Automatically issued to Patient Dashboard."
         }
     }
