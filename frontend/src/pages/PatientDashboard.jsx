@@ -125,8 +125,15 @@ export default function PatientDashboard({ onNavigate, currentUser }) {
                     </div>
                   </div>
 
-                  <span className="self-start sm:self-center text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
-                    Confirmed
+                  <span className={`self-start sm:self-center text-xs font-bold px-3 py-1 rounded-full border ${
+                    a.status === 'Completed' ? 'bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300' :
+                    a.status === 'Upcoming' ? 'bg-teal-100 text-teal-700 border-teal-300 dark:bg-teal-950/60 dark:text-teal-300' :
+                    a.status === 'Confirmed' ? 'bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-950/60 dark:text-blue-300' :
+                    a.status === 'Missed' ? 'bg-rose-100 text-rose-700 border-rose-300 dark:bg-rose-950/60 dark:text-rose-300' :
+                    a.status === 'Cancelled by Doctor' ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/60 dark:text-amber-300' :
+                    'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300'
+                  }`}>
+                    {a.status || 'Confirmed'}
                   </span>
                 </div>
               ))

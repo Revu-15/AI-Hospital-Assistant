@@ -377,8 +377,15 @@ export default function AdminDashboard({ currentUser }) {
                     <td className="p-3">{a.department}</td>
                     <td className="p-3">{a.date} at {a.time}</td>
                     <td className="p-3">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">
-                        {a.status}
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
+                        a.status === 'Completed' ? 'bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300' :
+                        a.status === 'Upcoming' ? 'bg-teal-100 text-teal-700 border-teal-300 dark:bg-teal-950/60 dark:text-teal-300' :
+                        a.status === 'Confirmed' ? 'bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-950/60 dark:text-blue-300' :
+                        a.status === 'Missed' ? 'bg-rose-100 text-rose-700 border-rose-300 dark:bg-rose-950/60 dark:text-rose-300' :
+                        a.status === 'Cancelled by Doctor' ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/60 dark:text-amber-300' :
+                        'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300'
+                      }`}>
+                        {a.status || 'Confirmed'}
                       </span>
                     </td>
                     <td className="p-3 font-bold text-emerald-600">{a.payment_status}</td>
