@@ -3,24 +3,23 @@
     "id": 101,
     "full_name": "Dr. Rajesh Kumar",
     "official_email": "dr.rajesh@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283910",
+    "password_hash": "$2b$12$K8920194819284910283910283910283900",
     "phone": "+91 98765 43201",
     "gender": "Male",
-    "age": 48,
-    "qualification": "MBBS, MD, DM Cardiology",
-    "experience_years": 18,
+    "age": 35,
+    "qualification": "MBBS, MD",
+    "experience_years": 5,
     "hospital_name": "SmartHospital Central Hospital",
     "department": "Cardiology",
-    "specialization": "Interventional Cardiology & Cardiac Electrophysiology",
-    "registration_number": "MCI-489201",
+    "specialization": "Cardiologist & Clinical Care",
+    "registration_number": "MCI-749000",
     "languages_spoken": [
       "English",
       "Hindi",
-      "Tamil",
       "Telugu"
     ],
-    "consultation_fee": "$50 / \u20b91500",
-    "online_consultation_fee": "$35 / \u20b91000",
+    "consultation_fee": "$26 / \u20b9800",
+    "online_consultation_fee": "$18 / \u20b9560",
     "available_days": [
       "Mon",
       "Tue",
@@ -30,38 +29,32 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
+      "08:30 AM",
       "10:30 AM",
-      "02:30 PM",
+      "01:30 PM",
       "04:00 PM"
     ],
-    "room_number": "Room 201, OPD Wing A",
+    "room_number": "Room 101, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Heart Attack",
-      "Chest Pain",
-      "High Blood Pressure",
-      "Coronary Artery Disease",
       "Heart Failure",
+      "High Blood Pressure",
+      "Chest Pain",
+      "Heart Attack",
       "Arrhythmia",
+      "Coronary Artery Disease",
       "High Cholesterol"
     ],
     "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Senior Interventional Cardiologist with 18+ years of experience in angioplasty, stenting, and acute coronary syndrome management.",
-    "patient_rating": 4.95,
-    "reviews_count": 312,
+    "biography": "Dr. Rajesh Kumar is a renowned Cardiologist in the Department of Cardiology with 5 years of extensive clinical practice at SmartHospital Central Hospital. Specializes in treating Heart Failure, High Blood Pressure, and Chest Pain with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.8,
+    "reviews_count": 90,
     "patient_reviews": [
       {
-        "reviewer": "Anand V.",
+        "reviewer": "Verified Patient #1000",
         "rating": 5,
-        "date": "2 days ago",
-        "comment": "Dr. Rajesh diagnosed my cardiac blockage accurately and explained the angioplasty procedure very clearly."
-      },
-      {
-        "reviewer": "Meena S.",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Highly skilled cardiologist. My hypertension has been well under control thanks to his treatment."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Rajesh Kumar. Explained the treatment for Heart Failure very thoroughly."
       }
     ]
   },
@@ -69,57 +62,58 @@
     "id": 102,
     "full_name": "Dr. Priya Sharma",
     "official_email": "dr.priya@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283911",
+    "password_hash": "$2b$12$K8920194819284910283910283910283901",
     "phone": "+91 98765 43202",
     "gender": "Female",
-    "age": 42,
-    "qualification": "MBBS, MD, DM Neurology",
-    "experience_years": 14,
+    "age": 37,
+    "qualification": "MBBS, MS",
+    "experience_years": 6,
     "hospital_name": "SmartHospital Neuro Institute",
     "department": "Neurology",
-    "specialization": "Stroke Management & Epilepsy Care",
-    "registration_number": "MCI-394012",
+    "specialization": "Neurologist & Clinical Care",
+    "registration_number": "MCI-749147",
     "languages_spoken": [
       "English",
       "Hindi",
-      "Marathi"
+      "Tamil"
     ],
-    "consultation_fee": "$55 / \u20b91600",
-    "online_consultation_fee": "$40 / \u20b91200",
+    "consultation_fee": "$27 / \u20b9835",
+    "online_consultation_fee": "$18 / \u20b9584",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
+      "09:00 AM",
+      "11:00 AM",
+      "02:00 PM",
+      "04:30 PM"
     ],
-    "room_number": "Room 304, Neuro Tower B",
+    "room_number": "Room 108, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Stroke",
       "Migraine",
-      "Epilepsy",
       "Parkinson's Disease",
       "Alzheimer's Disease",
-      "Brain Tumor",
-      "Nerve Disorders"
+      "Epilepsy",
+      "Nerve Disorders",
+      "Stroke",
+      "Brain Tumor"
     ],
     "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Leading Neurologist specializing in neuro-critical care, chronic migraine therapy, and seizure disorders.",
-    "patient_rating": 4.92,
-    "reviews_count": 284,
+    "biography": "Dr. Priya Sharma is a renowned Neurologist in the Department of Neurology with 6 years of extensive clinical practice at SmartHospital Neuro Institute. Specializes in treating Migraine, Parkinson's Disease, and Alzheimer's Disease with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.8,
+    "reviews_count": 97,
     "patient_reviews": [
       {
-        "reviewer": "Rohan M.",
+        "reviewer": "Verified Patient #1001",
         "rating": 5,
-        "date": "3 days ago",
-        "comment": "Dr. Priya helped manage my chronic migraines when no other medication worked. Truly exceptional care."
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Priya Sharma. Explained the treatment for Migraine very thoroughly."
       }
     ]
   },
@@ -127,56 +121,57 @@
     "id": 103,
     "full_name": "Dr. Anil Mehta",
     "official_email": "dr.anil@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283912",
+    "password_hash": "$2b$12$K8920194819284910283910283910283902",
     "phone": "+91 98765 43203",
     "gender": "Male",
-    "age": 52,
-    "qualification": "MBBS, MS, MCh Orthopedics",
-    "experience_years": 22,
-    "hospital_name": "SmartHospital Central Hospital",
+    "age": 39,
+    "qualification": "MBBS, DM Cardiology",
+    "experience_years": 7,
+    "hospital_name": "SmartHospital Skin & Aesthetics",
     "department": "Orthopedics",
-    "specialization": "Joint Replacement & Arthroscopic Surgery",
-    "registration_number": "MCI-201948",
+    "specialization": "Orthopedic Surgeon & Clinical Care",
+    "registration_number": "MCI-749294",
     "languages_spoken": [
       "English",
       "Hindi",
-      "Gujarati"
+      "Marathi"
     ],
-    "consultation_fee": "$60 / \u20b91800",
-    "online_consultation_fee": "$45 / \u20b91300",
+    "consultation_fee": "$29 / \u20b9870",
+    "online_consultation_fee": "$20 / \u20b9609",
     "available_days": [
       "Mon",
+      "Tue",
       "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:00 PM",
-      "02:00 PM",
-      "04:30 PM"
+      "09:30 AM",
+      "11:30 AM",
+      "02:30 PM",
+      "05:00 PM"
     ],
-    "room_number": "Room 108, Bone & Joint Wing",
+    "room_number": "Room 115, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Bone Fractures",
-      "Knee Pain",
-      "Arthritis",
-      "Hip Replacement",
       "Spine Problems",
+      "Hip Replacement",
+      "Knee Pain",
+      "Bone Fractures",
+      "Arthritis",
       "Sports Injuries"
     ],
     "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Senior Orthopedic Surgeon specializing in total knee replacement, complex fracture trauma, and spinal correction.",
-    "patient_rating": 4.96,
-    "reviews_count": 340,
+    "biography": "Dr. Anil Mehta is a renowned Orthopedic Surgeon in the Department of Orthopedics with 7 years of extensive clinical practice at SmartHospital Skin & Aesthetics. Specializes in treating Spine Problems, Hip Replacement, and Knee Pain with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.81,
+    "reviews_count": 104,
     "patient_reviews": [
       {
-        "reviewer": "Kavita G.",
+        "reviewer": "Verified Patient #1002",
         "rating": 5,
-        "date": "5 days ago",
-        "comment": "My mother underwent knee replacement by Dr. Anil. She is walking pain-free now after 3 weeks!"
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Anil Mehta. Explained the treatment for Spine Problems very thoroughly."
       }
     ]
   },
@@ -184,57 +179,57 @@
     "id": 104,
     "full_name": "Dr. Kavitha Nair",
     "official_email": "dr.kavitha@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283913",
+    "password_hash": "$2b$12$K8920194819284910283910283910283903",
     "phone": "+91 98765 43204",
     "gender": "Female",
-    "age": 39,
-    "qualification": "MBBS, MD Dermatology",
-    "experience_years": 12,
-    "hospital_name": "SmartHospital Skin & Aesthetics",
+    "age": 38,
+    "qualification": "MBBS, DM Neurology",
+    "experience_years": 8,
+    "hospital_name": "SmartHospital Women & Child Care",
     "department": "Dermatology",
-    "specialization": "Clinical Dermatology & Laser Therapy",
-    "registration_number": "MCI-581902",
+    "specialization": "Dermatologist & Clinical Care",
+    "registration_number": "MCI-749441",
     "languages_spoken": [
       "English",
       "Malayalam",
-      "Tamil",
-      "Hindi"
+      "Tamil"
     ],
-    "consultation_fee": "$45 / \u20b91200",
-    "online_consultation_fee": "$30 / \u20b9800",
+    "consultation_fee": "$30 / \u20b9905",
+    "online_consultation_fee": "$21 / \u20b9633",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
+      "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "10:30 AM",
-      "01:00 PM",
-      "03:30 PM",
+      "10:00 AM",
+      "12:00 PM",
+      "03:00 PM",
       "05:30 PM"
     ],
-    "room_number": "Room 104, Skin Clinic OPD",
+    "room_number": "Room 122, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Acne",
       "Eczema",
       "Psoriasis",
+      "Nail Disorders",
       "Skin Allergy",
-      "Hair Loss",
-      "Nail Disorders"
+      "Acne",
+      "Hair Loss"
     ],
     "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Expert Dermatologist specializing in inflammatory skin conditions, hair restoration, and cosmetic laser treatments.",
-    "patient_rating": 4.89,
-    "reviews_count": 215,
+    "biography": "Dr. Kavitha Nair is a renowned Dermatologist in the Department of Dermatology with 8 years of extensive clinical practice at SmartHospital Women & Child Care. Specializes in treating Eczema, Psoriasis, and Nail Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.81,
+    "reviews_count": 111,
     "patient_reviews": [
       {
-        "reviewer": "Pooja K.",
+        "reviewer": "Verified Patient #1003",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Dr. Kavitha cured my severe eczema after months of struggle. Highly recommended!"
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Kavitha Nair. Explained the treatment for Eczema very thoroughly."
       }
     ]
   },
@@ -242,55 +237,56 @@
     "id": 105,
     "full_name": "Dr. Sunita Deshmukh",
     "official_email": "dr.sunita@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283914",
+    "password_hash": "$2b$12$K8920194819284910283910283910283904",
     "phone": "+91 98765 43205",
-    "gender": "Female",
-    "age": 46,
-    "qualification": "MBBS, MS Obstetrics & Gynecology",
-    "experience_years": 17,
-    "hospital_name": "SmartHospital Women & Child Care",
+    "gender": "Male",
+    "age": 40,
+    "qualification": "MBBS, MCh Orthopedics",
+    "experience_years": 9,
+    "hospital_name": "SmartHospital Eye Institute",
     "department": "Gynecology",
-    "specialization": "High-Risk Pregnancy & Infertility Care",
-    "registration_number": "MCI-401928",
+    "specialization": "Gynecologist & Clinical Care",
+    "registration_number": "MCI-749588",
     "languages_spoken": [
       "English",
-      "Hindi",
-      "Marathi"
+      "Bengali",
+      "Hindi"
     ],
-    "consultation_fee": "$50 / \u20b91400",
-    "online_consultation_fee": "$35 / \u20b9900",
+    "consultation_fee": "$31 / \u20b9940",
+    "online_consultation_fee": "$21 / \u20b9658",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
       "Thu",
+      "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "11:00 AM",
-      "02:00 PM",
-      "04:00 PM"
+      "10:30 AM",
+      "01:00 PM",
+      "03:30 PM",
+      "06:00 PM"
     ],
-    "room_number": "Room 205, Maternity Wing",
+    "room_number": "Room 129, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Pregnancy Care",
+      "Infertility",
+      "High-Risk Pregnancy",
       "PCOS",
       "Menstrual Disorders",
-      "Infertility",
-      "High-Risk Pregnancy"
+      "Pregnancy Care"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Consultant Obstetrician & Gynecologist dedicated to compassionate prenatal care, PCOS management, and laparoscopic gynecology.",
-    "patient_rating": 4.94,
-    "reviews_count": 298,
+    "professional_photo": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Sunita Deshmukh is a renowned Gynecologist in the Department of Gynecology with 9 years of extensive clinical practice at SmartHospital Eye Institute. Specializes in treating Infertility, High-Risk Pregnancy, and PCOS with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.81,
+    "reviews_count": 118,
     "patient_reviews": [
       {
-        "reviewer": "Deepa R.",
+        "reviewer": "Verified Patient #1004",
         "rating": 5,
-        "date": "4 days ago",
-        "comment": "Dr. Sunita guided me through a high-risk pregnancy smoothly. Healthy baby boy born last month!"
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Sunita Deshmukh. Explained the treatment for Infertility very thoroughly."
       }
     ]
   },
@@ -298,55 +294,56 @@
     "id": 106,
     "full_name": "Dr. Vikram Joshi",
     "official_email": "dr.vikram@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283915",
+    "password_hash": "$2b$12$K8920194819284910283910283910283905",
     "phone": "+91 98765 43206",
-    "gender": "Male",
-    "age": 41,
-    "qualification": "MBBS, MD Pediatrics",
-    "experience_years": 13,
-    "hospital_name": "SmartHospital Women & Child Care",
+    "gender": "Female",
+    "age": 42,
+    "qualification": "MBBS, MD Dermatology",
+    "experience_years": 10,
+    "hospital_name": "SmartHospital Mind & Wellness",
     "department": "Pediatrics",
-    "specialization": "Pediatric Critical Care & Vaccination",
-    "registration_number": "MCI-319024",
+    "specialization": "Pediatrician & Clinical Care",
+    "registration_number": "MCI-749735",
     "languages_spoken": [
       "English",
-      "Hindi",
-      "Kannada"
+      "Kannada",
+      "Hindi"
     ],
-    "consultation_fee": "$40 / \u20b91100",
-    "online_consultation_fee": "$25 / \u20b9700",
+    "consultation_fee": "$32 / \u20b9975",
+    "online_consultation_fee": "$22 / \u20b9682",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
       "Thu",
-      "Fri"
+      "Fri",
+      "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
+      "08:00 AM",
+      "10:00 AM",
+      "01:00 PM",
+      "03:30 PM"
     ],
-    "room_number": "Room 102, Child OPD",
+    "room_number": "Room 136, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Child Fever",
+      "Nutrition",
       "Vaccinations",
       "Childhood Infections",
-      "Growth Problems",
-      "Nutrition"
+      "Child Fever",
+      "Growth Problems"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Gentle and experienced Pediatrician focusing on newborn health, childhood fever management, and immunization.",
-    "patient_rating": 4.91,
-    "reviews_count": 240,
+    "professional_photo": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Vikram Joshi is a renowned Pediatrician in the Department of Pediatrics with 10 years of extensive clinical practice at SmartHospital Mind & Wellness. Specializes in treating Nutrition, Vaccinations, and Childhood Infections with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.82,
+    "reviews_count": 125,
     "patient_reviews": [
       {
-        "reviewer": "Suresh T.",
+        "reviewer": "Verified Patient #1005",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Dr. Vikram is amazing with kids! Solved my toddler's persistent fever quickly."
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Vikram Joshi. Explained the treatment for Nutrition very thoroughly."
       }
     ]
   },
@@ -354,56 +351,56 @@
     "id": 107,
     "full_name": "Dr. Ramesh Iyer",
     "official_email": "dr.ramesh@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283916",
+    "password_hash": "$2b$12$K8920194819284910283910283910283906",
     "phone": "+91 98765 43207",
     "gender": "Male",
-    "age": 45,
-    "qualification": "MBBS, MS ENT",
-    "experience_years": 16,
-    "hospital_name": "SmartHospital Central Hospital",
+    "age": 41,
+    "qualification": "MBBS, MS Obstetrics & Gynecology",
+    "experience_years": 11,
+    "hospital_name": "SmartHospital Digestive Care Center",
     "department": "ENT Specialist",
-    "specialization": "Endoscopic Sinus Surgery & Cochlear Implants",
-    "registration_number": "MCI-481903",
+    "specialization": "ENT Specialist & Clinical Care",
+    "registration_number": "MCI-749882",
     "languages_spoken": [
       "English",
-      "Tamil",
-      "Hindi",
-      "Malayalam"
+      "Gujarati",
+      "Hindi"
     ],
-    "consultation_fee": "$45 / \u20b91300",
-    "online_consultation_fee": "$30 / \u20b9850",
+    "consultation_fee": "$33 / \u20b91010",
+    "online_consultation_fee": "$23 / \u20b9707",
     "available_days": [
       "Mon",
+      "Tue",
       "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:00 PM",
-      "02:30 PM",
-      "04:30 PM"
+      "09:15 AM",
+      "11:45 AM",
+      "02:15 PM",
+      "04:45 PM"
     ],
-    "room_number": "Room 112, ENT Wing",
+    "room_number": "Room 143, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Ear Infection",
+      "Tonsillitis",
       "Sinusitis",
       "Hearing Loss",
-      "Tonsillitis",
+      "Ear Infection",
       "Nose Bleeding"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Senior ENT Surgeon with specialized training in endoscopic sinus surgery, tonsillectomy, and vertigo treatment.",
-    "patient_rating": 4.9,
-    "reviews_count": 195,
+    "professional_photo": "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Ramesh Iyer is a renowned ENT Specialist in the Department of ENT Specialist with 11 years of extensive clinical practice at SmartHospital Digestive Care Center. Specializes in treating Tonsillitis, Sinusitis, and Hearing Loss with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.82,
+    "reviews_count": 132,
     "patient_reviews": [
       {
-        "reviewer": "Girish M.",
+        "reviewer": "Verified Patient #1006",
         "rating": 5,
-        "date": "3 days ago",
-        "comment": "Sinusitis surgery by Dr. Ramesh brought immediate relief. Great doctor."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Ramesh Iyer. Explained the treatment for Tonsillitis very thoroughly."
       }
     ]
   },
@@ -411,55 +408,56 @@
     "id": 108,
     "full_name": "Dr. Ananya Roy",
     "official_email": "dr.ananya@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283917",
+    "password_hash": "$2b$12$K8920194819284910283910283910283907",
     "phone": "+91 98765 43208",
     "gender": "Female",
-    "age": 38,
-    "qualification": "MBBS, MS Ophthalmology",
-    "experience_years": 11,
-    "hospital_name": "SmartHospital Eye Institute",
+    "age": 43,
+    "qualification": "MBBS, MD Pediatrics",
+    "experience_years": 12,
+    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
     "department": "Ophthalmologist",
-    "specialization": "Cataract Surgery & Retinal Laser Therapy",
-    "registration_number": "MCI-591024",
+    "specialization": "Ophthalmologist & Clinical Care",
+    "registration_number": "MCI-750029",
     "languages_spoken": [
       "English",
-      "Bengali",
+      "Punjabi",
       "Hindi"
     ],
-    "consultation_fee": "$45 / \u20b91250",
-    "online_consultation_fee": "$30 / \u20b9800",
+    "consultation_fee": "$34 / \u20b91045",
+    "online_consultation_fee": "$23 / \u20b9731",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "11:30 AM",
-      "02:00 PM",
-      "04:00 PM"
+      "09:45 AM",
+      "12:15 PM",
+      "03:15 PM",
+      "05:45 PM"
     ],
-    "room_number": "Room 101, Eye Clinic",
+    "room_number": "Room 150, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Cataract",
-      "Glaucoma",
       "Eye Infection",
       "Vision Problems",
-      "Retina Disorders"
+      "Retina Disorders",
+      "Cataract",
+      "Glaucoma"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Renowned Ophthalmologist specializing in Phacoemulsification cataract surgery and glaucoma management.",
-    "patient_rating": 4.93,
-    "reviews_count": 210,
+    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Ananya Roy is a renowned Ophthalmologist in the Department of Ophthalmologist with 12 years of extensive clinical practice at SmartHospital Diabetes & Hormone Institute. Specializes in treating Eye Infection, Vision Problems, and Retina Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.83,
+    "reviews_count": 139,
     "patient_reviews": [
       {
-        "reviewer": "Bina S.",
+        "reviewer": "Verified Patient #1007",
         "rating": 5,
-        "date": "2 weeks ago",
-        "comment": "Cataract surgery was painless and restored my vision back to 20/20!"
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Ananya Roy. Explained the treatment for Eye Infection very thoroughly."
       }
     ]
   },
@@ -467,56 +465,57 @@
     "id": 109,
     "full_name": "Dr. Arvind Swamy",
     "official_email": "dr.arvind@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283918",
+    "password_hash": "$2b$12$K8920194819284910283910283910283908",
     "phone": "+91 98765 43209",
     "gender": "Male",
-    "age": 49,
-    "qualification": "MBBS, MD Psychiatry",
-    "experience_years": 19,
-    "hospital_name": "SmartHospital Mind & Wellness",
+    "age": 45,
+    "qualification": "MBBS, MS ENT",
+    "experience_years": 13,
+    "hospital_name": "SmartHospital Kidney Care Institute",
     "department": "Psychiatrist",
-    "specialization": "Clinical Psychiatry & Cognitive Behavioral Therapy",
-    "registration_number": "MCI-291038",
+    "specialization": "Psychiatrist & Clinical Care",
+    "registration_number": "MCI-750176",
     "languages_spoken": [
       "English",
-      "Hindi",
-      "Telugu"
+      "Urdu",
+      "Hindi"
     ],
-    "consultation_fee": "$60 / \u20b91700",
-    "online_consultation_fee": "$45 / \u20b91200",
+    "consultation_fee": "$36 / \u20b91080",
+    "online_consultation_fee": "$25 / \u20b9756",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
+      "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "01:00 PM",
-      "03:30 PM",
-      "06:00 PM"
+      "08:30 AM",
+      "10:30 AM",
+      "01:30 PM",
+      "04:00 PM"
     ],
-    "room_number": "Room 402, Wellness Wing",
+    "room_number": "Room 157, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Depression",
-      "Anxiety",
       "Stress",
       "Bipolar Disorder",
+      "Sleep Disorders",
+      "Anxiety",
       "OCD",
-      "Sleep Disorders"
+      "Depression"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Compassionate Psychiatrist providing evidence-based therapy for mood disorders, severe anxiety, and insomnia.",
-    "patient_rating": 4.97,
-    "reviews_count": 310,
+    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Arvind Swamy is a renowned Psychiatrist in the Department of Psychiatrist with 13 years of extensive clinical practice at SmartHospital Kidney Care Institute. Specializes in treating Stress, Bipolar Disorder, and Sleep Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.83,
+    "reviews_count": 146,
     "patient_reviews": [
       {
-        "reviewer": "Karan B.",
+        "reviewer": "Verified Patient #1008",
         "rating": 5,
-        "date": "1 day ago",
-        "comment": "Dr. Arvind's sessions helped me overcome severe panic attacks and anxiety."
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Arvind Swamy. Explained the treatment for Stress very thoroughly."
       }
     ]
   },
@@ -524,23 +523,23 @@
     "id": 110,
     "full_name": "Dr. Shalini Gupta",
     "official_email": "dr.shalini@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283919",
+    "password_hash": "$2b$12$K8920194819284910283910283910283909",
     "phone": "+91 98765 43210",
     "gender": "Female",
-    "age": 43,
-    "qualification": "MBBS, MD Internal Medicine",
-    "experience_years": 15,
-    "hospital_name": "SmartHospital Central Hospital",
-    "department": "Internal Medicine",
-    "specialization": "General Physician & Diabetology",
-    "registration_number": "MCI-492019",
+    "age": 44,
+    "qualification": "MBBS, MS Ophthalmology",
+    "experience_years": 14,
+    "hospital_name": "SmartHospital Respiratory Center",
+    "department": "General Medicine",
+    "specialization": "General Physician & Clinical Care",
+    "registration_number": "MCI-750323",
     "languages_spoken": [
       "English",
       "Hindi",
-      "Punjabi"
+      "Odia"
     ],
-    "consultation_fee": "$40 / \u20b91200",
-    "online_consultation_fee": "$25 / \u20b9750",
+    "consultation_fee": "$37 / \u20b91115",
+    "online_consultation_fee": "$25 / \u20b9780",
     "available_days": [
       "Mon",
       "Tue",
@@ -555,26 +554,26 @@
       "02:00 PM",
       "04:30 PM"
     ],
-    "room_number": "Room 105, General OPD",
+    "room_number": "Room 164, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Fever",
+      "Fatigue",
       "Diabetes Mellitus",
-      "Hypertension",
-      "Viral Infections",
       "Thyroid Disorders",
-      "Fatigue"
+      "Viral Infections",
+      "Hypertension",
+      "Fever"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Senior Internal Medicine Specialist focusing on preventive health checkups, chronic diabetes management, and adult immunization.",
-    "patient_rating": 4.9,
-    "reviews_count": 260,
+    "professional_photo": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Shalini Gupta is a renowned General Physician in the Department of General Medicine with 14 years of extensive clinical practice at SmartHospital Respiratory Center. Specializes in treating Fatigue, Diabetes Mellitus, and Thyroid Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.83,
+    "reviews_count": 153,
     "patient_reviews": [
       {
-        "reviewer": "Harish P.",
+        "reviewer": "Verified Patient #1009",
         "rating": 5,
-        "date": "5 days ago",
-        "comment": "Very thorough consultation. Dr. Shalini caught my early thyroid imbalance."
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Shalini Gupta. Explained the treatment for Fatigue very thoroughly."
       }
     ]
   },
@@ -582,54 +581,57 @@
     "id": 111,
     "full_name": "Dr. Pradeep Nambiar",
     "official_email": "dr.pradeep@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283920",
+    "password_hash": "$2b$12$K8920194819284910283910283910283910",
     "phone": "+91 98765 43211",
     "gender": "Male",
-    "age": 54,
-    "qualification": "MBBS, MD, DM Gastroenterology",
-    "experience_years": 24,
-    "hospital_name": "SmartHospital Digestive Care Center",
+    "age": 46,
+    "qualification": "MBBS, MD Psychiatry",
+    "experience_years": 15,
+    "hospital_name": "SmartHospital Cancer Institute",
     "department": "Gastroenterology",
-    "specialization": "Hepatology & Advanced Endoscopy",
-    "registration_number": "MCI-194029",
+    "specialization": "Gastroenterologist & Clinical Care",
+    "registration_number": "MCI-750470",
     "languages_spoken": [
       "English",
-      "Malayalam",
-      "Hindi"
+      "Hindi",
+      "Telugu"
     ],
-    "consultation_fee": "$65 / \u20b92000",
-    "online_consultation_fee": "$50 / \u20b91400",
+    "consultation_fee": "$38 / \u20b91150",
+    "online_consultation_fee": "$26 / \u20b9805",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
-      "Fri"
+      "Fri",
+      "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "03:00 PM"
+      "09:30 AM",
+      "11:30 AM",
+      "02:30 PM",
+      "05:00 PM"
     ],
-    "room_number": "Room 302, Gastro Wing",
+    "room_number": "Room 171, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Acid Reflux (GERD)",
-      "Stomach Ulcers",
-      "Fatty Liver Disease",
       "Jaundice",
+      "Gallstones",
+      "Stomach Ulcers",
       "Irritable Bowel Syndrome (IBS)",
-      "Gallstones"
+      "Fatty Liver Disease",
+      "Acid Reflux (GERD)"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Chief Gastroenterologist with expertise in diagnostic endoscopy, liver cirrhosis management, and inflammatory bowel disease.",
-    "patient_rating": 4.96,
-    "reviews_count": 380,
+    "professional_photo": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Pradeep Nambiar is a renowned Gastroenterologist in the Department of Gastroenterology with 15 years of extensive clinical practice at SmartHospital Cancer Institute. Specializes in treating Jaundice, Gallstones, and Stomach Ulcers with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.84,
+    "reviews_count": 160,
     "patient_reviews": [
       {
-        "reviewer": "Venkatesh K.",
+        "reviewer": "Verified Patient #1010",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Painless endoscopy and accurate diagnosis for my ulcer. Outstanding doctor."
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Pradeep Nambiar. Explained the treatment for Jaundice very thoroughly."
       }
     ]
   },
@@ -637,55 +639,57 @@
     "id": 112,
     "full_name": "Dr. Neha Verma",
     "official_email": "dr.neha@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283921",
+    "password_hash": "$2b$12$K8920194819284910283910283910283911",
     "phone": "+91 98765 43212",
     "gender": "Female",
-    "age": 37,
-    "qualification": "MBBS, MD, DM Endocrinology",
-    "experience_years": 11,
-    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
+    "age": 48,
+    "qualification": "MBBS, MD Internal Medicine",
+    "experience_years": 16,
+    "hospital_name": "SmartHospital Heart & Vascular Institute",
     "department": "Endocrinology",
-    "specialization": "Type 1 & 2 Diabetes, Thyroid & PCOS",
-    "registration_number": "MCI-601928",
+    "specialization": "Endocrinologist & Clinical Care",
+    "registration_number": "MCI-750617",
     "languages_spoken": [
       "English",
-      "Hindi"
+      "Hindi",
+      "Tamil"
     ],
-    "consultation_fee": "$50 / \u20b91500",
-    "online_consultation_fee": "$35 / \u20b91000",
+    "consultation_fee": "$39 / \u20b91185",
+    "online_consultation_fee": "$27 / \u20b9829",
     "available_days": [
       "Mon",
+      "Tue",
       "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "02:30 PM",
-      "04:30 PM"
+      "10:00 AM",
+      "12:00 PM",
+      "03:00 PM",
+      "05:30 PM"
     ],
-    "room_number": "Room 208, Hormone OPD",
+    "room_number": "Room 178, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Diabetes Mellitus",
       "Hypothyroidism",
+      "Obesity",
       "Hyperthyroidism",
       "PCOS / PCOD",
-      "Osteoporosis",
-      "Obesity"
+      "Diabetes Mellitus",
+      "Osteoporosis"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Endocrinologist specializing in insulin pump therapy, gestational diabetes, and complex hormonal imbalances.",
-    "patient_rating": 4.91,
-    "reviews_count": 205,
+    "professional_photo": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Neha Verma is a renowned Endocrinologist in the Department of Endocrinology with 16 years of extensive clinical practice at SmartHospital Heart & Vascular Institute. Specializes in treating Hypothyroidism, Obesity, and Hyperthyroidism with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.84,
+    "reviews_count": 167,
     "patient_reviews": [
       {
-        "reviewer": "Simran C.",
+        "reviewer": "Verified Patient #1011",
         "rating": 5,
-        "date": "4 days ago",
-        "comment": "Dr. Neha helped normalize my HbA1c levels from 9.2 to 6.4 in just 4 months!"
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Neha Verma. Explained the treatment for Hypothyroidism very thoroughly."
       }
     ]
   },
@@ -693,54 +697,57 @@
     "id": 113,
     "full_name": "Dr. Sanjay Bhattacharya",
     "official_email": "dr.sanjay@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283922",
+    "password_hash": "$2b$12$K8920194819284910283910283910283912",
     "phone": "+91 98765 43213",
     "gender": "Male",
-    "age": 51,
-    "qualification": "MBBS, MD, DM Nephrology",
-    "experience_years": 21,
-    "hospital_name": "SmartHospital Kidney Care Institute",
+    "age": 47,
+    "qualification": "MBBS, DM Gastroenterology",
+    "experience_years": 17,
+    "hospital_name": "SmartHospital Central Hospital",
     "department": "Nephrology",
-    "specialization": "Kidney Transplantation & Dialysis",
-    "registration_number": "MCI-219401",
+    "specialization": "Nephrologist & Clinical Care",
+    "registration_number": "MCI-750764",
     "languages_spoken": [
       "English",
-      "Bengali",
-      "Hindi"
+      "Hindi",
+      "Marathi"
     ],
-    "consultation_fee": "$60 / \u20b91800",
-    "online_consultation_fee": "$45 / \u20b91300",
+    "consultation_fee": "$40 / \u20b91220",
+    "online_consultation_fee": "$28 / \u20b9854",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
-      "Fri"
+      "Thu",
+      "Fri",
+      "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
+      "10:30 AM",
       "01:00 PM",
-      "03:00 PM"
+      "03:30 PM",
+      "06:00 PM"
     ],
-    "room_number": "Room 401, Kidney Dialysis Unit",
+    "room_number": "Room 185, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Kidney Stones",
       "Chronic Kidney Disease (CKD)",
+      "Dialysis Management",
+      "Kidney Stones",
       "Kidney Failure",
-      "Glomerulonephritis",
       "Proteinuria",
-      "Dialysis Management"
+      "Glomerulonephritis"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Senior Nephrologist and Transplant Physician with extensive experience in renal replacement therapy and kidney care.",
-    "patient_rating": 4.95,
-    "reviews_count": 290,
+    "professional_photo": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Sanjay Bhattacharya is a renowned Nephrologist in the Department of Nephrology with 17 years of extensive clinical practice at SmartHospital Central Hospital. Specializes in treating Chronic Kidney Disease (CKD), Dialysis Management, and Kidney Stones with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.84,
+    "reviews_count": 174,
     "patient_reviews": [
       {
-        "reviewer": "Amitava D.",
+        "reviewer": "Verified Patient #1012",
         "rating": 5,
-        "date": "2 weeks ago",
-        "comment": "Dr. Sanjay managed my father's CKD expertly. Saved him from emergency dialysis."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Sanjay Bhattacharya. Explained the treatment for Chronic Kidney Disease (CKD) very thoroughly."
       }
     ]
   },
@@ -748,248 +755,260 @@
     "id": 114,
     "full_name": "Dr. Meenakshi Sundaram",
     "official_email": "dr.meenakshi@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283923",
+    "password_hash": "$2b$12$K8920194819284910283910283910283913",
     "phone": "+91 98765 43214",
     "gender": "Female",
-    "age": 47,
-    "qualification": "MBBS, MD, DM Pulmonology",
+    "age": 49,
+    "qualification": "MBBS, DM Endocrinology",
     "experience_years": 18,
-    "hospital_name": "SmartHospital Respiratory Center",
+    "hospital_name": "SmartHospital Neuro Institute",
     "department": "Pulmonology",
-    "specialization": "Asthma, COPD & Sleep Apnea Care",
-    "registration_number": "MCI-419028",
+    "specialization": "Pulmonologist & Clinical Care",
+    "registration_number": "MCI-750911",
     "languages_spoken": [
       "English",
-      "Tamil",
-      "Hindi"
+      "Malayalam",
+      "Tamil"
     ],
-    "consultation_fee": "$50 / \u20b91500",
-    "online_consultation_fee": "$35 / \u20b91000",
+    "consultation_fee": "$41 / \u20b91255",
+    "online_consultation_fee": "$28 / \u20b9878",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "11:00 AM",
-      "02:00 PM",
-      "04:00 PM"
+      "08:00 AM",
+      "10:00 AM",
+      "01:00 PM",
+      "03:30 PM"
     ],
-    "room_number": "Room 106, Lung Care OPD",
+    "room_number": "Room 192, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Asthma",
-      "COPD",
-      "Pneumonia",
-      "Bronchitis",
-      "Shortness of Breath",
       "Sleep Apnea",
-      "Chronic Cough"
+      "COPD",
+      "Chronic Cough",
+      "Shortness of Breath",
+      "Bronchitis",
+      "Pneumonia",
+      "Asthma"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Consultant Pulmonologist skilled in bronchoscopy, allergic airway disease, and post-COVID lung rehabilitation.",
-    "patient_rating": 4.93,
-    "reviews_count": 275,
+    "professional_photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Meenakshi Sundaram is a renowned Pulmonologist in the Department of Pulmonology with 18 years of extensive clinical practice at SmartHospital Neuro Institute. Specializes in treating Sleep Apnea, COPD, and Chronic Cough with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.85,
+    "reviews_count": 181,
     "patient_reviews": [
       {
-        "reviewer": "Raghavan N.",
+        "reviewer": "Verified Patient #1013",
         "rating": 5,
-        "date": "6 days ago",
-        "comment": "My severe asthma attacks stopped after Dr. Meenakshi revised my inhaler prescription."
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Meenakshi Sundaram. Explained the treatment for Sleep Apnea very thoroughly."
       }
     ]
   },
   {
     "id": 115,
-    "full_name": "Dr. Alok Verma",
+    "full_name": "Dr. Alok Kulkarni",
     "official_email": "dr.alok@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283924",
+    "password_hash": "$2b$12$K8920194819284910283910283910283914",
     "phone": "+91 98765 43215",
     "gender": "Male",
-    "age": 56,
-    "qualification": "MBBS, MD, DM Medical Oncology",
-    "experience_years": 26,
-    "hospital_name": "SmartHospital Cancer Institute",
+    "age": 51,
+    "qualification": "MBBS, DM Nephrology",
+    "experience_years": 19,
+    "hospital_name": "SmartHospital Skin & Aesthetics",
     "department": "Oncology",
-    "specialization": "Medical Oncology & Immunotherapy",
-    "registration_number": "MCI-102948",
+    "specialization": "Oncologist & Clinical Care",
+    "registration_number": "MCI-751058",
     "languages_spoken": [
       "English",
+      "Bengali",
       "Hindi"
     ],
-    "consultation_fee": "$75 / \u20b92200",
-    "online_consultation_fee": "$55 / \u20b91600",
+    "consultation_fee": "$43 / \u20b91290",
+    "online_consultation_fee": "$30 / \u20b9902",
     "available_days": [
       "Mon",
+      "Tue",
       "Wed",
       "Thu",
-      "Fri"
+      "Fri",
+      "Sat"
     ],
     "available_time_slots": [
-      "10:30 AM",
-      "01:30 PM",
-      "03:30 PM"
+      "09:15 AM",
+      "11:45 AM",
+      "02:15 PM",
+      "04:45 PM"
     ],
-    "room_number": "Room 501, Oncology Wing",
+    "room_number": "Room 199, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Breast Cancer",
       "Lung Cancer",
+      "Lymphoma",
+      "Breast Cancer",
       "Colon Cancer",
       "Leukemia",
-      "Lymphoma",
       "Tumor Chemotherapy"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Distinguished Medical Oncologist specializing in targeted chemotherapy, precision oncology, and cancer immunotherapy.",
-    "patient_rating": 4.98,
-    "reviews_count": 410,
+    "professional_photo": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Alok Kulkarni is a renowned Oncologist in the Department of Oncology with 19 years of extensive clinical practice at SmartHospital Skin & Aesthetics. Specializes in treating Lung Cancer, Lymphoma, and Breast Cancer with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.85,
+    "reviews_count": 188,
     "patient_reviews": [
       {
-        "reviewer": "Sanjay P.",
+        "reviewer": "Verified Patient #1014",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Dr. Alok gave my mother hope and designed a mild chemotherapy protocol that she tolerated well."
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Alok Kulkarni. Explained the treatment for Lung Cancer very thoroughly."
       }
     ]
   },
   {
     "id": 116,
-    "full_name": "Dr. Deepa Nair",
+    "full_name": "Dr. Deepa Sengupta",
     "official_email": "dr.deepa@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283925",
+    "password_hash": "$2b$12$K8920194819284910283910283910283915",
     "phone": "+91 98765 43216",
     "gender": "Female",
-    "age": 40,
-    "qualification": "MBBS, MD Cardiology",
-    "experience_years": 13,
-    "hospital_name": "SmartHospital Heart & Vascular Institute",
+    "age": 50,
+    "qualification": "MBBS, DM Pulmonology",
+    "experience_years": 20,
+    "hospital_name": "SmartHospital Women & Child Care",
     "department": "Cardiology",
-    "specialization": "Non-Invasive Cardiology & Echocardiography",
-    "registration_number": "MCI-519203",
+    "specialization": "Cardiologist & Clinical Care",
+    "registration_number": "MCI-751205",
     "languages_spoken": [
       "English",
-      "Malayalam",
-      "Tamil"
+      "Kannada",
+      "Hindi"
     ],
-    "consultation_fee": "$45 / \u20b91300",
-    "online_consultation_fee": "$30 / \u20b9850",
+    "consultation_fee": "$44 / \u20b91325",
+    "online_consultation_fee": "$30 / \u20b9927",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
       "Thu",
-      "Fri"
+      "Fri",
+      "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "11:30 AM",
-      "02:00 PM",
-      "04:00 PM"
+      "09:45 AM",
+      "12:15 PM",
+      "03:15 PM",
+      "05:45 PM"
     ],
-    "room_number": "Room 204, Heart Wing",
+    "room_number": "Room 206, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Chest Pain",
-      "High Blood Pressure",
-      "Heart Palpitations",
       "High Cholesterol",
-      "Heart Valve Disease"
+      "Arrhythmia",
+      "High Blood Pressure",
+      "Heart Attack",
+      "Heart Failure",
+      "Chest Pain",
+      "Coronary Artery Disease"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Expert Non-Invasive Cardiologist specializing in preventive cardiology, 2D-Echo, stress testing, and lipid management.",
-    "patient_rating": 4.92,
-    "reviews_count": 220,
+    "professional_photo": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Deepa Sengupta is a renowned Cardiologist in the Department of Cardiology with 20 years of extensive clinical practice at SmartHospital Women & Child Care. Specializes in treating High Cholesterol, Arrhythmia, and High Blood Pressure with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.86,
+    "reviews_count": 195,
     "patient_reviews": [
       {
-        "reviewer": "Gopal K.",
+        "reviewer": "Verified Patient #1015",
         "rating": 5,
-        "date": "3 days ago",
-        "comment": "Dr. Deepa performed my stress echo meticulously. Very polite and reassuring doctor."
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Deepa Sengupta. Explained the treatment for High Cholesterol very thoroughly."
       }
     ]
   },
   {
     "id": 117,
-    "full_name": "Dr. Tushar Kulkarni",
+    "full_name": "Dr. Tushar Chawla",
     "official_email": "dr.tushar@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283926",
+    "password_hash": "$2b$12$K8920194819284910283910283910283916",
     "phone": "+91 98765 43217",
     "gender": "Male",
-    "age": 44,
-    "qualification": "MBBS, MS Orthopedics",
-    "experience_years": 16,
-    "hospital_name": "SmartHospital Spine & Joint Center",
-    "department": "Orthopedics",
-    "specialization": "Spine Surgery & Sports Trauma",
-    "registration_number": "MCI-481029",
+    "age": 52,
+    "qualification": "MBBS, DM Medical Oncology",
+    "experience_years": 21,
+    "hospital_name": "SmartHospital Eye Institute",
+    "department": "Neurology",
+    "specialization": "Neurologist & Clinical Care",
+    "registration_number": "MCI-751352",
     "languages_spoken": [
       "English",
-      "Marathi",
+      "Gujarati",
       "Hindi"
     ],
-    "consultation_fee": "$55 / \u20b91600",
-    "online_consultation_fee": "$40 / \u20b91100",
+    "consultation_fee": "$45 / \u20b91360",
+    "online_consultation_fee": "$31 / \u20b9951",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
+      "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "12:00 PM",
-      "03:00 PM",
-      "05:00 PM"
+      "08:30 AM",
+      "10:30 AM",
+      "01:30 PM",
+      "04:00 PM"
     ],
-    "room_number": "Room 110, Spine OPD",
+    "room_number": "Room 213, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Spine Problems",
-      "Slipped Disc",
-      "Sciatica",
-      "Back Pain",
-      "Sports Injuries",
-      "Bone Fractures"
+      "Brain Tumor",
+      "Parkinson's Disease",
+      "Epilepsy",
+      "Alzheimer's Disease",
+      "Migraine",
+      "Nerve Disorders",
+      "Stroke"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Spine Specialist skilled in minimally invasive disc surgery, lumbar decompression, and athletic knee rehabilitation.",
-    "patient_rating": 4.93,
-    "reviews_count": 250,
+    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Tushar Chawla is a renowned Neurologist in the Department of Neurology with 21 years of extensive clinical practice at SmartHospital Eye Institute. Specializes in treating Brain Tumor, Parkinson's Disease, and Epilepsy with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.86,
+    "reviews_count": 202,
     "patient_reviews": [
       {
-        "reviewer": "Mahesh B.",
+        "reviewer": "Verified Patient #1016",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "My sciatica back pain is completely cured without major surgery. Excellent doctor."
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Tushar Chawla. Explained the treatment for Brain Tumor very thoroughly."
       }
     ]
   },
   {
     "id": 118,
-    "full_name": "Dr. Anushree Sengupta",
+    "full_name": "Dr. Anushree Khan",
     "official_email": "dr.anushree@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283927",
+    "password_hash": "$2b$12$K8920194819284910283910283910283917",
     "phone": "+91 98765 43218",
     "gender": "Female",
-    "age": 36,
-    "qualification": "MBBS, MD Dermatology",
-    "experience_years": 10,
-    "hospital_name": "SmartHospital Skin & Aesthetics",
-    "department": "Dermatology",
-    "specialization": "Trichology & Pediatric Dermatology",
-    "registration_number": "MCI-619204",
+    "age": 54,
+    "qualification": "MBBS, MD",
+    "experience_years": 22,
+    "hospital_name": "SmartHospital Mind & Wellness",
+    "department": "Orthopedics",
+    "specialization": "Orthopedic Surgeon & Clinical Care",
+    "registration_number": "MCI-751499",
     "languages_spoken": [
       "English",
-      "Bengali",
+      "Punjabi",
       "Hindi"
     ],
-    "consultation_fee": "$40 / \u20b91100",
-    "online_consultation_fee": "$25 / \u20b9750",
+    "consultation_fee": "$46 / \u20b91395",
+    "online_consultation_fee": "$32 / \u20b9976",
     "available_days": [
+      "Mon",
       "Tue",
       "Wed",
       "Thu",
@@ -997,445 +1016,457 @@
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "03:00 PM",
-      "05:00 PM"
+      "09:00 AM",
+      "11:00 AM",
+      "02:00 PM",
+      "04:30 PM"
     ],
-    "room_number": "Room 106, Aesthetic Wing",
+    "room_number": "Room 220, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Hair Loss",
-      "Scalp Infections",
-      "Acne Scars",
-      "Eczema",
-      "Psoriasis",
-      "Skin Pigmentation"
+      "Hip Replacement",
+      "Knee Pain",
+      "Spine Problems",
+      "Arthritis",
+      "Sports Injuries",
+      "Bone Fractures"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Dermatologist and Hair Specialist providing advanced PRP therapy, acne scar treatment, and pediatric skin allergy solutions.",
-    "patient_rating": 4.88,
-    "reviews_count": 180,
+    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Anushree Khan is a renowned Orthopedic Surgeon in the Department of Orthopedics with 22 years of extensive clinical practice at SmartHospital Mind & Wellness. Specializes in treating Hip Replacement, Knee Pain, and Spine Problems with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.86,
+    "reviews_count": 209,
     "patient_reviews": [
       {
-        "reviewer": "Nisha M.",
+        "reviewer": "Verified Patient #1017",
         "rating": 5,
-        "date": "4 days ago",
-        "comment": "PRP hair therapy worked wonders. Very polite and patient doctor."
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Anushree Khan. Explained the treatment for Hip Replacement very thoroughly."
       }
     ]
   },
   {
     "id": 119,
-    "full_name": "Dr. Vivek Chawla",
+    "full_name": "Dr. Vivek Sundar",
     "official_email": "dr.vivek@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283928",
+    "password_hash": "$2b$12$K8920194819284910283910283910283918",
     "phone": "+91 98765 43219",
     "gender": "Male",
-    "age": 43,
-    "qualification": "MBBS, MD, DM Neurology",
-    "experience_years": 15,
-    "hospital_name": "SmartHospital Neuro Institute",
-    "department": "Neurology",
-    "specialization": "Movement Disorders & Parkinson's Care",
-    "registration_number": "MCI-481920",
-    "languages_spoken": [
-      "English",
-      "Hindi",
-      "Punjabi"
-    ],
-    "consultation_fee": "$55 / \u20b91600",
-    "online_consultation_fee": "$40 / \u20b91150",
-    "available_days": [
-      "Mon",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "09:00 AM",
-      "11:00 AM",
-      "02:00 PM",
-      "04:30 PM"
-    ],
-    "room_number": "Room 306, Neuro Tower B",
-    "status": "Available",
-    "diseases_treated": [
-      "Parkinson's Disease",
-      "Tremors",
-      "Stroke",
-      "Epilepsy",
-      "Nerve Disorders",
-      "Neuropathy"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Neurologist with a focus on Deep Brain Stimulation (DBS) evaluation, diabetic neuropathy, and Parkinson's management.",
-    "patient_rating": 4.94,
-    "reviews_count": 270,
-    "patient_reviews": [
-      {
-        "reviewer": "Brijesh S.",
-        "rating": 5,
-        "date": "2 weeks ago",
-        "comment": "Dr. Vivek managed my father's Parkinson's tremors remarkably well."
-      }
-    ]
-  },
-  {
-    "id": 120,
-    "full_name": "Dr. Farida Khan",
-    "official_email": "dr.farida@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283929",
-    "phone": "+91 98765 43220",
-    "gender": "Female",
-    "age": 42,
-    "qualification": "MBBS, DNB Pediatrics",
-    "experience_years": 14,
-    "hospital_name": "SmartHospital Women & Child Care",
-    "department": "Pediatrics",
-    "specialization": "Pediatric Nutrition & Development",
-    "registration_number": "MCI-491028",
+    "age": 53,
+    "qualification": "MBBS, MS",
+    "experience_years": 23,
+    "hospital_name": "SmartHospital Digestive Care Center",
+    "department": "Dermatology",
+    "specialization": "Dermatologist & Clinical Care",
+    "registration_number": "MCI-751646",
     "languages_spoken": [
       "English",
       "Urdu",
       "Hindi"
     ],
-    "consultation_fee": "$40 / \u20b91100",
-    "online_consultation_fee": "$25 / \u20b9700",
+    "consultation_fee": "$47 / \u20b91430",
+    "online_consultation_fee": "$32 / \u20b91000",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
+      "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
       "09:30 AM",
       "11:30 AM",
-      "03:00 PM",
+      "02:30 PM",
       "05:00 PM"
     ],
-    "room_number": "Room 105, Child OPD",
+    "room_number": "Room 227, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Child Fever",
-      "Growth Problems",
-      "Childhood Infections",
-      "Vaccinations",
-      "Pediatric Asthma"
+      "Eczema",
+      "Acne",
+      "Nail Disorders",
+      "Hair Loss",
+      "Psoriasis",
+      "Skin Allergy"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Pediatrician specializing in child growth milestones, pediatric asthma management, and adolescent nutrition.",
-    "patient_rating": 4.9,
-    "reviews_count": 210,
+    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Vivek Sundar is a renowned Dermatologist in the Department of Dermatology with 23 years of extensive clinical practice at SmartHospital Digestive Care Center. Specializes in treating Eczema, Acne, and Nail Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.87,
+    "reviews_count": 216,
     "patient_reviews": [
       {
-        "reviewer": "Zoya A.",
+        "reviewer": "Verified Patient #1018",
         "rating": 5,
-        "date": "5 days ago",
-        "comment": "Doctor Farida is super friendly with infants. Vaccinations were smooth."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Vivek Sundar. Explained the treatment for Eczema very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "full_name": "Dr. Farida Pillai",
+    "official_email": "dr.farida@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283919",
+    "phone": "+91 98765 43220",
+    "gender": "Female",
+    "age": 55,
+    "qualification": "MBBS, DM Cardiology",
+    "experience_years": 24,
+    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
+    "department": "Gynecology",
+    "specialization": "Gynecologist & Clinical Care",
+    "registration_number": "MCI-751793",
+    "languages_spoken": [
+      "English",
+      "Hindi",
+      "Odia"
+    ],
+    "consultation_fee": "$48 / \u20b91465",
+    "online_consultation_fee": "$33 / \u20b91025",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "10:00 AM",
+      "12:00 PM",
+      "03:00 PM",
+      "05:30 PM"
+    ],
+    "room_number": "Room 234, Wing D",
+    "status": "Available",
+    "diseases_treated": [
+      "High-Risk Pregnancy",
+      "Pregnancy Care",
+      "PCOS",
+      "Menstrual Disorders",
+      "Infertility"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Farida Pillai is a renowned Gynecologist in the Department of Gynecology with 24 years of extensive clinical practice at SmartHospital Diabetes & Hormone Institute. Specializes in treating High-Risk Pregnancy, Pregnancy Care, and PCOS with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.87,
+    "reviews_count": 223,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1019",
+        "rating": 5,
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Farida Pillai. Explained the treatment for High-Risk Pregnancy very thoroughly."
       }
     ]
   },
   {
     "id": 121,
-    "full_name": "Dr. Karthik Sundar",
+    "full_name": "Dr. Karthik Saxena",
     "official_email": "dr.karthik@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283930",
+    "password_hash": "$2b$12$K8920194819284910283910283910283920",
     "phone": "+91 98765 43221",
     "gender": "Male",
-    "age": 38,
-    "qualification": "MBBS, MS ENT",
-    "experience_years": 11,
-    "hospital_name": "SmartHospital Central Hospital",
-    "department": "ENT Specialist",
-    "specialization": "Otology & Hearing Loss Rehabilitation",
-    "registration_number": "MCI-591029",
+    "age": 57,
+    "qualification": "MBBS, DM Neurology",
+    "experience_years": 25,
+    "hospital_name": "SmartHospital Kidney Care Institute",
+    "department": "Pediatrics",
+    "specialization": "Pediatrician & Clinical Care",
+    "registration_number": "MCI-751940",
     "languages_spoken": [
       "English",
-      "Tamil",
+      "Hindi",
       "Telugu"
     ],
-    "consultation_fee": "$45 / \u20b91200",
-    "online_consultation_fee": "$30 / \u20b9800",
+    "consultation_fee": "$50 / \u20b91500",
+    "online_consultation_fee": "$35 / \u20b91050",
     "available_days": [
       "Mon",
       "Tue",
       "Wed",
       "Thu",
+      "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:00 PM",
-      "02:00 PM",
-      "04:00 PM"
+      "10:30 AM",
+      "01:00 PM",
+      "03:30 PM",
+      "06:00 PM"
     ],
-    "room_number": "Room 114, ENT Wing",
+    "room_number": "Room 241, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Ear Infection",
-      "Hearing Loss",
-      "Tinnitus (Ringing in Ear)",
-      "Sinusitis",
-      "Vertigo"
+      "Child Fever",
+      "Childhood Infections",
+      "Nutrition",
+      "Growth Problems",
+      "Vaccinations"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "ENT Surgeon specializing in micro-ear surgery, hearing aid evaluation, and balance/vertigo therapy.",
-    "patient_rating": 4.89,
-    "reviews_count": 175,
+    "professional_photo": "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Karthik Saxena is a renowned Pediatrician in the Department of Pediatrics with 25 years of extensive clinical practice at SmartHospital Kidney Care Institute. Specializes in treating Child Fever, Childhood Infections, and Nutrition with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.87,
+    "reviews_count": 230,
     "patient_reviews": [
       {
-        "reviewer": "Mohan K.",
+        "reviewer": "Verified Patient #1020",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Treated my middle ear fluid buildup cleanly. Very gentle demeanor."
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Karthik Saxena. Explained the treatment for Child Fever very thoroughly."
       }
     ]
   },
   {
     "id": 122,
-    "full_name": "Dr. Radhika Pillai",
+    "full_name": "Dr. Radhika Kadam",
     "official_email": "dr.radhika@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283931",
+    "password_hash": "$2b$12$K8920194819284910283910283910283921",
     "phone": "+91 98765 43222",
     "gender": "Female",
-    "age": 45,
-    "qualification": "MBBS, MD, DM Psychiatry",
-    "experience_years": 16,
-    "hospital_name": "SmartHospital Mind & Wellness",
-    "department": "Psychiatrist",
-    "specialization": "Women's Mental Health & Stress Management",
-    "registration_number": "MCI-481930",
+    "age": 56,
+    "qualification": "MBBS, MCh Orthopedics",
+    "experience_years": 26,
+    "hospital_name": "SmartHospital Respiratory Center",
+    "department": "ENT Specialist",
+    "specialization": "ENT Specialist & Clinical Care",
+    "registration_number": "MCI-752087",
     "languages_spoken": [
       "English",
-      "Malayalam",
-      "Hindi"
+      "Hindi",
+      "Tamil"
     ],
-    "consultation_fee": "$55 / \u20b91600",
-    "online_consultation_fee": "$40 / \u20b91100",
+    "consultation_fee": "$51 / \u20b91535",
+    "online_consultation_fee": "$35 / \u20b91074",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "10:30 AM",
-      "01:30 PM",
-      "04:00 PM",
-      "06:00 PM"
+      "08:00 AM",
+      "10:00 AM",
+      "01:00 PM",
+      "03:30 PM"
     ],
-    "room_number": "Room 404, Wellness Wing",
+    "room_number": "Room 248, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Depression",
-      "Anxiety",
-      "Postpartum Depression",
-      "Stress",
-      "Insomnia"
+      "Tonsillitis",
+      "Sinusitis",
+      "Nose Bleeding",
+      "Hearing Loss",
+      "Ear Infection"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Psychiatrist specializing in perinatal mental health, anxiety disorders, and stress management counseling.",
-    "patient_rating": 4.95,
-    "reviews_count": 280,
+    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Radhika Kadam is a renowned ENT Specialist in the Department of ENT Specialist with 26 years of extensive clinical practice at SmartHospital Respiratory Center. Specializes in treating Tonsillitis, Sinusitis, and Nose Bleeding with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.88,
+    "reviews_count": 237,
     "patient_reviews": [
       {
-        "reviewer": "Lakshmi N.",
+        "reviewer": "Verified Patient #1021",
         "rating": 5,
-        "date": "2 days ago",
-        "comment": "Dr. Radhika's therapy sessions brought huge positive changes during my post-pregnancy stress."
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Radhika Kadam. Explained the treatment for Tonsillitis very thoroughly."
       }
     ]
   },
   {
     "id": 123,
-    "full_name": "Dr. Hemant Saxena",
+    "full_name": "Dr. Hemant Kapur",
     "official_email": "dr.hemant@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283932",
+    "password_hash": "$2b$12$K8920194819284910283910283910283922",
     "phone": "+91 98765 43223",
     "gender": "Male",
-    "age": 50,
-    "qualification": "MBBS, MS Ophthalmology",
-    "experience_years": 20,
-    "hospital_name": "SmartHospital Eye Institute",
+    "age": 58,
+    "qualification": "MBBS, MD Dermatology",
+    "experience_years": 27,
+    "hospital_name": "SmartHospital Cancer Institute",
     "department": "Ophthalmologist",
-    "specialization": "Refractive LASIK & Cornea Transplant",
-    "registration_number": "MCI-281903",
+    "specialization": "Ophthalmologist & Clinical Care",
+    "registration_number": "MCI-752234",
     "languages_spoken": [
       "English",
-      "Hindi"
+      "Hindi",
+      "Marathi"
     ],
-    "consultation_fee": "$50 / \u20b91400",
-    "online_consultation_fee": "$35 / \u20b9950",
+    "consultation_fee": "$52 / \u20b91570",
+    "online_consultation_fee": "$36 / \u20b91099",
     "available_days": [
       "Mon",
+      "Tue",
       "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "11:00 AM",
-      "02:00 PM",
-      "04:30 PM"
+      "09:15 AM",
+      "11:45 AM",
+      "02:15 PM",
+      "04:45 PM"
     ],
-    "room_number": "Room 104, Eye Clinic",
+    "room_number": "Room 255, Wing C",
     "status": "Available",
     "diseases_treated": [
       "Vision Problems",
       "Cataract",
       "Glaucoma",
-      "Corneal Ulcers",
-      "Dry Eye Syndrome"
+      "Eye Infection",
+      "Retina Disorders"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Cornea and LASIK Specialist with over 5,000 successful laser vision correction surgeries performed.",
-    "patient_rating": 4.96,
-    "reviews_count": 330,
+    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Hemant Kapur is a renowned Ophthalmologist in the Department of Ophthalmologist with 27 years of extensive clinical practice at SmartHospital Cancer Institute. Specializes in treating Vision Problems, Cataract, and Glaucoma with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.88,
+    "reviews_count": 244,
     "patient_reviews": [
       {
-        "reviewer": "Varun T.",
+        "reviewer": "Verified Patient #1022",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Had bladeless LASIK with Dr. Hemant. Ditch my glasses completely!"
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Hemant Kapur. Explained the treatment for Vision Problems very thoroughly."
       }
     ]
   },
   {
     "id": 124,
-    "full_name": "Dr. Smita Kadam",
+    "full_name": "Dr. Smita Patel",
     "official_email": "dr.smita@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283933",
+    "password_hash": "$2b$12$K8920194819284910283910283910283923",
     "phone": "+91 98765 43224",
     "gender": "Female",
-    "age": 41,
-    "qualification": "MBBS, MD, DM Gastroenterology",
-    "experience_years": 14,
-    "hospital_name": "SmartHospital Digestive Care Center",
-    "department": "Gastroenterology",
-    "specialization": "Clinical Hepatology & Gastro Motility",
-    "registration_number": "MCI-491039",
+    "age": 60,
+    "qualification": "MBBS, MS Obstetrics & Gynecology",
+    "experience_years": 28,
+    "hospital_name": "SmartHospital Heart & Vascular Institute",
+    "department": "Psychiatrist",
+    "specialization": "Psychiatrist & Clinical Care",
+    "registration_number": "MCI-752381",
     "languages_spoken": [
       "English",
-      "Marathi",
-      "Hindi"
+      "Malayalam",
+      "Tamil"
     ],
-    "consultation_fee": "$55 / \u20b91600",
-    "online_consultation_fee": "$40 / \u20b91100",
+    "consultation_fee": "$53 / \u20b91605",
+    "online_consultation_fee": "$37 / \u20b91123",
     "available_days": [
       "Mon",
       "Tue",
+      "Wed",
       "Thu",
       "Fri",
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "12:00 PM",
-      "02:30 PM",
-      "04:30 PM"
+      "09:45 AM",
+      "12:15 PM",
+      "03:15 PM",
+      "05:45 PM"
     ],
-    "room_number": "Room 305, Gastro OPD",
+    "room_number": "Room 262, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Fatty Liver Disease",
-      "Stomach Ulcers",
-      "Acid Reflux (GERD)",
-      "Constipation & IBS",
-      "Celiac Disease"
+      "Sleep Disorders",
+      "OCD",
+      "Anxiety",
+      "Bipolar Disorder",
+      "Stress",
+      "Depression"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Gastroenterologist skilled in non-alcoholic fatty liver management, capsule endoscopy, and functional gut disorders.",
-    "patient_rating": 4.91,
-    "reviews_count": 215,
+    "professional_photo": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Smita Patel is a renowned Psychiatrist in the Department of Psychiatrist with 28 years of extensive clinical practice at SmartHospital Heart & Vascular Institute. Specializes in treating Sleep Disorders, OCD, and Anxiety with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.89,
+    "reviews_count": 251,
     "patient_reviews": [
       {
-        "reviewer": "Manish G.",
+        "reviewer": "Verified Patient #1023",
         "rating": 5,
-        "date": "4 days ago",
-        "comment": "Dr. Smita's diet and medication plan cured my long-standing acid reflux."
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Smita Patel. Explained the treatment for Sleep Disorders very thoroughly."
       }
     ]
   },
   {
     "id": 125,
-    "full_name": "Dr. Ashok Kapur",
+    "full_name": "Dr. Ashok Reddy",
     "official_email": "dr.ashok@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283934",
+    "password_hash": "$2b$12$K8920194819284910283910283910283924",
     "phone": "+91 98765 43225",
     "gender": "Male",
-    "age": 58,
-    "qualification": "MBBS, MD, DM Pulmonology",
-    "experience_years": 28,
-    "hospital_name": "SmartHospital Respiratory Center",
-    "department": "Pulmonology",
-    "specialization": "Interventional Pulmonology & Critical Care",
-    "registration_number": "MCI-102930",
+    "age": 35,
+    "qualification": "MBBS, MD Pediatrics",
+    "experience_years": 5,
+    "hospital_name": "SmartHospital Central Hospital",
+    "department": "General Medicine",
+    "specialization": "General Physician & Clinical Care",
+    "registration_number": "MCI-752528",
     "languages_spoken": [
       "English",
-      "Hindi",
-      "Punjabi"
+      "Bengali",
+      "Hindi"
     ],
-    "consultation_fee": "$65 / \u20b91900",
-    "online_consultation_fee": "$45 / \u20b91300",
+    "consultation_fee": "$54 / \u20b91640",
+    "online_consultation_fee": "$37 / \u20b91148",
     "available_days": [
       "Mon",
+      "Tue",
       "Wed",
-      "Fri"
+      "Thu",
+      "Fri",
+      "Sat"
     ],
     "available_time_slots": [
-      "11:00 AM",
-      "02:00 PM",
+      "08:30 AM",
+      "10:30 AM",
+      "01:30 PM",
       "04:00 PM"
     ],
-    "room_number": "Room 108, Lung ICU",
+    "room_number": "Room 269, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "COPD",
-      "Asthma",
-      "Pulmonary Fibrosis",
-      "Pneumonia",
-      "Tuberculosis",
-      "Chronic Cough"
+      "Diabetes Mellitus",
+      "Fatigue",
+      "Fever",
+      "Hypertension",
+      "Viral Infections",
+      "Thyroid Disorders"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Senior Pulmonologist and ICU specialist with 28+ years treating complex respiratory failure and lung fibrosis.",
-    "patient_rating": 4.97,
-    "reviews_count": 390,
+    "professional_photo": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Ashok Reddy is a renowned General Physician in the Department of General Medicine with 5 years of extensive clinical practice at SmartHospital Central Hospital. Specializes in treating Diabetes Mellitus, Fatigue, and Fever with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.89,
+    "reviews_count": 258,
     "patient_reviews": [
       {
-        "reviewer": "Surinder K.",
+        "reviewer": "Verified Patient #1024",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Dr. Ashok saved my father during severe pneumonia ICU admission. Truly legendary doctor."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Ashok Reddy. Explained the treatment for Diabetes Mellitus very thoroughly."
       }
     ]
   },
   {
     "id": 126,
-    "full_name": "Dr. Ramesh Rao",
-    "official_email": "dr.ramesh.rao70@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 85615",
-    "gender": "Male",
-    "age": 38,
-    "qualification": "MBBS, MD Dermatology",
-    "experience_years": 8,
-    "hospital_name": "SmartHospital Respiratory Center",
-    "department": "Dermatology",
-    "specialization": "Cosmetic Dermatology & Laser",
-    "registration_number": "MCI-969261",
+    "full_name": "Dr. Kavita Rao",
+    "official_email": "dr.kavita@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283925",
+    "phone": "+91 98765 43226",
+    "gender": "Female",
+    "age": 37,
+    "qualification": "MBBS, MS ENT",
+    "experience_years": 6,
+    "hospital_name": "SmartHospital Neuro Institute",
+    "department": "Gastroenterology",
+    "specialization": "Gastroenterologist & Clinical Care",
+    "registration_number": "MCI-752675",
     "languages_spoken": [
       "English",
-      "Malayalam",
-      "Tamil"
+      "Kannada",
+      "Hindi"
     ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
+    "consultation_fee": "$55 / \u20b91675",
+    "online_consultation_fee": "$38 / \u20b91172",
     "available_days": [
       "Mon",
       "Tue",
@@ -1445,55 +1476,55 @@
       "Sat"
     ],
     "available_time_slots": [
-      "08:30 AM",
+      "09:00 AM",
       "11:00 AM",
-      "01:30 PM",
-      "04:00 PM"
+      "02:00 PM",
+      "04:30 PM"
     ],
-    "room_number": "Room 464, OPD Wing",
+    "room_number": "Room 276, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Acne",
-      "Eczema",
-      "Psoriasis",
-      "Skin Allergy",
-      "Hair Loss",
-      "Nail Disorders"
+      "Acid Reflux (GERD)",
+      "Gallstones",
+      "Stomach Ulcers",
+      "Jaundice",
+      "Irritable Bowel Syndrome (IBS)",
+      "Fatty Liver Disease"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Dermatology with 8+ years of clinical practice specializing in Cosmetic Dermatology & Laser.",
+    "professional_photo": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Kavita Rao is a renowned Gastroenterologist in the Department of Gastroenterology with 6 years of extensive clinical practice at SmartHospital Neuro Institute. Specializes in treating Acid Reflux (GERD), Gallstones, and Stomach Ulcers with advanced evidence-based therapeutics and patient-centered care.",
     "patient_rating": 4.89,
-    "reviews_count": 213,
+    "reviews_count": 265,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1025",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Ramesh Rao. Very thorough and reassuring diagnosis."
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Kavita Rao. Explained the treatment for Acid Reflux (GERD) very thoroughly."
       }
     ]
   },
   {
     "id": 127,
-    "full_name": "Dr. Divya Kapur",
-    "official_email": "dr.divya@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 69525",
-    "gender": "Female",
-    "age": 57,
-    "qualification": "MBBS, MD, DM Gastroenterology",
-    "experience_years": 28,
+    "full_name": "Dr. Suresh Menon",
+    "official_email": "dr.suresh@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283926",
+    "phone": "+91 98765 43227",
+    "gender": "Male",
+    "age": 39,
+    "qualification": "MBBS, MS Ophthalmology",
+    "experience_years": 7,
     "hospital_name": "SmartHospital Skin & Aesthetics",
-    "department": "Gastroenterology",
-    "specialization": "Gastro Motility",
-    "registration_number": "MCI-594366",
+    "department": "Endocrinology",
+    "specialization": "Endocrinologist & Clinical Care",
+    "registration_number": "MCI-752822",
     "languages_spoken": [
       "English",
-      "Hindi",
-      "Marathi"
+      "Gujarati",
+      "Hindi"
     ],
-    "consultation_fee": "$66 / \u20b92000",
-    "online_consultation_fee": "$46 / \u20b91400",
+    "consultation_fee": "$57 / \u20b91710",
+    "online_consultation_fee": "$39 / \u20b91197",
     "available_days": [
       "Mon",
       "Tue",
@@ -1503,55 +1534,55 @@
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
+      "09:30 AM",
+      "11:30 AM",
       "02:30 PM",
-      "05:30 PM"
+      "05:00 PM"
     ],
-    "room_number": "Room 279, OPD Wing",
+    "room_number": "Room 283, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Acid Reflux (GERD)",
-      "Stomach Ulcers",
-      "Fatty Liver Disease",
-      "Jaundice",
-      "Irritable Bowel Syndrome (IBS)",
-      "Gallstones"
+      "Hyperthyroidism",
+      "Diabetes Mellitus",
+      "Hypothyroidism",
+      "PCOS / PCOD",
+      "Obesity",
+      "Osteoporosis"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gastroenterology with 28+ years of clinical practice specializing in Gastro Motility.",
-    "patient_rating": 4.87,
-    "reviews_count": 207,
+    "professional_photo": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Suresh Menon is a renowned Endocrinologist in the Department of Endocrinology with 7 years of extensive clinical practice at SmartHospital Skin & Aesthetics. Specializes in treating Hyperthyroidism, Diabetes Mellitus, and Hypothyroidism with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.9,
+    "reviews_count": 272,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1026",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Divya Kapur. Very thorough and reassuring diagnosis."
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Suresh Menon. Explained the treatment for Hyperthyroidism very thoroughly."
       }
     ]
   },
   {
     "id": 128,
-    "full_name": "Dr. Meenakshi Nair",
-    "official_email": "dr.meenakshi.nair20@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 97343",
+    "full_name": "Dr. Pooja Shenoy",
+    "official_email": "dr.pooja@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283927",
+    "phone": "+91 98765 43228",
     "gender": "Female",
-    "age": 42,
-    "qualification": "MBBS, MS Orthopedics",
-    "experience_years": 15,
-    "hospital_name": "SmartHospital Eye Institute",
-    "department": "Orthopedics",
-    "specialization": "Joint Replacement Surgery",
-    "registration_number": "MCI-466858",
+    "age": 38,
+    "qualification": "MBBS, MD Psychiatry",
+    "experience_years": 8,
+    "hospital_name": "SmartHospital Women & Child Care",
+    "department": "Nephrology",
+    "specialization": "Nephrologist & Clinical Care",
+    "registration_number": "MCI-752969",
     "languages_spoken": [
       "English",
-      "Hindi",
-      "Tamil"
+      "Punjabi",
+      "Hindi"
     ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
+    "consultation_fee": "$58 / \u20b91745",
+    "online_consultation_fee": "$40 / \u20b91221",
     "available_days": [
       "Mon",
       "Tue",
@@ -1561,55 +1592,55 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
+      "10:00 AM",
+      "12:00 PM",
       "03:00 PM",
-      "05:00 PM"
+      "05:30 PM"
     ],
-    "room_number": "Room 165, OPD Wing",
+    "room_number": "Room 290, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Bone Fractures",
-      "Knee Pain",
-      "Arthritis",
-      "Hip Replacement",
-      "Spine Problems",
-      "Sports Injuries"
+      "Kidney Failure",
+      "Dialysis Management",
+      "Glomerulonephritis",
+      "Chronic Kidney Disease (CKD)",
+      "Proteinuria",
+      "Kidney Stones"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Orthopedics with 15+ years of clinical practice specializing in Joint Replacement Surgery.",
-    "patient_rating": 4.97,
-    "reviews_count": 137,
+    "professional_photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Pooja Shenoy is a renowned Nephrologist in the Department of Nephrology with 8 years of extensive clinical practice at SmartHospital Women & Child Care. Specializes in treating Kidney Failure, Dialysis Management, and Glomerulonephritis with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.9,
+    "reviews_count": 279,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1027",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Meenakshi Nair. Very thorough and reassuring diagnosis."
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Pooja Shenoy. Explained the treatment for Kidney Failure very thoroughly."
       }
     ]
   },
   {
     "id": 129,
-    "full_name": "Dr. Radhika Bhattacharya",
-    "official_email": "dr.radhika.bhattacharya30@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 49150",
-    "gender": "Female",
-    "age": 37,
-    "qualification": "MBBS, MS Surgical Oncology",
+    "full_name": "Dr. Manoj Hegde",
+    "official_email": "dr.manoj@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283928",
+    "phone": "+91 98765 43229",
+    "gender": "Male",
+    "age": 40,
+    "qualification": "MBBS, MD Internal Medicine",
     "experience_years": 9,
-    "hospital_name": "SmartHospital Mind & Wellness",
-    "department": "Oncology",
-    "specialization": "Surgical Oncology",
-    "registration_number": "MCI-441098",
+    "hospital_name": "SmartHospital Eye Institute",
+    "department": "Pulmonology",
+    "specialization": "Pulmonologist & Clinical Care",
+    "registration_number": "MCI-753116",
     "languages_spoken": [
       "English",
-      "Bengali",
+      "Urdu",
       "Hindi"
     ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
+    "consultation_fee": "$59 / \u20b91780",
+    "online_consultation_fee": "$41 / \u20b91246",
     "available_days": [
       "Mon",
       "Tue",
@@ -1619,55 +1650,56 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
       "10:30 AM",
-      "02:00 PM",
-      "04:30 PM"
+      "01:00 PM",
+      "03:30 PM",
+      "06:00 PM"
     ],
-    "room_number": "Room 131, OPD Wing",
+    "room_number": "Room 297, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Breast Cancer",
-      "Lung Cancer",
-      "Colon Cancer",
-      "Leukemia",
-      "Lymphoma",
-      "Tumor Chemotherapy"
+      "Bronchitis",
+      "Asthma",
+      "Pneumonia",
+      "Sleep Apnea",
+      "COPD",
+      "Shortness of Breath",
+      "Chronic Cough"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Oncology with 9+ years of clinical practice specializing in Surgical Oncology.",
-    "patient_rating": 4.85,
-    "reviews_count": 272,
+    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Manoj Hegde is a renowned Pulmonologist in the Department of Pulmonology with 9 years of extensive clinical practice at SmartHospital Eye Institute. Specializes in treating Bronchitis, Asthma, and Pneumonia with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.9,
+    "reviews_count": 286,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1028",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Radhika Bhattacharya. Very thorough and reassuring diagnosis."
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Manoj Hegde. Explained the treatment for Bronchitis very thoroughly."
       }
     ]
   },
   {
     "id": 130,
-    "full_name": "Dr. Sunita Rao",
-    "official_email": "dr.sunita.rao12@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 72068",
+    "full_name": "Dr. Rekha Chowdhury",
+    "official_email": "dr.rekha@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283929",
+    "phone": "+91 98765 43230",
     "gender": "Female",
-    "age": 50,
-    "qualification": "MBBS, MS Ophthalmology",
-    "experience_years": 22,
-    "hospital_name": "SmartHospital Respiratory Center",
-    "department": "Ophthalmologist",
-    "specialization": "Glaucoma & Cornea Surgery",
-    "registration_number": "MCI-801522",
+    "age": 42,
+    "qualification": "MBBS, DM Gastroenterology",
+    "experience_years": 10,
+    "hospital_name": "SmartHospital Mind & Wellness",
+    "department": "Oncology",
+    "specialization": "Oncologist & Clinical Care",
+    "registration_number": "MCI-753263",
     "languages_spoken": [
       "English",
       "Hindi",
-      "Tamil"
+      "Odia"
     ],
-    "consultation_fee": "$33 / \u20b91000",
-    "online_consultation_fee": "$23 / \u20b9700",
+    "consultation_fee": "$60 / \u20b91815",
+    "online_consultation_fee": "$42 / \u20b91270",
     "available_days": [
       "Mon",
       "Tue",
@@ -1677,54 +1709,55 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:00 AM",
-      "10:30 AM",
-      "02:00 PM",
-      "04:30 PM"
+      "08:00 AM",
+      "10:00 AM",
+      "01:00 PM",
+      "03:30 PM"
     ],
-    "room_number": "Room 286, OPD Wing",
+    "room_number": "Room 304, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Cataract",
-      "Glaucoma",
-      "Eye Infection",
-      "Vision Problems",
-      "Retina Disorders"
+      "Tumor Chemotherapy",
+      "Leukemia",
+      "Colon Cancer",
+      "Breast Cancer",
+      "Lung Cancer",
+      "Lymphoma"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Ophthalmologist with 22+ years of clinical practice specializing in Glaucoma & Cornea Surgery.",
-    "patient_rating": 4.89,
-    "reviews_count": 111,
+    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Rekha Chowdhury is a renowned Oncologist in the Department of Oncology with 10 years of extensive clinical practice at SmartHospital Mind & Wellness. Specializes in treating Tumor Chemotherapy, Leukemia, and Colon Cancer with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.91,
+    "reviews_count": 293,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1029",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Sunita Rao. Very thorough and reassuring diagnosis."
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Rekha Chowdhury. Explained the treatment for Tumor Chemotherapy very thoroughly."
       }
     ]
   },
   {
     "id": 131,
-    "full_name": "Dr. Ashok Kumar",
-    "official_email": "dr.ashok.kumar97@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 61730",
+    "full_name": "Dr. Deepak Das",
+    "official_email": "dr.deepak@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283930",
+    "phone": "+91 98765 43231",
     "gender": "Male",
-    "age": 59,
-    "qualification": "MBBS, MCh Orthopedics",
-    "experience_years": 29,
-    "hospital_name": "SmartHospital Respiratory Center",
-    "department": "Orthopedics",
-    "specialization": "Joint Replacement Surgery",
-    "registration_number": "MCI-632416",
+    "age": 41,
+    "qualification": "MBBS, DM Endocrinology",
+    "experience_years": 11,
+    "hospital_name": "SmartHospital Digestive Care Center",
+    "department": "Cardiology",
+    "specialization": "Cardiologist & Clinical Care",
+    "registration_number": "MCI-753410",
     "languages_spoken": [
       "English",
-      "Kannada",
-      "Hindi"
+      "Hindi",
+      "Telugu"
     ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
+    "consultation_fee": "$61 / \u20b91850",
+    "online_consultation_fee": "$42 / \u20b91295",
     "available_days": [
       "Mon",
       "Tue",
@@ -1734,55 +1767,56 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
+      "09:15 AM",
+      "11:45 AM",
+      "02:15 PM",
+      "04:45 PM"
     ],
-    "room_number": "Room 341, OPD Wing",
+    "room_number": "Room 311, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Bone Fractures",
-      "Knee Pain",
-      "Arthritis",
-      "Hip Replacement",
-      "Spine Problems",
-      "Sports Injuries"
+      "High Cholesterol",
+      "Heart Failure",
+      "Arrhythmia",
+      "Coronary Artery Disease",
+      "High Blood Pressure",
+      "Chest Pain",
+      "Heart Attack"
     ],
     "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Orthopedics with 29+ years of clinical practice specializing in Joint Replacement Surgery.",
-    "patient_rating": 4.86,
-    "reviews_count": 127,
+    "biography": "Dr. Deepak Das is a renowned Cardiologist in the Department of Cardiology with 11 years of extensive clinical practice at SmartHospital Digestive Care Center. Specializes in treating High Cholesterol, Heart Failure, and Arrhythmia with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.91,
+    "reviews_count": 300,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1030",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Ashok Kumar. Very thorough and reassuring diagnosis."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Deepak Das. Explained the treatment for High Cholesterol very thoroughly."
       }
     ]
   },
   {
     "id": 132,
-    "full_name": "Dr. Pravin Swamy",
-    "official_email": "dr.pravin@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 55739",
-    "gender": "Male",
-    "age": 51,
-    "qualification": "MBBS, MD Pediatrics",
-    "experience_years": 23,
-    "hospital_name": "SmartHospital Skin & Aesthetics",
-    "department": "Pediatrics",
-    "specialization": "Child Nutrition & Growth",
-    "registration_number": "MCI-138364",
+    "full_name": "Dr. Divya Banerjee",
+    "official_email": "dr.divya@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283931",
+    "phone": "+91 98765 43232",
+    "gender": "Female",
+    "age": 43,
+    "qualification": "MBBS, DM Nephrology",
+    "experience_years": 12,
+    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
+    "department": "Neurology",
+    "specialization": "Neurologist & Clinical Care",
+    "registration_number": "MCI-753557",
     "languages_spoken": [
       "English",
       "Hindi",
-      "Telugu"
+      "Tamil"
     ],
-    "consultation_fee": "$40 / \u20b91200",
-    "online_consultation_fee": "$28 / \u20b9840",
+    "consultation_fee": "$62 / \u20b91885",
+    "online_consultation_fee": "$43 / \u20b91319",
     "available_days": [
       "Mon",
       "Tue",
@@ -1792,54 +1826,56 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
+      "09:45 AM",
+      "12:15 PM",
+      "03:15 PM",
+      "05:45 PM"
     ],
-    "room_number": "Room 469, OPD Wing",
+    "room_number": "Room 318, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Child Fever",
-      "Vaccinations",
-      "Childhood Infections",
-      "Growth Problems",
-      "Nutrition"
+      "Epilepsy",
+      "Alzheimer's Disease",
+      "Migraine",
+      "Brain Tumor",
+      "Stroke",
+      "Parkinson's Disease",
+      "Nerve Disorders"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Pediatrics with 23+ years of clinical practice specializing in Child Nutrition & Growth.",
-    "patient_rating": 4.88,
-    "reviews_count": 156,
+    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Divya Banerjee is a renowned Neurologist in the Department of Neurology with 12 years of extensive clinical practice at SmartHospital Diabetes & Hormone Institute. Specializes in treating Epilepsy, Alzheimer's Disease, and Migraine with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.91,
+    "reviews_count": 307,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1031",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Pravin Swamy. Very thorough and reassuring diagnosis."
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Divya Banerjee. Explained the treatment for Epilepsy very thoroughly."
       }
     ]
   },
   {
     "id": 133,
-    "full_name": "Dr. Deepa Roy",
-    "official_email": "dr.deepa.roy35@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 69761",
-    "gender": "Female",
-    "age": 42,
-    "qualification": "MBBS, MCh Orthopedics",
+    "full_name": "Dr. Sunil Agarwal",
+    "official_email": "dr.sunil@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283932",
+    "phone": "+91 98765 43233",
+    "gender": "Male",
+    "age": 45,
+    "qualification": "MBBS, DM Pulmonology",
     "experience_years": 13,
-    "hospital_name": "SmartHospital Heart & Vascular Institute",
+    "hospital_name": "SmartHospital Kidney Care Institute",
     "department": "Orthopedics",
-    "specialization": "Trauma & Fracture Care",
-    "registration_number": "MCI-224396",
+    "specialization": "Orthopedic Surgeon & Clinical Care",
+    "registration_number": "MCI-753704",
     "languages_spoken": [
       "English",
-      "Bengali",
-      "Hindi"
+      "Hindi",
+      "Marathi"
     ],
-    "consultation_fee": "$53 / \u20b91600",
-    "online_consultation_fee": "$37 / \u20b91120",
+    "consultation_fee": "$64 / \u20b91920",
+    "online_consultation_fee": "$44 / \u20b91344",
     "available_days": [
       "Mon",
       "Tue",
@@ -1849,55 +1885,55 @@
       "Sat"
     ],
     "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
-      "05:30 PM"
+      "08:30 AM",
+      "10:30 AM",
+      "01:30 PM",
+      "04:00 PM"
     ],
-    "room_number": "Room 427, OPD Wing",
+    "room_number": "Room 325, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Bone Fractures",
       "Knee Pain",
       "Arthritis",
-      "Hip Replacement",
+      "Bone Fractures",
       "Spine Problems",
-      "Sports Injuries"
+      "Sports Injuries",
+      "Hip Replacement"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Orthopedics with 13+ years of clinical practice specializing in Trauma & Fracture Care.",
-    "patient_rating": 4.86,
-    "reviews_count": 322,
+    "professional_photo": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Sunil Agarwal is a renowned Orthopedic Surgeon in the Department of Orthopedics with 13 years of extensive clinical practice at SmartHospital Kidney Care Institute. Specializes in treating Knee Pain, Arthritis, and Bone Fractures with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.92,
+    "reviews_count": 314,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1032",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Deepa Roy. Very thorough and reassuring diagnosis."
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Sunil Agarwal. Explained the treatment for Knee Pain very thoroughly."
       }
     ]
   },
   {
     "id": 134,
-    "full_name": "Dr. Rahul Bhasin",
-    "official_email": "dr.rahul@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 46565",
-    "gender": "Male",
-    "age": 42,
-    "qualification": "MBBS, DNB Neurology",
-    "experience_years": 13,
-    "hospital_name": "SmartHospital Skin & Aesthetics",
-    "department": "Neurology",
-    "specialization": "Neuro-Immunology",
-    "registration_number": "MCI-409485",
+    "full_name": "Dr. Sujata Bhasin",
+    "official_email": "dr.sujata@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283933",
+    "phone": "+91 98765 43234",
+    "gender": "Female",
+    "age": 44,
+    "qualification": "MBBS, DM Medical Oncology",
+    "experience_years": 14,
+    "hospital_name": "SmartHospital Respiratory Center",
+    "department": "Dermatology",
+    "specialization": "Dermatologist & Clinical Care",
+    "registration_number": "MCI-753851",
     "languages_spoken": [
       "English",
-      "Bengali",
-      "Hindi"
+      "Malayalam",
+      "Tamil"
     ],
-    "consultation_fee": "$33 / \u20b91000",
-    "online_consultation_fee": "$23 / \u20b9700",
+    "consultation_fee": "$65 / \u20b91955",
+    "online_consultation_fee": "$45 / \u20b91368",
     "available_days": [
       "Mon",
       "Tue",
@@ -1907,576 +1943,55 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
+      "09:00 AM",
+      "11:00 AM",
+      "02:00 PM",
+      "04:30 PM"
     ],
-    "room_number": "Room 315, OPD Wing",
+    "room_number": "Room 332, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Stroke",
-      "Migraine",
-      "Epilepsy",
-      "Parkinson's Disease",
-      "Alzheimer's Disease",
-      "Brain Tumor",
-      "Nerve Disorders"
+      "Nail Disorders",
+      "Acne",
+      "Skin Allergy",
+      "Psoriasis",
+      "Eczema",
+      "Hair Loss"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Neurology with 13+ years of clinical practice specializing in Neuro-Immunology.",
-    "patient_rating": 4.94,
-    "reviews_count": 333,
+    "professional_photo": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Sujata Bhasin is a renowned Dermatologist in the Department of Dermatology with 14 years of extensive clinical practice at SmartHospital Respiratory Center. Specializes in treating Nail Disorders, Acne, and Skin Allergy with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.92,
+    "reviews_count": 321,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1033",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Rahul Bhasin. Very thorough and reassuring diagnosis."
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Sujata Bhasin. Explained the treatment for Nail Disorders very thoroughly."
       }
     ]
   },
   {
     "id": 135,
-    "full_name": "Dr. Farida Rao",
-    "official_email": "dr.farida.rao9@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 91833",
-    "gender": "Female",
-    "age": 40,
-    "qualification": "MBBS, MD, DM Gastroenterology",
-    "experience_years": 10,
-    "hospital_name": "SmartHospital Neuro Institute",
-    "department": "Gastroenterology",
-    "specialization": "Hepatology & Endoscopy",
-    "registration_number": "MCI-885475",
-    "languages_spoken": [
-      "English",
-      "Hindi",
-      "Marathi"
-    ],
-    "consultation_fee": "$40 / \u20b91200",
-    "online_consultation_fee": "$28 / \u20b9840",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
-      "05:30 PM"
-    ],
-    "room_number": "Room 434, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Acid Reflux (GERD)",
-      "Stomach Ulcers",
-      "Fatty Liver Disease",
-      "Jaundice",
-      "Irritable Bowel Syndrome (IBS)",
-      "Gallstones"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gastroenterology with 10+ years of clinical practice specializing in Hepatology & Endoscopy.",
-    "patient_rating": 4.83,
-    "reviews_count": 127,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Farida Rao. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 136,
-    "full_name": "Dr. Archana Kulkarni",
-    "official_email": "dr.archana@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 77857",
-    "gender": "Female",
-    "age": 54,
-    "qualification": "MBBS, DNB Neurology",
-    "experience_years": 27,
-    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
-    "department": "Neurology",
-    "specialization": "Neuro-Immunology",
-    "registration_number": "MCI-802362",
-    "languages_spoken": [
-      "English",
-      "Punjabi",
-      "Hindi"
-    ],
-    "consultation_fee": "$53 / \u20b91600",
-    "online_consultation_fee": "$37 / \u20b91120",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "08:30 AM",
-      "11:00 AM",
-      "01:30 PM",
-      "04:00 PM"
-    ],
-    "room_number": "Room 475, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Stroke",
-      "Migraine",
-      "Epilepsy",
-      "Parkinson's Disease",
-      "Alzheimer's Disease",
-      "Brain Tumor",
-      "Nerve Disorders"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Neurology with 27+ years of clinical practice specializing in Neuro-Immunology.",
-    "patient_rating": 4.82,
-    "reviews_count": 105,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Archana Kulkarni. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 137,
-    "full_name": "Dr. Nitin Deshmukh",
-    "official_email": "dr.nitin@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 93491",
+    "full_name": "Dr. Rakesh Varma",
+    "official_email": "dr.rakesh@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283934",
+    "phone": "+91 98765 43235",
     "gender": "Male",
-    "age": 55,
-    "qualification": "MBBS, MS Obstetrics & Gynecology",
-    "experience_years": 28,
-    "hospital_name": "SmartHospital Eye Institute",
-    "department": "Gynecology",
-    "specialization": "Infertility & IVF",
-    "registration_number": "MCI-103257",
-    "languages_spoken": [
-      "English",
-      "Hindi",
-      "Marathi"
-    ],
-    "consultation_fee": "$66 / \u20b92000",
-    "online_consultation_fee": "$46 / \u20b91400",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "08:30 AM",
-      "11:00 AM",
-      "01:30 PM",
-      "04:00 PM"
-    ],
-    "room_number": "Room 494, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Pregnancy Care",
-      "PCOS",
-      "Menstrual Disorders",
-      "Infertility",
-      "High-Risk Pregnancy"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gynecology with 28+ years of clinical practice specializing in Infertility & IVF.",
-    "patient_rating": 4.85,
-    "reviews_count": 180,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Nitin Deshmukh. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 138,
-    "full_name": "Dr. Anil Pillai",
-    "official_email": "dr.anil.pillai64@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 43877",
-    "gender": "Male",
-    "age": 36,
-    "qualification": "MBBS, MS Orthopedics",
-    "experience_years": 6,
-    "hospital_name": "SmartHospital Heart & Vascular Institute",
-    "department": "Orthopedics",
-    "specialization": "Spine & Disc Surgery",
-    "registration_number": "MCI-603521",
-    "languages_spoken": [
-      "English",
-      "Kannada",
-      "Hindi"
-    ],
-    "consultation_fee": "$33 / \u20b91000",
-    "online_consultation_fee": "$23 / \u20b9700",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "09:00 AM",
-      "10:30 AM",
-      "02:00 PM",
-      "04:30 PM"
-    ],
-    "room_number": "Room 292, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Bone Fractures",
-      "Knee Pain",
-      "Arthritis",
-      "Hip Replacement",
-      "Spine Problems",
-      "Sports Injuries"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Orthopedics with 6+ years of clinical practice specializing in Spine & Disc Surgery.",
-    "patient_rating": 4.97,
-    "reviews_count": 131,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Anil Pillai. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 139,
-    "full_name": "Dr. Geeta Reddy",
-    "official_email": "dr.geeta@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 71731",
-    "gender": "Female",
-    "age": 43,
-    "qualification": "MBBS, MS ENT",
-    "experience_years": 13,
-    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
-    "department": "ENT Specialist",
-    "specialization": "Otology & Cochlear Implants",
-    "registration_number": "MCI-466192",
-    "languages_spoken": [
-      "English",
-      "Punjabi",
-      "Hindi"
-    ],
-    "consultation_fee": "$33 / \u20b91000",
-    "online_consultation_fee": "$23 / \u20b9700",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "08:30 AM",
-      "11:00 AM",
-      "01:30 PM",
-      "04:00 PM"
-    ],
-    "room_number": "Room 261, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Ear Infection",
-      "Sinusitis",
-      "Hearing Loss",
-      "Tonsillitis",
-      "Nose Bleeding"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in ENT Specialist with 13+ years of clinical practice specializing in Otology & Cochlear Implants.",
-    "patient_rating": 4.98,
-    "reviews_count": 95,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Geeta Reddy. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 140,
-    "full_name": "Dr. Anushree Nair",
-    "official_email": "dr.anushree.nair30@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 74117",
-    "gender": "Female",
-    "age": 43,
-    "qualification": "MBBS, MS Orthopedics",
+    "age": 46,
+    "qualification": "MBBS, MD",
     "experience_years": 15,
-    "hospital_name": "SmartHospital Skin & Aesthetics",
-    "department": "Orthopedics",
-    "specialization": "Trauma & Fracture Care",
-    "registration_number": "MCI-695579",
-    "languages_spoken": [
-      "English",
-      "Punjabi",
-      "Hindi"
-    ],
-    "consultation_fee": "$53 / \u20b91600",
-    "online_consultation_fee": "$37 / \u20b91120",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
-      "05:30 PM"
-    ],
-    "room_number": "Room 368, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Bone Fractures",
-      "Knee Pain",
-      "Arthritis",
-      "Hip Replacement",
-      "Spine Problems",
-      "Sports Injuries"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Orthopedics with 15+ years of clinical practice specializing in Trauma & Fracture Care.",
-    "patient_rating": 4.91,
-    "reviews_count": 278,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Anushree Nair. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 141,
-    "full_name": "Dr. Sanjay Nambiar",
-    "official_email": "dr.sanjay.nambiar61@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 84174",
-    "gender": "Male",
-    "age": 53,
-    "qualification": "MBBS, MD, DM Gastroenterology",
-    "experience_years": 26,
-    "hospital_name": "SmartHospital Women & Child Care",
-    "department": "Gastroenterology",
-    "specialization": "Hepatology & Endoscopy",
-    "registration_number": "MCI-347496",
-    "languages_spoken": [
-      "English",
-      "Malayalam",
-      "Tamil"
-    ],
-    "consultation_fee": "$50 / \u20b91500",
-    "online_consultation_fee": "$35 / \u20b91050",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
-    ],
-    "room_number": "Room 386, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Acid Reflux (GERD)",
-      "Stomach Ulcers",
-      "Fatty Liver Disease",
-      "Jaundice",
-      "Irritable Bowel Syndrome (IBS)",
-      "Gallstones"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gastroenterology with 26+ years of clinical practice specializing in Hepatology & Endoscopy.",
-    "patient_rating": 4.97,
-    "reviews_count": 226,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Sanjay Nambiar. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 142,
-    "full_name": "Dr. Anita Sundaram",
-    "official_email": "dr.anita@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 55337",
-    "gender": "Female",
-    "age": 57,
-    "qualification": "MBBS, MS Obstetrics & Gynecology",
-    "experience_years": 28,
-    "hospital_name": "SmartHospital Women & Child Care",
+    "hospital_name": "SmartHospital Cancer Institute",
     "department": "Gynecology",
-    "specialization": "PCOS & Adolescent Care",
-    "registration_number": "MCI-798099",
-    "languages_spoken": [
-      "English",
-      "Hindi",
-      "Marathi"
-    ],
-    "consultation_fee": "$50 / \u20b91500",
-    "online_consultation_fee": "$35 / \u20b91050",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
-      "05:30 PM"
-    ],
-    "room_number": "Room 114, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Pregnancy Care",
-      "PCOS",
-      "Menstrual Disorders",
-      "Infertility",
-      "High-Risk Pregnancy"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gynecology with 28+ years of clinical practice specializing in PCOS & Adolescent Care.",
-    "patient_rating": 4.98,
-    "reviews_count": 176,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Anita Sundaram. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 143,
-    "full_name": "Dr. Geeta Das",
-    "official_email": "dr.geeta.das40@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 73464",
-    "gender": "Female",
-    "age": 37,
-    "qualification": "MBBS, MD, DM Nephrology",
-    "experience_years": 9,
-    "hospital_name": "SmartHospital Kidney Care Institute",
-    "department": "Nephrology",
-    "specialization": "Chronic Kidney Disease",
-    "registration_number": "MCI-906335",
-    "languages_spoken": [
-      "English",
-      "Gujarati",
-      "Hindi"
-    ],
-    "consultation_fee": "$53 / \u20b91600",
-    "online_consultation_fee": "$37 / \u20b91120",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "09:00 AM",
-      "10:30 AM",
-      "02:00 PM",
-      "04:30 PM"
-    ],
-    "room_number": "Room 333, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Kidney Stones",
-      "Chronic Kidney Disease (CKD)",
-      "Kidney Failure",
-      "Glomerulonephritis",
-      "Proteinuria",
-      "Dialysis Management"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Nephrology with 9+ years of clinical practice specializing in Chronic Kidney Disease.",
-    "patient_rating": 4.97,
-    "reviews_count": 204,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Geeta Das. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 144,
-    "full_name": "Dr. Kavita Swamy",
-    "official_email": "dr.kavita@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 83367",
-    "gender": "Female",
-    "age": 56,
-    "qualification": "MBBS, MS Orthopedics",
-    "experience_years": 29,
-    "hospital_name": "SmartHospital Respiratory Center",
-    "department": "Orthopedics",
-    "specialization": "Joint Replacement Surgery",
-    "registration_number": "MCI-333950",
+    "specialization": "Gynecologist & Clinical Care",
+    "registration_number": "MCI-753998",
     "languages_spoken": [
       "English",
       "Bengali",
       "Hindi"
     ],
-    "consultation_fee": "$40 / \u20b91200",
-    "online_consultation_fee": "$28 / \u20b9840",
+    "consultation_fee": "$66 / \u20b91990",
+    "online_consultation_fee": "$46 / \u20b91393",
     "available_days": [
       "Mon",
       "Tue",
@@ -2488,112 +2003,52 @@
     "available_time_slots": [
       "09:30 AM",
       "11:30 AM",
-      "03:00 PM",
+      "02:30 PM",
       "05:00 PM"
     ],
-    "room_number": "Room 112, OPD Wing",
+    "room_number": "Room 339, Wing C",
     "status": "Available",
     "diseases_treated": [
-      "Bone Fractures",
-      "Knee Pain",
-      "Arthritis",
-      "Hip Replacement",
-      "Spine Problems",
-      "Sports Injuries"
+      "Menstrual Disorders",
+      "Infertility",
+      "Pregnancy Care",
+      "PCOS",
+      "High-Risk Pregnancy"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Orthopedics with 29+ years of clinical practice specializing in Joint Replacement Surgery.",
-    "patient_rating": 4.82,
-    "reviews_count": 315,
+    "professional_photo": "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Rakesh Varma is a renowned Gynecologist in the Department of Gynecology with 15 years of extensive clinical practice at SmartHospital Cancer Institute. Specializes in treating Menstrual Disorders, Infertility, and Pregnancy Care with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.93,
+    "reviews_count": 328,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1034",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Kavita Swamy. Very thorough and reassuring diagnosis."
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Rakesh Varma. Explained the treatment for Menstrual Disorders very thoroughly."
       }
     ]
   },
   {
-    "id": 145,
-    "full_name": "Dr. Geeta Pillai",
-    "official_email": "dr.geeta.pillai67@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 73665",
+    "id": 136,
+    "full_name": "Dr. Anita Shukla",
+    "official_email": "dr.anita@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283935",
+    "phone": "+91 98765 43236",
     "gender": "Female",
-    "age": 44,
-    "qualification": "MBBS, MD, DM Pulmonology",
+    "age": 48,
+    "qualification": "MBBS, MS",
     "experience_years": 16,
-    "hospital_name": "SmartHospital Digestive Care Center",
-    "department": "Pulmonology",
-    "specialization": "Interventional Bronchoscopy",
-    "registration_number": "MCI-202420",
+    "hospital_name": "SmartHospital Heart & Vascular Institute",
+    "department": "Pediatrics",
+    "specialization": "Pediatrician & Clinical Care",
+    "registration_number": "MCI-754145",
     "languages_spoken": [
       "English",
-      "Punjabi",
+      "Kannada",
       "Hindi"
     ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "09:00 AM",
-      "10:30 AM",
-      "02:00 PM",
-      "04:30 PM"
-    ],
-    "room_number": "Room 354, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Asthma",
-      "COPD",
-      "Pneumonia",
-      "Bronchitis",
-      "Shortness of Breath",
-      "Sleep Apnea",
-      "Chronic Cough"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Pulmonology with 16+ years of clinical practice specializing in Interventional Bronchoscopy.",
-    "patient_rating": 4.83,
-    "reviews_count": 237,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Geeta Pillai. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 146,
-    "full_name": "Dr. Shalini Khan",
-    "official_email": "dr.shalini.khan34@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 77142",
-    "gender": "Female",
-    "age": 42,
-    "qualification": "MBBS, MD, DM Pulmonology",
-    "experience_years": 14,
-    "hospital_name": "SmartHospital Digestive Care Center",
-    "department": "Pulmonology",
-    "specialization": "Asthma & Allergy Care",
-    "registration_number": "MCI-669430",
-    "languages_spoken": [
-      "English",
-      "Gujarati",
-      "Hindi"
-    ],
-    "consultation_fee": "$40 / \u20b91200",
-    "online_consultation_fee": "$28 / \u20b9840",
+    "consultation_fee": "$67 / \u20b92025",
+    "online_consultation_fee": "$46 / \u20b91417",
     "available_days": [
       "Mon",
       "Tue",
@@ -2604,55 +2059,53 @@
     ],
     "available_time_slots": [
       "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
+      "12:00 PM",
+      "03:00 PM",
       "05:30 PM"
     ],
-    "room_number": "Room 148, OPD Wing",
+    "room_number": "Room 346, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Asthma",
-      "COPD",
-      "Pneumonia",
-      "Bronchitis",
-      "Shortness of Breath",
-      "Sleep Apnea",
-      "Chronic Cough"
+      "Nutrition",
+      "Child Fever",
+      "Childhood Infections",
+      "Vaccinations",
+      "Growth Problems"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Pulmonology with 14+ years of clinical practice specializing in Asthma & Allergy Care.",
-    "patient_rating": 4.94,
-    "reviews_count": 131,
+    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Anita Shukla is a renowned Pediatrician in the Department of Pediatrics with 16 years of extensive clinical practice at SmartHospital Heart & Vascular Institute. Specializes in treating Nutrition, Child Fever, and Childhood Infections with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.93,
+    "reviews_count": 335,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1035",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Shalini Khan. Very thorough and reassuring diagnosis."
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Anita Shukla. Explained the treatment for Nutrition very thoroughly."
       }
     ]
   },
   {
-    "id": 147,
-    "full_name": "Dr. Kavita Deshmukh",
-    "official_email": "dr.kavita.deshmukh31@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 73864",
-    "gender": "Female",
-    "age": 46,
-    "qualification": "MBBS, MS ENT",
-    "experience_years": 19,
-    "hospital_name": "SmartHospital Kidney Care Institute",
+    "id": 137,
+    "full_name": "Dr. Gaurav Pandey",
+    "official_email": "dr.gaurav@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283936",
+    "phone": "+91 98765 43237",
+    "gender": "Male",
+    "age": 47,
+    "qualification": "MBBS, DM Cardiology",
+    "experience_years": 17,
+    "hospital_name": "SmartHospital Central Hospital",
     "department": "ENT Specialist",
-    "specialization": "Vertigo & Balance Care",
-    "registration_number": "MCI-600808",
+    "specialization": "ENT Specialist & Clinical Care",
+    "registration_number": "MCI-754292",
     "languages_spoken": [
       "English",
-      "Malayalam",
-      "Tamil"
+      "Gujarati",
+      "Hindi"
     ],
-    "consultation_fee": "$33 / \u20b91000",
-    "online_consultation_fee": "$23 / \u20b9700",
+    "consultation_fee": "$68 / \u20b92060",
+    "online_consultation_fee": "$47 / \u20b91442",
     "available_days": [
       "Mon",
       "Tue",
@@ -2662,54 +2115,227 @@
       "Sat"
     ],
     "available_time_slots": [
-      "09:30 AM",
-      "11:30 AM",
-      "03:00 PM",
-      "05:00 PM"
+      "10:30 AM",
+      "01:00 PM",
+      "03:30 PM",
+      "06:00 PM"
     ],
-    "room_number": "Room 501, OPD Wing",
+    "room_number": "Room 353, Wing A",
     "status": "Available",
     "diseases_treated": [
+      "Hearing Loss",
+      "Nose Bleeding",
       "Ear Infection",
       "Sinusitis",
-      "Hearing Loss",
-      "Tonsillitis",
-      "Nose Bleeding"
+      "Tonsillitis"
     ],
     "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in ENT Specialist with 19+ years of clinical practice specializing in Vertigo & Balance Care.",
-    "patient_rating": 4.84,
-    "reviews_count": 120,
+    "biography": "Dr. Gaurav Pandey is a renowned ENT Specialist in the Department of ENT Specialist with 17 years of extensive clinical practice at SmartHospital Central Hospital. Specializes in treating Hearing Loss, Nose Bleeding, and Ear Infection with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.93,
+    "reviews_count": 342,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1036",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Kavita Deshmukh. Very thorough and reassuring diagnosis."
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Gaurav Pandey. Explained the treatment for Hearing Loss very thoroughly."
       }
     ]
   },
   {
-    "id": 148,
-    "full_name": "Dr. Rajesh Agarwal",
-    "official_email": "dr.rajesh.agarwal53@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 90643",
-    "gender": "Male",
-    "age": 55,
-    "qualification": "MBBS, MD, DM Pulmonology",
-    "experience_years": 28,
-    "hospital_name": "SmartHospital Heart & Vascular Institute",
-    "department": "Pulmonology",
-    "specialization": "COPD & Sleep Apnea",
-    "registration_number": "MCI-475888",
+    "id": 138,
+    "full_name": "Dr. Swati Chatterjee",
+    "official_email": "dr.swati@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283937",
+    "phone": "+91 98765 43238",
+    "gender": "Female",
+    "age": 49,
+    "qualification": "MBBS, DM Neurology",
+    "experience_years": 18,
+    "hospital_name": "SmartHospital Neuro Institute",
+    "department": "Ophthalmologist",
+    "specialization": "Ophthalmologist & Clinical Care",
+    "registration_number": "MCI-754439",
     "languages_spoken": [
       "English",
-      "Gujarati",
+      "Punjabi",
       "Hindi"
     ],
-    "consultation_fee": "$66 / \u20b92000",
-    "online_consultation_fee": "$46 / \u20b91400",
+    "consultation_fee": "$69 / \u20b92095",
+    "online_consultation_fee": "$48 / \u20b91466",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "08:00 AM",
+      "10:00 AM",
+      "01:00 PM",
+      "03:30 PM"
+    ],
+    "room_number": "Room 360, Wing B",
+    "status": "Available",
+    "diseases_treated": [
+      "Glaucoma",
+      "Eye Infection",
+      "Retina Disorders",
+      "Cataract",
+      "Vision Problems"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Swati Chatterjee is a renowned Ophthalmologist in the Department of Ophthalmologist with 18 years of extensive clinical practice at SmartHospital Neuro Institute. Specializes in treating Glaucoma, Eye Infection, and Retina Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.94,
+    "reviews_count": 349,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1037",
+        "rating": 5,
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Swati Chatterjee. Explained the treatment for Glaucoma very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "full_name": "Dr. Nitin Mishra",
+    "official_email": "dr.nitin@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283938",
+    "phone": "+91 98765 43239",
+    "gender": "Male",
+    "age": 51,
+    "qualification": "MBBS, MCh Orthopedics",
+    "experience_years": 19,
+    "hospital_name": "SmartHospital Skin & Aesthetics",
+    "department": "Psychiatrist",
+    "specialization": "Psychiatrist & Clinical Care",
+    "registration_number": "MCI-754586",
+    "languages_spoken": [
+      "English",
+      "Urdu",
+      "Hindi"
+    ],
+    "consultation_fee": "$27 / \u20b9830",
+    "online_consultation_fee": "$18 / \u20b9581",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:15 AM",
+      "11:45 AM",
+      "02:15 PM",
+      "04:45 PM"
+    ],
+    "room_number": "Room 367, Wing C",
+    "status": "Available",
+    "diseases_treated": [
+      "Anxiety",
+      "OCD",
+      "Sleep Disorders",
+      "Bipolar Disorder",
+      "Stress",
+      "Depression"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Nitin Mishra is a renowned Psychiatrist in the Department of Psychiatrist with 19 years of extensive clinical practice at SmartHospital Skin & Aesthetics. Specializes in treating Anxiety, OCD, and Sleep Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.94,
+    "reviews_count": 356,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1038",
+        "rating": 5,
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Nitin Mishra. Explained the treatment for Anxiety very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "full_name": "Dr. Rashmi Singh",
+    "official_email": "dr.rashmi@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283939",
+    "phone": "+91 98765 43240",
+    "gender": "Female",
+    "age": 50,
+    "qualification": "MBBS, MD Dermatology",
+    "experience_years": 20,
+    "hospital_name": "SmartHospital Women & Child Care",
+    "department": "General Medicine",
+    "specialization": "General Physician & Clinical Care",
+    "registration_number": "MCI-754733",
+    "languages_spoken": [
+      "English",
+      "Hindi",
+      "Odia"
+    ],
+    "consultation_fee": "$28 / \u20b9865",
+    "online_consultation_fee": "$19 / \u20b9605",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:45 AM",
+      "12:15 PM",
+      "03:15 PM",
+      "05:45 PM"
+    ],
+    "room_number": "Room 374, Wing D",
+    "status": "Available",
+    "diseases_treated": [
+      "Fever",
+      "Diabetes Mellitus",
+      "Hypertension",
+      "Thyroid Disorders",
+      "Viral Infections",
+      "Fatigue"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Rashmi Singh is a renowned General Physician in the Department of General Medicine with 20 years of extensive clinical practice at SmartHospital Women & Child Care. Specializes in treating Fever, Diabetes Mellitus, and Hypertension with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.94,
+    "reviews_count": 93,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1039",
+        "rating": 5,
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Rashmi Singh. Explained the treatment for Fever very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "full_name": "Dr. Ajay Bose",
+    "official_email": "dr.ajay@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283940",
+    "phone": "+91 98765 43241",
+    "gender": "Male",
+    "age": 52,
+    "qualification": "MBBS, MS Obstetrics & Gynecology",
+    "experience_years": 21,
+    "hospital_name": "SmartHospital Eye Institute",
+    "department": "Gastroenterology",
+    "specialization": "Gastroenterologist & Clinical Care",
+    "registration_number": "MCI-754880",
+    "languages_spoken": [
+      "English",
+      "Hindi",
+      "Telugu"
+    ],
+    "consultation_fee": "$30 / \u20b9900",
+    "online_consultation_fee": "$21 / \u20b9630",
     "available_days": [
       "Mon",
       "Tue",
@@ -2720,113 +2346,54 @@
     ],
     "available_time_slots": [
       "08:30 AM",
-      "11:00 AM",
+      "10:30 AM",
       "01:30 PM",
       "04:00 PM"
     ],
-    "room_number": "Room 331, OPD Wing",
+    "room_number": "Room 381, Wing A",
     "status": "Available",
     "diseases_treated": [
-      "Asthma",
-      "COPD",
-      "Pneumonia",
-      "Bronchitis",
-      "Shortness of Breath",
-      "Sleep Apnea",
-      "Chronic Cough"
+      "Acid Reflux (GERD)",
+      "Irritable Bowel Syndrome (IBS)",
+      "Jaundice",
+      "Gallstones",
+      "Stomach Ulcers",
+      "Fatty Liver Disease"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Pulmonology with 28+ years of clinical practice specializing in COPD & Sleep Apnea.",
-    "patient_rating": 4.94,
-    "reviews_count": 162,
+    "professional_photo": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Ajay Bose is a renowned Gastroenterologist in the Department of Gastroenterology with 21 years of extensive clinical practice at SmartHospital Eye Institute. Specializes in treating Acid Reflux (GERD), Irritable Bowel Syndrome (IBS), and Jaundice with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.95,
+    "reviews_count": 100,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1040",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Rajesh Agarwal. Very thorough and reassuring diagnosis."
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Ajay Bose. Explained the treatment for Acid Reflux (GERD) very thoroughly."
       }
     ]
   },
   {
-    "id": 149,
-    "full_name": "Dr. Rashmi Kapur",
-    "official_email": "dr.rashmi@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 67422",
+    "id": 142,
+    "full_name": "Dr. Nandini Dutta",
+    "official_email": "dr.nandini@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283941",
+    "phone": "+91 98765 43242",
     "gender": "Female",
-    "age": 52,
-    "qualification": "MBBS, MD, DM Gastroenterology",
+    "age": 54,
+    "qualification": "MBBS, MD Pediatrics",
     "experience_years": 22,
-    "hospital_name": "SmartHospital Kidney Care Institute",
-    "department": "Gastroenterology",
-    "specialization": "Gastro Motility",
-    "registration_number": "MCI-965801",
+    "hospital_name": "SmartHospital Mind & Wellness",
+    "department": "Endocrinology",
+    "specialization": "Endocrinologist & Clinical Care",
+    "registration_number": "MCI-755027",
     "languages_spoken": [
       "English",
       "Hindi",
       "Tamil"
     ],
-    "consultation_fee": "$60 / \u20b91800",
-    "online_consultation_fee": "$42 / \u20b91260",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
-      "05:30 PM"
-    ],
-    "room_number": "Room 245, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Acid Reflux (GERD)",
-      "Stomach Ulcers",
-      "Fatty Liver Disease",
-      "Jaundice",
-      "Irritable Bowel Syndrome (IBS)",
-      "Gallstones"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gastroenterology with 22+ years of clinical practice specializing in Gastro Motility.",
-    "patient_rating": 4.97,
-    "reviews_count": 267,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Rashmi Kapur. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 150,
-    "full_name": "Dr. Shalini Saxena",
-    "official_email": "dr.shalini.saxena45@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 90024",
-    "gender": "Female",
-    "age": 53,
-    "qualification": "MBBS, MS Obstetrics & Gynecology",
-    "experience_years": 24,
-    "hospital_name": "SmartHospital Heart & Vascular Institute",
-    "department": "Gynecology",
-    "specialization": "Laparoscopic Gynae Surgery",
-    "registration_number": "MCI-637254",
-    "languages_spoken": [
-      "English",
-      "Gujarati",
-      "Hindi"
-    ],
-    "consultation_fee": "$60 / \u20b91800",
-    "online_consultation_fee": "$42 / \u20b91260",
+    "consultation_fee": "$31 / \u20b9935",
+    "online_consultation_fee": "$21 / \u20b9654",
     "available_days": [
       "Mon",
       "Tue",
@@ -2837,110 +2404,112 @@
     ],
     "available_time_slots": [
       "09:00 AM",
-      "10:30 AM",
+      "11:00 AM",
       "02:00 PM",
       "04:30 PM"
     ],
-    "room_number": "Room 381, OPD Wing",
+    "room_number": "Room 388, Wing B",
     "status": "Available",
     "diseases_treated": [
-      "Pregnancy Care",
-      "PCOS",
-      "Menstrual Disorders",
-      "Infertility",
-      "High-Risk Pregnancy"
+      "Osteoporosis",
+      "Diabetes Mellitus",
+      "Hypothyroidism",
+      "Hyperthyroidism",
+      "Obesity",
+      "PCOS / PCOD"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Gynecology with 24+ years of clinical practice specializing in Laparoscopic Gynae Surgery.",
-    "patient_rating": 4.89,
-    "reviews_count": 214,
+    "professional_photo": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Nandini Dutta is a renowned Endocrinologist in the Department of Endocrinology with 22 years of extensive clinical practice at SmartHospital Mind & Wellness. Specializes in treating Osteoporosis, Diabetes Mellitus, and Hypothyroidism with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.95,
+    "reviews_count": 107,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1041",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Shalini Saxena. Very thorough and reassuring diagnosis."
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Nandini Dutta. Explained the treatment for Osteoporosis very thoroughly."
       }
     ]
   },
   {
-    "id": 151,
-    "full_name": "Dr. Rakesh Nambiar",
-    "official_email": "dr.rakesh@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 83168",
+    "id": 143,
+    "full_name": "Dr. Vijay Khatri",
+    "official_email": "dr.vijay@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283942",
+    "phone": "+91 98765 43243",
     "gender": "Male",
-    "age": 52,
-    "qualification": "MBBS, MS Ophthalmology",
-    "experience_years": 25,
-    "hospital_name": "SmartHospital Neuro Institute",
-    "department": "Ophthalmologist",
-    "specialization": "Glaucoma & Cornea Surgery",
-    "registration_number": "MCI-327539",
-    "languages_spoken": [
-      "English",
-      "Hindi",
-      "Telugu"
-    ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
-    "available_days": [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "available_time_slots": [
-      "09:00 AM",
-      "10:30 AM",
-      "02:00 PM",
-      "04:30 PM"
-    ],
-    "room_number": "Room 306, OPD Wing",
-    "status": "Available",
-    "diseases_treated": [
-      "Cataract",
-      "Glaucoma",
-      "Eye Infection",
-      "Vision Problems",
-      "Retina Disorders"
-    ],
-    "professional_photo": "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Ophthalmologist with 25+ years of clinical practice specializing in Glaucoma & Cornea Surgery.",
-    "patient_rating": 4.94,
-    "reviews_count": 115,
-    "patient_reviews": [
-      {
-        "reviewer": "Patient Reviewer",
-        "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Rakesh Nambiar. Very thorough and reassuring diagnosis."
-      }
-    ]
-  },
-  {
-    "id": 152,
-    "full_name": "Dr. Swati Bhattacharya",
-    "official_email": "dr.swati@mediconnect.ai",
-    "password_hash": "$2b$12$K8920194819284910283910283910283999",
-    "phone": "+91 98765 46528",
-    "gender": "Female",
-    "age": 58,
-    "qualification": "MBBS, MD, DM Pulmonology",
-    "experience_years": 28,
-    "hospital_name": "SmartHospital Skin & Aesthetics",
-    "department": "Pulmonology",
-    "specialization": "Asthma & Allergy Care",
-    "registration_number": "MCI-477727",
+    "age": 53,
+    "qualification": "MBBS, MS ENT",
+    "experience_years": 23,
+    "hospital_name": "SmartHospital Digestive Care Center",
+    "department": "Nephrology",
+    "specialization": "Nephrologist & Clinical Care",
+    "registration_number": "MCI-755174",
     "languages_spoken": [
       "English",
       "Hindi",
       "Marathi"
     ],
-    "consultation_fee": "$46 / \u20b91400",
-    "online_consultation_fee": "$32 / \u20b9979",
+    "consultation_fee": "$32 / \u20b9970",
+    "online_consultation_fee": "$22 / \u20b9679",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:30 AM",
+      "11:30 AM",
+      "02:30 PM",
+      "05:00 PM"
+    ],
+    "room_number": "Room 395, Wing C",
+    "status": "Available",
+    "diseases_treated": [
+      "Proteinuria",
+      "Glomerulonephritis",
+      "Dialysis Management",
+      "Kidney Failure",
+      "Kidney Stones",
+      "Chronic Kidney Disease (CKD)"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Vijay Khatri is a renowned Nephrologist in the Department of Nephrology with 23 years of extensive clinical practice at SmartHospital Digestive Care Center. Specializes in treating Proteinuria, Glomerulonephritis, and Dialysis Management with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.96,
+    "reviews_count": 114,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1042",
+        "rating": 5,
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Vijay Khatri. Explained the treatment for Proteinuria very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "full_name": "Dr. Preeti Srivastava",
+    "official_email": "dr.preeti@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283943",
+    "phone": "+91 98765 43244",
+    "gender": "Female",
+    "age": 55,
+    "qualification": "MBBS, MS Ophthalmology",
+    "experience_years": 24,
+    "hospital_name": "SmartHospital Diabetes & Hormone Institute",
+    "department": "Pulmonology",
+    "specialization": "Pulmonologist & Clinical Care",
+    "registration_number": "MCI-755321",
+    "languages_spoken": [
+      "English",
+      "Malayalam",
+      "Tamil"
+    ],
+    "consultation_fee": "$33 / \u20b91005",
+    "online_consultation_fee": "$23 / \u20b9703",
     "available_days": [
       "Mon",
       "Tue",
@@ -2951,31 +2520,494 @@
     ],
     "available_time_slots": [
       "10:00 AM",
-      "12:30 PM",
-      "02:30 PM",
+      "12:00 PM",
+      "03:00 PM",
       "05:30 PM"
     ],
-    "room_number": "Room 405, OPD Wing",
+    "room_number": "Room 402, Wing D",
     "status": "Available",
     "diseases_treated": [
-      "Asthma",
-      "COPD",
-      "Pneumonia",
       "Bronchitis",
-      "Shortness of Breath",
+      "COPD",
+      "Chronic Cough",
       "Sleep Apnea",
-      "Chronic Cough"
+      "Pneumonia",
+      "Shortness of Breath",
+      "Asthma"
     ],
-    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
-    "biography": "Experienced consultant in Pulmonology with 28+ years of clinical practice specializing in Asthma & Allergy Care.",
-    "patient_rating": 4.88,
-    "reviews_count": 321,
+    "professional_photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Preeti Srivastava is a renowned Pulmonologist in the Department of Pulmonology with 24 years of extensive clinical practice at SmartHospital Diabetes & Hormone Institute. Specializes in treating Bronchitis, COPD, and Chronic Cough with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.96,
+    "reviews_count": 121,
     "patient_reviews": [
       {
-        "reviewer": "Patient Reviewer",
+        "reviewer": "Verified Patient #1043",
         "rating": 5,
-        "date": "1 week ago",
-        "comment": "Excellent consultation with Dr. Swati Bhattacharya. Very thorough and reassuring diagnosis."
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Preeti Srivastava. Explained the treatment for Bronchitis very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "full_name": "Dr. Rohit Desai",
+    "official_email": "dr.rohit@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283944",
+    "phone": "+91 98765 43245",
+    "gender": "Male",
+    "age": 57,
+    "qualification": "MBBS, MD Psychiatry",
+    "experience_years": 25,
+    "hospital_name": "SmartHospital Kidney Care Institute",
+    "department": "Oncology",
+    "specialization": "Oncologist & Clinical Care",
+    "registration_number": "MCI-755468",
+    "languages_spoken": [
+      "English",
+      "Bengali",
+      "Hindi"
+    ],
+    "consultation_fee": "$34 / \u20b91040",
+    "online_consultation_fee": "$23 / \u20b9728",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "10:30 AM",
+      "01:00 PM",
+      "03:30 PM",
+      "06:00 PM"
+    ],
+    "room_number": "Room 409, Wing A",
+    "status": "Available",
+    "diseases_treated": [
+      "Lymphoma",
+      "Colon Cancer",
+      "Lung Cancer",
+      "Tumor Chemotherapy",
+      "Breast Cancer",
+      "Leukemia"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Rohit Desai is a renowned Oncologist in the Department of Oncology with 25 years of extensive clinical practice at SmartHospital Kidney Care Institute. Specializes in treating Lymphoma, Colon Cancer, and Lung Cancer with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.96,
+    "reviews_count": 128,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1044",
+        "rating": 5,
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Rohit Desai. Explained the treatment for Lymphoma very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "full_name": "Dr. Archana Jain",
+    "official_email": "dr.archana@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283945",
+    "phone": "+91 98765 43246",
+    "gender": "Female",
+    "age": 56,
+    "qualification": "MBBS, MD Internal Medicine",
+    "experience_years": 26,
+    "hospital_name": "SmartHospital Respiratory Center",
+    "department": "Cardiology",
+    "specialization": "Cardiologist & Clinical Care",
+    "registration_number": "MCI-755615",
+    "languages_spoken": [
+      "English",
+      "Kannada",
+      "Hindi"
+    ],
+    "consultation_fee": "$35 / \u20b91075",
+    "online_consultation_fee": "$24 / \u20b9752",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "08:00 AM",
+      "10:00 AM",
+      "01:00 PM",
+      "03:30 PM"
+    ],
+    "room_number": "Room 416, Wing B",
+    "status": "Available",
+    "diseases_treated": [
+      "High Cholesterol",
+      "Arrhythmia",
+      "Heart Attack",
+      "High Blood Pressure",
+      "Chest Pain",
+      "Heart Failure",
+      "Coronary Artery Disease"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Archana Jain is a renowned Cardiologist in the Department of Cardiology with 26 years of extensive clinical practice at SmartHospital Respiratory Center. Specializes in treating High Cholesterol, Arrhythmia, and Heart Attack with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.97,
+    "reviews_count": 135,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1045",
+        "rating": 5,
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Archana Jain. Explained the treatment for High Cholesterol very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "full_name": "Dr. Rahul Bhat",
+    "official_email": "dr.rahul@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283946",
+    "phone": "+91 98765 43247",
+    "gender": "Male",
+    "age": 58,
+    "qualification": "MBBS, DM Gastroenterology",
+    "experience_years": 27,
+    "hospital_name": "SmartHospital Cancer Institute",
+    "department": "Neurology",
+    "specialization": "Neurologist & Clinical Care",
+    "registration_number": "MCI-755762",
+    "languages_spoken": [
+      "English",
+      "Gujarati",
+      "Hindi"
+    ],
+    "consultation_fee": "$37 / \u20b91110",
+    "online_consultation_fee": "$25 / \u20b9777",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:15 AM",
+      "11:45 AM",
+      "02:15 PM",
+      "04:45 PM"
+    ],
+    "room_number": "Room 423, Wing C",
+    "status": "Available",
+    "diseases_treated": [
+      "Migraine",
+      "Brain Tumor",
+      "Nerve Disorders",
+      "Parkinson's Disease",
+      "Alzheimer's Disease",
+      "Stroke",
+      "Epilepsy"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Rahul Bhat is a renowned Neurologist in the Department of Neurology with 27 years of extensive clinical practice at SmartHospital Cancer Institute. Specializes in treating Migraine, Brain Tumor, and Nerve Disorders with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.97,
+    "reviews_count": 142,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1046",
+        "rating": 5,
+        "date": "5 days ago",
+        "comment": "Outstanding consultation with Dr. Rahul Bhat. Explained the treatment for Migraine very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "full_name": "Dr. Geeta Subramanian",
+    "official_email": "dr.geeta@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283947",
+    "phone": "+91 98765 43248",
+    "gender": "Female",
+    "age": 60,
+    "qualification": "MBBS, DM Endocrinology",
+    "experience_years": 28,
+    "hospital_name": "SmartHospital Heart & Vascular Institute",
+    "department": "Orthopedics",
+    "specialization": "Orthopedic Surgeon & Clinical Care",
+    "registration_number": "MCI-755909",
+    "languages_spoken": [
+      "English",
+      "Punjabi",
+      "Hindi"
+    ],
+    "consultation_fee": "$38 / \u20b91145",
+    "online_consultation_fee": "$26 / \u20b9801",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:45 AM",
+      "12:15 PM",
+      "03:15 PM",
+      "05:45 PM"
+    ],
+    "room_number": "Room 430, Wing D",
+    "status": "Available",
+    "diseases_treated": [
+      "Arthritis",
+      "Sports Injuries",
+      "Hip Replacement",
+      "Knee Pain",
+      "Spine Problems",
+      "Bone Fractures"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Geeta Subramanian is a renowned Orthopedic Surgeon in the Department of Orthopedics with 28 years of extensive clinical practice at SmartHospital Heart & Vascular Institute. Specializes in treating Arthritis, Sports Injuries, and Hip Replacement with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.97,
+    "reviews_count": 149,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1047",
+        "rating": 5,
+        "date": "6 days ago",
+        "comment": "Outstanding consultation with Dr. Geeta Subramanian. Explained the treatment for Arthritis very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "full_name": "Dr. Dinesh Puri",
+    "official_email": "dr.dinesh@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283948",
+    "phone": "+91 98765 43249",
+    "gender": "Male",
+    "age": 35,
+    "qualification": "MBBS, DM Nephrology",
+    "experience_years": 5,
+    "hospital_name": "SmartHospital Central Hospital",
+    "department": "Dermatology",
+    "specialization": "Dermatologist & Clinical Care",
+    "registration_number": "MCI-756056",
+    "languages_spoken": [
+      "English",
+      "Urdu",
+      "Hindi"
+    ],
+    "consultation_fee": "$39 / \u20b91180",
+    "online_consultation_fee": "$27 / \u20b9826",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "08:30 AM",
+      "10:30 AM",
+      "01:30 PM",
+      "04:00 PM"
+    ],
+    "room_number": "Room 437, Wing A",
+    "status": "Available",
+    "diseases_treated": [
+      "Eczema",
+      "Acne",
+      "Hair Loss",
+      "Psoriasis",
+      "Skin Allergy",
+      "Nail Disorders"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Dinesh Puri is a renowned Dermatologist in the Department of Dermatology with 5 years of extensive clinical practice at SmartHospital Central Hospital. Specializes in treating Eczema, Acne, and Hair Loss with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.98,
+    "reviews_count": 156,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1048",
+        "rating": 5,
+        "date": "1 days ago",
+        "comment": "Outstanding consultation with Dr. Dinesh Puri. Explained the treatment for Eczema very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "full_name": "Dr. Saritha Malhotra",
+    "official_email": "dr.saritha@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283949",
+    "phone": "+91 98765 43250",
+    "gender": "Female",
+    "age": 37,
+    "qualification": "MBBS, DM Pulmonology",
+    "experience_years": 6,
+    "hospital_name": "SmartHospital Neuro Institute",
+    "department": "Gynecology",
+    "specialization": "Gynecologist & Clinical Care",
+    "registration_number": "MCI-756203",
+    "languages_spoken": [
+      "English",
+      "Hindi",
+      "Odia"
+    ],
+    "consultation_fee": "$40 / \u20b91215",
+    "online_consultation_fee": "$28 / \u20b9850",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:00 AM",
+      "11:00 AM",
+      "02:00 PM",
+      "04:30 PM"
+    ],
+    "room_number": "Room 444, Wing B",
+    "status": "Available",
+    "diseases_treated": [
+      "Menstrual Disorders",
+      "High-Risk Pregnancy",
+      "Infertility",
+      "Pregnancy Care",
+      "PCOS"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Saritha Malhotra is a renowned Gynecologist in the Department of Gynecology with 6 years of extensive clinical practice at SmartHospital Neuro Institute. Specializes in treating Menstrual Disorders, High-Risk Pregnancy, and Infertility with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.98,
+    "reviews_count": 163,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1049",
+        "rating": 5,
+        "date": "2 days ago",
+        "comment": "Outstanding consultation with Dr. Saritha Malhotra. Explained the treatment for Menstrual Disorders very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "full_name": "Dr. Kiran Gokhale",
+    "official_email": "dr.kiran@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283950",
+    "phone": "+91 98765 43251",
+    "gender": "Male",
+    "age": 39,
+    "qualification": "MBBS, DM Medical Oncology",
+    "experience_years": 7,
+    "hospital_name": "SmartHospital Skin & Aesthetics",
+    "department": "Pediatrics",
+    "specialization": "Pediatrician & Clinical Care",
+    "registration_number": "MCI-756350",
+    "languages_spoken": [
+      "English",
+      "Hindi",
+      "Telugu"
+    ],
+    "consultation_fee": "$41 / \u20b91250",
+    "online_consultation_fee": "$28 / \u20b9875",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "09:30 AM",
+      "11:30 AM",
+      "02:30 PM",
+      "05:00 PM"
+    ],
+    "room_number": "Room 451, Wing C",
+    "status": "Available",
+    "diseases_treated": [
+      "Nutrition",
+      "Vaccinations",
+      "Child Fever",
+      "Growth Problems",
+      "Childhood Infections"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Kiran Gokhale is a renowned Pediatrician in the Department of Pediatrics with 7 years of extensive clinical practice at SmartHospital Skin & Aesthetics. Specializes in treating Nutrition, Vaccinations, and Child Fever with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.98,
+    "reviews_count": 170,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1050",
+        "rating": 5,
+        "date": "3 days ago",
+        "comment": "Outstanding consultation with Dr. Kiran Gokhale. Explained the treatment for Nutrition very thoroughly."
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "full_name": "Dr. Madhavi Mahajan",
+    "official_email": "dr.madhavi@mediconnect.ai",
+    "password_hash": "$2b$12$K8920194819284910283910283910283951",
+    "phone": "+91 98765 43252",
+    "gender": "Female",
+    "age": 38,
+    "qualification": "MBBS, MD",
+    "experience_years": 8,
+    "hospital_name": "SmartHospital Women & Child Care",
+    "department": "ENT Specialist",
+    "specialization": "ENT Specialist & Clinical Care",
+    "registration_number": "MCI-756497",
+    "languages_spoken": [
+      "English",
+      "Hindi",
+      "Tamil"
+    ],
+    "consultation_fee": "$42 / \u20b91285",
+    "online_consultation_fee": "$29 / \u20b9899",
+    "available_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "available_time_slots": [
+      "10:00 AM",
+      "12:00 PM",
+      "03:00 PM",
+      "05:30 PM"
+    ],
+    "room_number": "Room 458, Wing D",
+    "status": "Available",
+    "diseases_treated": [
+      "Tonsillitis",
+      "Hearing Loss",
+      "Ear Infection",
+      "Sinusitis",
+      "Nose Bleeding"
+    ],
+    "professional_photo": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80",
+    "biography": "Dr. Madhavi Mahajan is a renowned ENT Specialist in the Department of ENT Specialist with 8 years of extensive clinical practice at SmartHospital Women & Child Care. Specializes in treating Tonsillitis, Hearing Loss, and Ear Infection with advanced evidence-based therapeutics and patient-centered care.",
+    "patient_rating": 4.99,
+    "reviews_count": 177,
+    "patient_reviews": [
+      {
+        "reviewer": "Verified Patient #1051",
+        "rating": 5,
+        "date": "4 days ago",
+        "comment": "Outstanding consultation with Dr. Madhavi Mahajan. Explained the treatment for Tonsillitis very thoroughly."
       }
     ]
   }
