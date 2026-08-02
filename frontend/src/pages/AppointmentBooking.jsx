@@ -143,37 +143,69 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     }
   };
 
+  const [bookingError, setBookingError] = useState('');
+
+  const isSlotExpired = (slotStr, dateStr) => {
+    if (!slotStr || !dateStr) return false;
+    const todayStr = new Date().toISOString().split('T')[0];
+    if (dateStr < todayStr) return true;
+    if (dateStr > todayStr) return false;
+
+    // Check time if date is today
+    const now = new Date();
+    const cleanSlot = slotStr.trim();
+    if (!cleanSlot.includes(':')) return false;
+
+    const parts = cleanSlot.split(' ');
+    const timeParts = parts[0].split(':');
+    let hours = parseInt(timeParts[0], 10);
+    const minutes = parseInt(timeParts[1], 10);
+    const modifier = parts[1] ? parts[1].toUpperCase() : '';
+
+    if (modifier === 'PM' && hours < 12) hours += 12;
+    if (modifier === 'AM' && hours === 12) hours = 0;
+    
+    const slotDateTime = new Date();
+    slotDateTime.setHours(hours, minutes, 0, 0);
+    return slotDateTime <= now;
+  };
+
   const handleBookSubmit = async (e) => {
     e.preventDefault();
     if (!bookingDoctor) return;
+    setBookingError('');
+
+    const targetSlot = selectedSlot || bookingDoctor.available_time_slots?.[0] || '10:00 AM';
+
+    if (isSlotExpired(targetSlot, bookingDate)) {
+      setBookingError("The selected appointment slot has already passed. Please choose another available time.");
+      return;
+    }
+
     setBookingLoading(true);
 
     try {
-      await apiService.bookAppointment({
+      const res = await apiService.bookAppointment({
         doctor_id: bookingDoctor.id,
         doctor_name: bookingDoctor.full_name,
         department: bookingDoctor.department,
         appointment_date: bookingDate,
-        time_slot: selectedSlot || bookingDoctor.available_time_slots?.[0] || '10:00 AM',
+        time_slot: targetSlot,
         notes: notes
       });
+
       setConfirmation({
-        token_number: `TK-${bookingDoctor.department.substring(0,4).toUpperCase()}-${Math.floor(100 + Math.random() * 900)}`,
+        token_number: res.data?.token_number || `TK-${bookingDoctor.department.substring(0,4).toUpperCase()}-${Math.floor(100 + Math.random() * 900)}`,
         doctor_name: bookingDoctor.full_name,
         department: bookingDoctor.department,
         date: bookingDate,
-        time: selectedSlot || bookingDoctor.available_time_slots?.[0] || '10:00 AM',
+        time: targetSlot,
         room: bookingDoctor.room_number || 'OPD Wing A'
       });
+      setBookingDoctor(null);
     } catch (err) {
-      setConfirmation({
-        token_number: `TK-${bookingDoctor.department.substring(0,4).toUpperCase()}-${Math.floor(100 + Math.random() * 900)}`,
-        doctor_name: bookingDoctor.full_name,
-        department: bookingDoctor.department,
-        date: bookingDate,
-        time: selectedSlot || bookingDoctor.available_time_slots?.[0] || '10:00 AM',
-        room: bookingDoctor.room_number || 'OPD Wing A'
-      });
+      const errorMsg = err.response?.data?.detail || "The selected appointment slot has already passed. Please choose another available time.";
+      setBookingError(errorMsg);
     } finally {
       setBookingLoading(false);
     }
@@ -464,13 +496,24 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
               </button>
             </div>
 
+            {bookingError && (
+              <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800/80 text-rose-700 dark:text-rose-300 text-xs font-bold flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 shrink-0 text-rose-600 mt-0.5" />
+                <span>{bookingError}</span>
+              </div>
+            )}
+
             <form onSubmit={handleBookSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Appointment Date</label>
                 <input 
                   type="date"
+                  min={new Date().toISOString().split('T')[0]}
                   value={bookingDate}
-                  onChange={e => setBookingDate(e.target.value)}
+                  onChange={e => {
+                    setBookingDate(e.target.value);
+                    setBookingError('');
+                  }}
                   className="w-full p-3 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none text-slate-800 dark:text-slate-100 font-semibold"
                 />
               </div>
@@ -478,22 +521,33 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Available Time Slot</label>
                 <div className="grid grid-cols-2 gap-2">
-                  {(bookingDoctor.available_time_slots || ["09:00 AM", "10:30 AM", "02:00 PM", "04:00 PM"]).map(slot => (
-                    <button
-                      key={slot}
-                      type="button"
-                      onClick={() => setSelectedSlot(slot)}
-                      className={`
-                        p-2.5 rounded-xl text-xs font-extrabold transition-all border
-                        ${selectedSlot === slot 
-                          ? 'bg-apolloBlue text-white border-apolloBlue shadow-md shadow-apolloBlue/20' 
-                          : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
-                        }
-                      `}
-                    >
-                      {slot}
-                    </button>
-                  ))}
+                  {(bookingDoctor.available_time_slots || ["09:00 AM", "10:30 AM", "02:00 PM", "04:00 PM"]).map(slot => {
+                    const expired = isSlotExpired(slot, bookingDate);
+                    const isSelected = selectedSlot === slot;
+                    return (
+                      <button
+                        key={slot}
+                        type="button"
+                        disabled={expired}
+                        onClick={() => {
+                          setSelectedSlot(slot);
+                          setBookingError('');
+                        }}
+                        className={`
+                          p-2.5 rounded-xl text-xs font-extrabold transition-all border flex items-center justify-between
+                          ${expired 
+                            ? 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 dark:text-slate-600 border-slate-200 dark:border-slate-800 cursor-not-allowed line-through opacity-60' 
+                            : isSelected 
+                              ? 'bg-apolloBlue text-white border-apolloBlue shadow-md shadow-apolloBlue/20' 
+                              : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-apolloBlue'
+                          }
+                        `}
+                      >
+                        <span>{slot}</span>
+                        {expired && <span className="text-[9px] no-underline font-normal uppercase ml-1 px-1.5 py-0.5 rounded bg-rose-100 dark:bg-rose-950 text-rose-600">Passed</span>}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
