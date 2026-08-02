@@ -24,19 +24,22 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
-  const navigationItems = [
-    { id: 'home', label: 'Home Page', icon: Home },
-    { id: 'patient', label: 'Patient Dashboard', icon: Activity },
-    { id: 'doctor', label: 'Doctor Portal', icon: Stethoscope },
-    { id: 'admin', label: 'Admin Portal', icon: Shield, badge: 'Root', color: 'text-amber-500' },
-    { id: 'appointments', label: 'Appointments', icon: Calendar },
-    { id: 'medical-records', label: 'Medical Records', icon: FileText },
-    { id: 'prescriptions', label: 'Prescriptions', icon: Pill },
-    { id: 'billing', label: 'Billing & Claims', icon: CreditCard },
-    { id: 'emergency', label: 'Emergency Triage', icon: AlertTriangle, badge: 'SOS', color: 'text-rose-500' },
-    { id: 'chat', label: 'AI Swarm Chat', icon: Bot, badge: '8 Agents', color: 'text-apolloBlue' },
-    { id: 'settings', label: 'Settings', icon: Settings }
+  const allNavigationItems = [
+    { id: 'home', label: 'Home Page', icon: Home, roles: ['guest', 'Patient', 'Doctor', 'Admin'] },
+    { id: 'patient', label: 'Patient Dashboard', icon: Activity, roles: ['Patient', 'Admin'] },
+    { id: 'doctor', label: 'Doctor Portal', icon: Stethoscope, roles: ['Doctor', 'Admin'] },
+    { id: 'admin', label: 'Admin Portal', icon: Shield, badge: 'Root', color: 'text-amber-500', roles: ['Admin'] },
+    { id: 'appointments', label: 'Appointments', icon: Calendar, roles: ['guest', 'Patient', 'Doctor', 'Admin'] },
+    { id: 'medical-records', label: 'Medical Records', icon: FileText, roles: ['Patient', 'Admin'] },
+    { id: 'prescriptions', label: 'Prescriptions', icon: Pill, roles: ['Patient', 'Admin'] },
+    { id: 'billing', label: 'Billing & Claims', icon: CreditCard, roles: ['Patient', 'Admin'] },
+    { id: 'emergency', label: 'Emergency Triage', icon: AlertTriangle, badge: 'SOS', color: 'text-rose-500', roles: ['guest', 'Patient', 'Doctor', 'Admin'] },
+    { id: 'chat', label: 'AI Swarm Chat', icon: Bot, badge: '8 Agents', color: 'text-apolloBlue', roles: ['guest', 'Patient', 'Doctor', 'Admin'] },
+    { id: 'settings', label: 'Settings', icon: Settings, roles: ['Patient', 'Doctor', 'Admin'] }
   ];
+
+  const userRole = currentUser ? currentUser.role : 'guest';
+  const navigationItems = allNavigationItems.filter(item => item.roles.includes(userRole));
 
   const notifications = [
     { id: 1, title: 'Appointment Confirmed', desc: 'Dr. Sarah Jenkins for Aug 01 at 10:30 AM', time: '10m ago' },
