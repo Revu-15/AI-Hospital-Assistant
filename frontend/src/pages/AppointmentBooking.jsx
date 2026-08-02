@@ -169,12 +169,29 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     return `${year}-${month}-${day}`;
   };
 
+  const parseDateStr = (dateStr) => {
+    if (!dateStr || typeof dateStr !== 'string') return null;
+    const parts = dateStr.trim().split('-').map(p => parseInt(p, 10));
+    if (parts.length !== 3 || parts.some(isNaN)) return null;
+
+    let year, month, day;
+    if (parts[0] > 1000) {
+      // YYYY-MM-DD format (e.g. 2026-08-03)
+      [year, month, day] = parts;
+    } else if (parts[2] > 1000) {
+      // DD-MM-YYYY format (e.g. 03-08-2026)
+      [day, month, year] = parts;
+    } else {
+      return null;
+    }
+    return { year, month, day };
+  };
+
   const isSlotExpired = (slotStr, dateStr) => {
     if (!slotStr || !dateStr) return false;
-    
-    // Parse dateStr (YYYY-MM-DD)
-    const [year, month, day] = dateStr.split('-').map(Number);
-    if (!year || !month || !day) return false;
+
+    const parsed = parseDateStr(dateStr);
+    if (!parsed) return false;
 
     // Parse slotStr (e.g. "05:00 PM")
     const parts = slotStr.trim().split(' ');
@@ -183,13 +200,15 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     const timeParts = parts[0].split(':');
     let hours = parseInt(timeParts[0], 10);
     const minutes = parseInt(timeParts[1], 10);
+    if (isNaN(hours) || isNaN(minutes)) return false;
+
     const modifier = parts[1] ? parts[1].toUpperCase() : '';
 
     if (modifier === 'PM' && hours < 12) hours += 12;
     if (modifier === 'AM' && hours === 12) hours = 0;
 
     // Construct exact slot DateTime
-    const slotDateTime = new Date(year, month - 1, day, hours, minutes, 0, 0);
+    const slotDateTime = new Date(parsed.year, parsed.month - 1, parsed.day, hours, minutes, 0, 0);
     const now = new Date();
 
     // Expired ONLY when complete slot DateTime <= current time
@@ -197,9 +216,11 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
   };
 
   const fetchSlots = async (docId, dateStr) => {
+    if (!docId || !dateStr) return;
+
     try {
       const res = await apiService.checkAvailability(docId, dateStr);
-      if (res.data?.slots_detail) {
+      if (res.data?.slots_detail && Array.isArray(res.data.slots_detail)) {
         setDynamicSlots(res.data.slots_detail);
         setIsHoliday(res.data.is_holiday || false);
         return;
@@ -579,7 +600,7 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Appointment Time Slots ({dynamicSlots.filter(s => s.available && !isSlotExpired(s.slot, bookingDate)).length} Open)
+                    Appointment Time Slots ({(dynamicSlots || []).filter(s => s && s.available && !isSlotExpired(s.slot, bookingDate)).length} Open)
                   </label>
                   <span className="text-[10px] text-slate-400 font-mono">Real-Time Sync</span>
                 </div>
@@ -615,7 +636,7 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
                   </div>
                 ) : (
                   <div className="grid grid-cols-3 gap-2.5 max-h-52 overflow-y-auto pr-1">
-                    {dynamicSlots.map(item => {
+                    {(dynamicSlots || []).map(item => {
                       const isSelected = selectedSlot === item.slot;
                       const isBooked = item.reason === 'booked';
                       const isExpired = item.reason === 'passed' || isSlotExpired(item.slot, bookingDate);
