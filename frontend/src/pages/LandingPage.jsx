@@ -209,7 +209,7 @@ export default function LandingPage({ onNavigate }) {
               Top Specialist Doctors
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Consult with Apollo's leading senior consultants and medical practitioners.
+              Consult with SmartHospital AI's leading senior consultants and medical practitioners.
             </p>
           </div>
           <button 
