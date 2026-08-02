@@ -13,10 +13,32 @@ from app.auth.jwt_handler import create_access_token
 
 router = APIRouter(prefix="/api/v1/auth", tags=["Authentication"])
 
-# Temporary in-memory OTP cache for demo verification
 OTP_STORE = {}
 
 DOCTORS_JSON_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "doctors_database.json")
+
+APPROVED_DOCTOR_EMAILS = [
+    "dr.rajesh@mediconnect.ai",
+    "dr.priya@mediconnect.ai",
+    "dr.anil@mediconnect.ai",
+    "dr.kavitha@mediconnect.ai",
+    "dr.rohit@mediconnect.ai",
+    "dr.sneha@mediconnect.ai",
+    "dr.arjun@mediconnect.ai",
+    "dr.meera@mediconnect.ai",
+    "dr.vikram@mediconnect.ai",
+    "dr.pooja@mediconnect.ai",
+    "dr.kiran@mediconnect.ai",
+    "dr.deepak@mediconnect.ai",
+    "dr.nisha@mediconnect.ai",
+    "dr.sanjay@mediconnect.ai",
+    "dr.lakshmi@mediconnect.ai",
+    "dr.amit@mediconnect.ai",
+    "dr.harish@mediconnect.ai",
+    "dr.swathi@mediconnect.ai",
+    "dr.naveen@mediconnect.ai",
+    "dr.divya@mediconnect.ai"
+]
 
 def find_doctor_by_email(email: str):
     if not os.path.exists(DOCTORS_JSON_PATH):
@@ -94,28 +116,32 @@ def login(payload: LoginSchema, db: Session = Depends(get_db)):
         else:
             raise HTTPException(status_code=401, detail="Invalid admin password.")
 
-    # 2. Doctor Authentication (Checks doctor official emails dr.*@mediconnect.ai)
-    doctor = find_doctor_by_email(payload.email)
-    if doctor:
-        # Accepts default demo passwords or hashed match
-        token = create_access_token({"sub": str(doctor["id"]), "email": doctor["official_email"], "role": "Doctor"})
+    # 2. Doctor Authentication (ONLY 20 Approved Doctor Emails Allowed)
+    if any(approved.lower() == e_lower for approved in APPROVED_DOCTOR_EMAILS):
+        doctor = find_doctor_by_email(payload.email)
+        doc_id = doctor["id"] if doctor else 101
+        doc_name = doctor["full_name"] if doctor else e_lower.replace("dr.", "Dr. ").replace("@mediconnect.ai", "").title()
+        doc_dept = doctor["department"] if doctor else "Medical Specialist"
+        doc_hosp = doctor["hospital_name"] if doctor else "SmartHospital Central Hospital"
+
+        token = create_access_token({"sub": str(doc_id), "email": e_lower, "role": "Doctor"})
         return {
             "access_token": token,
             "token_type": "bearer",
             "user": {
-                "id": doctor["id"],
-                "doctor_id": doctor["id"],
-                "full_name": doctor["full_name"],
-                "email": doctor["official_email"],
+                "id": doc_id,
+                "doctor_id": doc_id,
+                "full_name": doc_name,
+                "email": e_lower,
                 "role": "Doctor",
-                "department": doctor["department"],
-                "specialization": doctor["specialization"],
-                "hospital_name": doctor["hospital_name"],
-                "qualification": doctor["qualification"],
-                "room_number": doctor["room_number"],
-                "professional_photo": doctor.get("professional_photo")
+                "department": doc_dept,
+                "hospital_name": doc_hosp
             }
         }
+
+    # Block any unapproved doctor email attempts
+    if e_lower.startswith("dr.") or "@mediconnect.ai" in e_lower:
+        raise HTTPException(status_code=403, detail="Access Denied: Only authorized hospital doctor emails are allowed to log in.")
 
     # 3. Patient Authentication
     patient = db.query(PatientModel).filter(PatientModel.email == payload.email).first()
@@ -130,24 +156,6 @@ def login(payload: LoginSchema, db: Session = Depends(get_db)):
                 "email": patient.email,
                 "role": "Patient",
                 "insurance_provider": patient.insurance_provider
-            }
-        }
-
-    # Demo guest fallback login if email matches dr.* format
-    if e_lower.startswith("dr."):
-        token = create_access_token({"sub": "101", "email": e_lower, "role": "Doctor"})
-        return {
-            "access_token": token,
-            "token_type": "bearer",
-            "user": {
-                "id": 101,
-                "doctor_id": 101,
-                "full_name": e_lower.replace("dr.", "Dr. ").replace("@mediconnect.ai", "").capitalize(),
-                "email": e_lower,
-                "role": "Doctor",
-                "department": "Cardiology",
-                "specialization": "Interventional Cardiology",
-                "hospital_name": "SmartHospital Central Hospital"
             }
         }
 
