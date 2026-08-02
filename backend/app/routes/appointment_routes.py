@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from datetime import datetime
+from datetime import datetime, date
 from app.database import get_db
 from app.models.schemas import AppointmentModel, BookAppointmentSchema, DoctorModel
 from app.utils.status_evaluator import evaluate_status, sync_appointments_in_db, parse_slot_time
