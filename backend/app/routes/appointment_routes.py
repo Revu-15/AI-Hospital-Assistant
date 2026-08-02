@@ -34,34 +34,27 @@ def parse_incoming_date(date_str: str) -> date:
         return datetime.now().date()
     clean = date_str.strip()
 
-    # Format 1: ISO format YYYY-MM-DD (e.g. 2026-08-03)
-    try:
-        return datetime.strptime(clean, "%Y-%m-%d").date()
-    except Exception:
-        pass
+    sep = "-" if "-" in clean else ("/" if "/" in clean else ".")
+    parts = clean.split(sep)
 
-    # Format 2: European/Indian format DD-MM-YYYY (e.g. 03-08-2026)
-    try:
-        return datetime.strptime(clean, "%d-%m-%Y").date()
-    except Exception:
-        pass
+    if len(parts) == 3:
+        try:
+            p0, p1, p2 = int(parts[0]), int(parts[1]), int(parts[2])
+            if p0 > 1000:
+                # YYYY-MM-DD (e.g. 2026-08-03)
+                return date(p0, p1, p2)
+            elif p2 > 1000:
+                # DD-MM-YYYY (e.g. 03-08-2026) -> p2 is Year (2026), p1 is Month (8), p0 is Day (3)
+                return date(p2, p1, p0)
+        except Exception:
+            pass
 
-    # Format 3: Slash format DD/MM/YYYY or YYYY/MM/DD
-    try:
-        return datetime.strptime(clean, "%d/%m/%Y").date()
-    except Exception:
-        pass
-
-    # Fallback to manual integer parsing
-    try:
-        sep = "-" if "-" in clean else ("/" if "/" in clean else ".")
-        parts = [int(p) for p in clean.split(sep)]
-        if parts[0] > 1000:
-            return date(parts[0], parts[1], parts[2])
-        elif parts[2] > 1000:
-            return date(parts[2], parts[1], parts[0])
-    except Exception:
-        pass
+    # Standard strptime fallback
+    for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d"):
+        try:
+            return datetime.strptime(clean, fmt).date()
+        except Exception:
+            pass
 
     return datetime.now().date()
 
@@ -71,7 +64,7 @@ def parse_incoming_date(date_str: str) -> date:
 @router.post("/api/v1/appointments")
 def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_db)):
     now = datetime.now()
-    today = now.date()
+    today_date = now.date()
 
     target_date_str = payload.date or payload.appointment_date
     target_slot_str = payload.slot or payload.time_slot
@@ -85,7 +78,7 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
     target_date_clean = target_date_str.strip()
     target_slot_clean = target_slot_str.strip()
 
-    # Rule 1: Validate date and time against current server datetime
+    # Rule 1: Parse complete date
     try:
         appt_date = parse_incoming_date(target_date_clean)
     except Exception:
@@ -94,22 +87,29 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
             detail="Invalid date format. Please select a valid appointment date."
         )
 
+    # Rule 2: If selected_date > current_date -> Always allow booking (if slot falls in working hours & not booked)
+    # Rule 4: If selected_date < current_date -> Reject booking
+    # Rule 3: If selected_date == current_date -> Only compare selected time with current server time
+    if appt_date < today_date:
+        raise HTTPException(
+            status_code=400,
+            detail="The selected appointment slot has already passed. Please choose another available time."
+        )
+    elif appt_date == today_date:
+        appt_time = parse_slot_time(target_slot_clean)
+        appt_datetime = datetime.combine(today_date, appt_time)
+        if appt_datetime <= now:
+            raise HTTPException(
+                status_code=400,
+                detail="The selected appointment slot has already passed. Please choose another available time."
+            )
+
     # Validate working days / holidays for doctor
     valid_slots = generate_slots_for_date(appt_date, GLOBAL_SCHEDULE_CONFIG)
     if not valid_slots:
         raise HTTPException(
             status_code=400,
             detail=f"Doctor is not available on {appt_date.strftime('%A')} ({target_date_clean}). Please select a working day."
-        )
-
-    appt_time = parse_slot_time(target_slot_clean)
-    appt_datetime = datetime.combine(appt_date, appt_time)
-
-    # Rule 2: Check if selected slot has already passed
-    if appt_datetime <= now:
-        raise HTTPException(
-            status_code=400,
-            detail="The selected appointment slot has already passed. Please choose another available time."
         )
 
     # Prevent duplicate active bookings for the same doctor, date, and time slot
