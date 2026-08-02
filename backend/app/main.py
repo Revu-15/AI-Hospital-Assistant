@@ -40,10 +40,10 @@ app.include_router(notification_routes.router)
 app.include_router(admin_routes.router)
 app.include_router(hospital_search_routes.router)
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def root():
     return {
-        "app": "AI Hospital Assistant Backend",
+        "app": "SmartHospital AI Backend",
         "swarm_engine": "OpenAI Swarm Multi-Agent Architecture Operational",
         "agents": [
             "Main Hospital Agent",
