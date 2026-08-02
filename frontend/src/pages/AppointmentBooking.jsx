@@ -147,11 +147,54 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
   const [dynamicSlots, setDynamicSlots] = useState([]);
   const [isHoliday, setIsHoliday] = useState(false);
 
+  // Real-time auto-refresh polling every 3 seconds when booking modal is active
   useEffect(() => {
+    let intervalId = null;
     if (bookingDoctor && bookingDate) {
       fetchSlots(bookingDoctor.id, bookingDate);
+      intervalId = setInterval(() => {
+        fetchSlots(bookingDoctor.id, bookingDate);
+      }, 3000);
     }
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [bookingDoctor, bookingDate]);
+
+  const getTodayLocalDateStr = () => {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const isSlotExpired = (slotStr, dateStr) => {
+    if (!slotStr || !dateStr) return false;
+    
+    // Parse dateStr (YYYY-MM-DD)
+    const [year, month, day] = dateStr.split('-').map(Number);
+    if (!year || !month || !day) return false;
+
+    // Parse slotStr (e.g. "05:00 PM")
+    const parts = slotStr.trim().split(' ');
+    if (!parts[0] || !parts[0].includes(':')) return false;
+    
+    const timeParts = parts[0].split(':');
+    let hours = parseInt(timeParts[0], 10);
+    const minutes = parseInt(timeParts[1], 10);
+    const modifier = parts[1] ? parts[1].toUpperCase() : '';
+
+    if (modifier === 'PM' && hours < 12) hours += 12;
+    if (modifier === 'AM' && hours === 12) hours = 0;
+
+    // Construct exact slot DateTime
+    const slotDateTime = new Date(year, month - 1, day, hours, minutes, 0, 0);
+    const now = new Date();
+
+    // Expired ONLY when complete slot DateTime <= current time
+    return slotDateTime <= now;
+  };
 
   const fetchSlots = async (docId, dateStr) => {
     try {
@@ -185,37 +228,12 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     setIsHoliday(false);
   };
 
-  const isSlotExpired = (slotStr, dateStr) => {
-    if (!slotStr || !dateStr) return false;
-    const todayStr = new Date().toISOString().split('T')[0];
-    if (dateStr < todayStr) return true;
-    if (dateStr > todayStr) return false;
-
-    // Check time if date is today
-    const now = new Date();
-    const cleanSlot = slotStr.trim();
-    if (!cleanSlot.includes(':')) return false;
-
-    const parts = cleanSlot.split(' ');
-    const timeParts = parts[0].split(':');
-    let hours = parseInt(timeParts[0], 10);
-    const minutes = parseInt(timeParts[1], 10);
-    const modifier = parts[1] ? parts[1].toUpperCase() : '';
-
-    if (modifier === 'PM' && hours < 12) hours += 12;
-    if (modifier === 'AM' && hours === 12) hours = 0;
-    
-    const slotDateTime = new Date();
-    slotDateTime.setHours(hours, minutes, 0, 0);
-    return slotDateTime <= now;
-  };
-
   const handleBookSubmit = async (e) => {
     e.preventDefault();
     if (!bookingDoctor) return;
     setBookingError('');
 
-    const targetSlot = selectedSlot || bookingDoctor.available_time_slots?.[0] || '10:00 AM';
+    const targetSlot = selectedSlot || dynamicSlots.find(s => s.available)?.slot || '10:00 AM';
 
     if (isSlotExpired(targetSlot, bookingDate)) {
       setBookingError("The selected appointment slot has already passed. Please choose another available time.");
@@ -561,67 +579,87 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Dynamic Available Time Slots ({dynamicSlots.filter(s => s.available).length} Open)
+                    Appointment Time Slots ({dynamicSlots.filter(s => s.available && !isSlotExpired(s.slot, bookingDate)).length} Open)
                   </label>
-                  <span className="text-[10px] text-slate-400 font-mono">30-Min Interval</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Real-Time Sync</span>
                 </div>
 
                 {/* Color Legend */}
-                <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-[10px] font-bold">
+                <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-inner">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-emerald-600"></span>
-                    <span className="text-slate-700 dark:text-slate-300">Available</span>
+                    <span className="w-3 h-3 rounded-full bg-[#22C55E] border border-emerald-600 inline-block shadow-sm"></span>
+                    <span className="text-slate-800 dark:text-slate-200 font-extrabold">🟢 Available</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500 border border-rose-600"></span>
-                    <span className="text-slate-700 dark:text-slate-300">Booked</span>
+                    <span className="w-3 h-3 rounded-full bg-[#EF4444] border border-rose-600 inline-block shadow-sm"></span>
+                    <span className="text-slate-800 dark:text-slate-200 font-extrabold">🔴 Booked</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-slate-400 border border-slate-500"></span>
-                    <span className="text-slate-700 dark:text-slate-300">Expired</span>
+                    <span className="w-3 h-3 rounded-full bg-[#9CA3AF] border border-slate-500 inline-block shadow-sm"></span>
+                    <span className="text-slate-800 dark:text-slate-200 font-extrabold">⚫ Expired</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-apolloBlue border border-blue-700"></span>
-                    <span className="text-slate-700 dark:text-slate-300">Selected</span>
+                    <span className="w-3 h-3 rounded-full bg-[#2563EB] border border-blue-700 inline-block shadow-sm"></span>
+                    <span className="text-slate-800 dark:text-slate-200 font-extrabold">🔵 Selected</span>
                   </div>
                 </div>
 
-                {isHoliday ? (
-                  <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-bold text-center border border-amber-200">
+                {bookingDate < getTodayLocalDateStr() ? (
+                  <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-extrabold text-center border border-amber-200 flex items-center justify-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>Past dates cannot be booked. Please select today or a future date.</span>
+                  </div>
+                ) : isHoliday ? (
+                  <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-bold text-center border border-amber-200">
                     🏥 Doctor is on holiday or non-working day. Please select a working day (Mon - Sat).
                   </div>
                 ) : (
-                  <div className="grid grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-1">
+                  <div className="grid grid-cols-3 gap-2.5 max-h-52 overflow-y-auto pr-1">
                     {dynamicSlots.map(item => {
                       const isSelected = selectedSlot === item.slot;
-                      const isAvailable = item.available;
                       const isBooked = item.reason === 'booked';
-                      const isExpired = item.reason === 'passed';
+                      const isExpired = item.reason === 'passed' || isSlotExpired(item.slot, bookingDate);
+                      const isAvailable = item.available && !isExpired && !isBooked;
+
+                      // Priority: Expired -> Booked -> Selected -> Available
+                      let statusKey = 'available';
+                      if (isExpired) statusKey = 'expired';
+                      else if (isBooked) statusKey = 'booked';
+                      else if (isSelected) statusKey = 'selected';
 
                       return (
                         <button
                           key={item.slot}
                           type="button"
                           disabled={!isAvailable}
+                          title={
+                            isExpired ? "This appointment time has already passed." :
+                            isBooked ? "This slot has already been booked." :
+                            isSelected ? "Currently Selected Slot" :
+                            "Click to select this slot"
+                          }
                           onClick={() => {
                             setSelectedSlot(item.slot);
                             setBookingError('');
                           }}
                           className={`
-                            p-2 rounded-xl text-xs font-extrabold transition-all border flex flex-col items-center justify-center gap-0.5
-                            ${isSelected 
-                              ? 'bg-apolloBlue text-white border-apolloBlue shadow-md shadow-apolloBlue/25 font-black scale-105' 
-                              : isBooked
-                                ? 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-800 cursor-not-allowed line-through opacity-70'
-                                : isExpired
-                                  ? 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-800 cursor-not-allowed line-through opacity-60'
-                                  : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 hover:bg-emerald-100'
+                            p-2.5 rounded-2xl text-xs font-extrabold transition-all border flex flex-col items-center justify-center gap-1 shadow-sm relative group
+                            ${statusKey === 'selected'
+                              ? 'bg-[#2563EB] text-white border-[#1D4ED8] shadow-md shadow-blue-600/30 scale-105 font-black z-10'
+                              : statusKey === 'booked'
+                                ? 'bg-[#FEE2E2] text-[#B91C1C] border-[#EF4444] cursor-not-allowed font-extrabold opacity-90'
+                                : statusKey === 'expired'
+                                  ? 'bg-[#E5E7EB] text-[#4B5563] border-[#9CA3AF] cursor-not-allowed font-medium line-through opacity-75'
+                                  : 'bg-[#DCFCE7] text-[#15803D] border-[#22C55E] hover:bg-emerald-200 hover:scale-102 hover:shadow-md'
                             }
                           `}
                         >
-                          <span>{item.slot}</span>
-                          <span className="text-[9px] font-normal uppercase opacity-90">
-                            {isSelected ? 'Selected' : item.label || 'Available'}
+                          <span className="font-mono text-xs tracking-tight">{item.slot}</span>
+                          <span className="text-[10px] font-bold tracking-wider uppercase flex items-center gap-1">
+                            {statusKey === 'selected' && <Check className="w-3 h-3 text-white stroke-[3]" />}
+                            {statusKey === 'selected' ? 'Selected' :
+                             statusKey === 'booked' ? 'Booked' :
+                             statusKey === 'expired' ? 'Expired' : 'Available'}
                           </span>
                         </button>
                       );
