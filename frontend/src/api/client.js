@@ -61,7 +61,12 @@ export const apiService = {
 
   // Emergency API
   getEmergencyData: () => apiClient.get('/emergency'),
-  triageSymptoms: (symptomDescription) => apiClient.post('/emergency/triage', { symptom_description: symptomDescription })
+  triageSymptoms: (symptomDescription) => apiClient.post('/emergency/triage', { symptom_description: symptomDescription }),
+
+  // Hospital Directory API
+  searchHospitals: (query = '', state = '', city = '', limit = 50) => 
+    apiClient.get('/hospitals/search', { params: { query, state, city, limit } }),
+  getHospitalMeta: () => apiClient.get('/hospitals/meta/cities')
 };
 
 export default apiClient;

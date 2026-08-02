@@ -5,7 +5,7 @@ from app.database import engine, Base
 from app.routes import (
     auth_routes, patient_routes, medical_routes, doctor_routes, 
     appointment_routes, billing_routes, pharmacy_routes, notification_routes, 
-    admin_routes, chat_routes, emergency_routes
+    admin_routes, chat_routes, emergency_routes, hospital_search_routes
 )
 
 # Automatically create database tables
@@ -38,6 +38,7 @@ app.include_router(pharmacy_routes.router)
 app.include_router(emergency_routes.router)
 app.include_router(notification_routes.router)
 app.include_router(admin_routes.router)
+app.include_router(hospital_search_routes.router)
 
 @app.get("/")
 def root():
