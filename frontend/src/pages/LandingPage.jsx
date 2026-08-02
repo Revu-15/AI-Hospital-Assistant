@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Heart, Calendar, FileText, Pill, CreditCard, AlertTriangle, 
   Bot, ShieldCheck, Stethoscope, Clock, MapPin, Star, ChevronRight, 
-  Sparkles, CheckCircle2, UserCheck, PhoneCall, ArrowRight, Zap
+  Sparkles, CheckCircle2, UserCheck, PhoneCall, ArrowRight, Zap,
+  User, Phone, Award, Wrench, IndianRupee, Shield
 } from 'lucide-react';
 
 export default function LandingPage({ onNavigate }) {
+  // Hero Slot Booking Form State
+  const [slotForm, setSlotForm] = useState({
+    hospital: 'SmartHospital Bannerghatta, Bangalore',
+    name: '',
+    phone: '',
+    otp: ''
+  });
+  const [otpSent, setOtpSent] = useState(false);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
+
+  const handleSendOtp = (e) => {
+    e.preventDefault();
+    if (!slotForm.name || !slotForm.phone) {
+      alert('Please enter your Name and Phone Number.');
+      return;
+    }
+    setOtpSent(true);
+  };
+
+  const handleSlotFormSubmit = (e) => {
+    e.preventDefault();
+    if (!slotForm.otp) {
+      alert('Please enter the 6-digit OTP code sent to your phone (e.g. 123456).');
+      return;
+    }
+    setBookingSuccess(true);
+    setTimeout(() => {
+      onNavigate('appointments');
+    }, 1500);
+  };
+
   const departments = [
     { name: "Cardiology", desc: "Heart & Vascular Care", icon: Heart, doctors: 18, color: "text-rose-500 bg-rose-50 dark:bg-rose-950/40" },
     { name: "Neurology", desc: "Brain & Spine Specialists", icon: Stethoscope, doctors: 14, color: "text-purple-500 bg-purple-50 dark:bg-purple-950/40" },
@@ -16,25 +48,25 @@ export default function LandingPage({ onNavigate }) {
   const featuredDoctors = [
     {
       id: 101,
-      name: "Dr. Sarah Jenkins",
+      name: "Dr. Rajesh Kumar",
       spec: "Interventional Cardiology",
       exp: "15 Years Exp",
       rating: 4.95,
       hospital: "SmartHospital Central Hospital",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
+      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: 102,
-      name: "Dr. Rajesh Sharma",
+      name: "Dr. Priya Sharma",
       spec: "Internal Medicine & Diabetology",
       exp: "18 Years Exp",
       rating: 4.90,
       hospital: "SmartHospital Central Hospital",
-      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: 104,
-      name: "Dr. Marcus Vance",
+      name: "Dr. Anil Verma",
       spec: "Neurology & Spine Specialist",
       exp: "14 Years Exp",
       rating: 4.92,
@@ -57,91 +89,152 @@ export default function LandingPage({ onNavigate }) {
   return (
     <div className="space-y-12">
       
-      {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-apolloBlue via-blue-600 to-teal-600 text-white p-8 lg:p-12 shadow-xl shadow-apolloBlue/20">
-        <div className="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
-        <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-white border border-white/20 text-xs font-bold">
-              <Sparkles className="w-4 h-4 text-amber-300" />
-              <span>Powered by OpenAI Swarm Multi-Agent Architecture</span>
+      {/* Exact Match Apollo/SmartHospital Style Hero Section */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#005B73] via-[#004B5F] to-[#003848] text-white p-6 sm:p-10 lg:p-12 shadow-2xl">
+        
+        {/* Top Right Call Us Button Header */}
+        <div className="flex justify-between items-center mb-8">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-2xl bg-white text-[#005B73] flex items-center justify-center font-black text-xl shadow-lg">
+              🏥
             </div>
-            
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-              Intelligent Healthcare, <br />
-              <span className="text-teal-200">Simplified for You.</span>
+            <div>
+              <span className="font-extrabold text-2xl tracking-tight text-white">SmartHospital <span className="text-[#FFC107]">AI</span></span>
+              <p className="text-[10px] text-teal-200 font-semibold tracking-wider uppercase">Bangalore • Chennai • Hyderabad</p>
+            </div>
+          </div>
+
+          <button 
+            onClick={() => onNavigate('emergency')}
+            className="px-5 py-2 rounded-full bg-[#EAA400] hover:bg-amber-600 text-white font-extrabold text-xs shadow-lg flex items-center gap-1.5 transition-all"
+          >
+            <PhoneCall className="w-4 h-4" />
+            <span>Call Us 1800-200-2244</span>
+          </button>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
+          
+          {/* Left Hero Content */}
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+              Your health is in <span className="text-[#FFC107]">safe hands</span> at <br className="hidden sm:inline" />
+              SmartHospital AI Bangalore
             </h1>
 
-            <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-xl">
-              Experience next-generation patient care with SmartHospital AI. Instant doctor appointments, AI report summarization, drug interaction checking, and 24/7 emergency guidance coordinated by 8 specialized Swarm agents.
+            <p className="text-teal-100 text-sm sm:text-base leading-relaxed max-w-lg">
+              Share your details. We'll help you find the right doctor and support you till recovery.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-2">
-              <button 
-                onClick={() => onNavigate('chat')}
-                className="px-6 py-3.5 rounded-2xl bg-white text-apolloBlue font-bold text-sm hover:bg-blue-50 shadow-lg shadow-black/10 transition-all flex items-center gap-2 group"
-              >
-                <Bot className="w-5 h-5 text-apolloBlue" />
-                <span>Talk to AI Hospital Agent</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button 
-                onClick={() => onNavigate('appointments')}
-                className="px-6 py-3.5 rounded-2xl bg-white/15 hover:bg-white/25 text-white font-bold text-sm backdrop-blur-md border border-white/20 transition-all flex items-center gap-2"
-              >
-                <Calendar className="w-5 h-5" />
-                <span>Book Appointment</span>
-              </button>
+            {/* Same-Day Appointment Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white text-[#005B73] text-xs font-extrabold shadow-md border-2 border-emerald-400">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Same-Day Doctor Appointments | 24/7 Patient Support</span>
             </div>
 
-            {/* Trust Badges */}
-            <div className="pt-4 flex items-center gap-6 border-t border-white/20 text-xs text-blue-100">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-teal-300" />
-                <span>HIPAA Compliant Data</span>
+            {/* Bottom 3 Feature Cards */}
+            <div className="grid grid-cols-3 gap-3 pt-4">
+              <div className="p-4 rounded-2xl bg-white text-slate-800 text-center space-y-2 shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-teal-50 text-[#005B73] flex items-center justify-center mx-auto">
+                  <User className="w-5 h-5" />
+                </div>
+                <p className="text-xs font-extrabold leading-snug">Expert Team of Doctors</p>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-teal-300" />
-                <span>24/7 ER Guidance</span>
+
+              <div className="p-4 rounded-2xl bg-white text-slate-800 text-center space-y-2 shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-teal-50 text-[#005B73] flex items-center justify-center mx-auto">
+                  <Wrench className="w-5 h-5" />
+                </div>
+                <p className="text-xs font-extrabold leading-snug">Latest Medical Facilities</p>
               </div>
+
+              <div className="p-4 rounded-2xl bg-white text-slate-800 text-center space-y-2 shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-teal-50 text-[#005B73] flex items-center justify-center mx-auto font-black text-sm">
+                  ₹
+                </div>
+                <p className="text-xs font-extrabold leading-snug">Free Cost Estimate</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Hero Booking Form */}
+          <div className="lg:col-span-5">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-800 shadow-2xl space-y-4">
+              <h3 className="text-lg font-black text-slate-900 text-center">
+                Book the Next Available Slot
+              </h3>
+
+              {bookingSuccess ? (
+                <div className="p-6 rounded-2xl bg-emerald-50 text-emerald-700 text-center space-y-3">
+                  <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
+                  <h4 className="font-extrabold text-base">Slot Reserved Successfully!</h4>
+                  <p className="text-xs text-emerald-800">Redirecting to doctor matching and appointment scheduling...</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSlotFormSubmit} className="space-y-3.5">
+                  <div>
+                    <select 
+                      value={slotForm.hospital}
+                      onChange={e => setSlotForm({...slotForm, hospital: e.target.value})}
+                      className="w-full p-3.5 text-xs rounded-xl bg-slate-50 border border-slate-200 outline-none text-slate-800 font-semibold"
+                    >
+                      <option value="SmartHospital Bannerghatta, Bangalore">SmartHospital Bannerghatta, Bangalore</option>
+                      <option value="SmartHospital Greams Road, Chennai">SmartHospital Greams Road, Chennai</option>
+                      <option value="SmartHospital Jubilee Hills, Hyderabad">SmartHospital Jubilee Hills, Hyderabad</option>
+                      <option value="SmartHospital Indraprastha, Delhi">SmartHospital Indraprastha, Delhi</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <input 
+                      type="text" required
+                      placeholder="Enter your name"
+                      value={slotForm.name}
+                      onChange={e => setSlotForm({...slotForm, name: e.target.value})}
+                      className="w-full p-3.5 text-xs rounded-xl bg-slate-50 border border-slate-200 outline-none text-slate-800 font-medium"
+                    />
+                  </div>
+
+                  <div>
+                    <input 
+                      type="text" required
+                      placeholder="Phone Number"
+                      value={slotForm.phone}
+                      onChange={e => setSlotForm({...slotForm, phone: e.target.value})}
+                      className="w-full p-3.5 text-xs rounded-xl bg-slate-50 border border-slate-200 outline-none text-slate-800 font-medium"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleSendOtp}
+                    className="w-full py-3 rounded-xl bg-[#007A99] hover:bg-[#00607A] text-white font-extrabold text-xs shadow-md transition-all"
+                  >
+                    {otpSent ? '✓ OTP Sent to Mobile' : 'Send OTP'}
+                  </button>
+
+                  <div>
+                    <input 
+                      type="text"
+                      placeholder="Enter OTP (e.g. 123456)"
+                      value={slotForm.otp}
+                      onChange={e => setSlotForm({...slotForm, otp: e.target.value})}
+                      className="w-full p-3.5 text-xs rounded-xl bg-slate-50 border border-slate-200 outline-none text-slate-800 font-mono"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-4 rounded-xl bg-[#EAA400] hover:bg-[#D99600] text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-amber-500/20 transition-all"
+                  >
+                    Submit Now
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 
-          {/* Hero Visual Card */}
-          <div className="relative">
-            <div className="medical-card p-6 text-slate-800 dark:text-slate-100 space-y-4 shadow-2xl backdrop-blur-xl">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Live Swarm Agent Active</span>
-                </div>
-                <span className="text-xs font-bold text-apolloBlue px-2.5 py-1 rounded-full bg-apolloSky dark:bg-blue-950/60">
-                  Main Agent
-                </span>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
-                <p className="text-xs text-slate-600 dark:text-slate-300">
-                  <strong className="text-apolloBlue">Patient:</strong> "I need to book a cardiology appointment and check if Aspirin interacts with my new medicine."
-                </p>
-                <p className="text-xs text-slate-700 dark:text-slate-200">
-                  <strong className="text-teal-600 dark:text-teal-400">Main Agent:</strong> "Handoff to <strong>Appointment Agent</strong> for Dr. Sarah Jenkins (10:30 AM slot available). Handoff to <strong>Prescription Agent</strong> for Drug Interaction analysis."
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="p-3 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200/50 dark:border-teal-800/50">
-                  <p className="text-[10px] font-bold text-teal-700 dark:text-teal-300">Slot Reserved</p>
-                  <p className="text-xs font-extrabold text-teal-900 dark:text-teal-100">10:30 AM Today</p>
-                </div>
-                <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/50 dark:border-emerald-800/50">
-                  <p className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300">Safety Check</p>
-                  <p className="text-xs font-extrabold text-emerald-900 dark:text-emerald-100">APPROVED</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
