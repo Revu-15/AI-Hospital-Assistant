@@ -3,7 +3,7 @@ import {
   Heart, Calendar, FileText, Pill, CreditCard, AlertTriangle, 
   Bot, ShieldCheck, Stethoscope, Clock, MapPin, Star, ChevronRight, 
   Sparkles, CheckCircle2, UserCheck, PhoneCall, ArrowRight, Zap,
-  User, Phone, Award, Wrench, IndianRupee, Shield
+  User, Phone, Award, Wrench, IndianRupee, Shield, Headphones, ChevronDown
 } from 'lucide-react';
 
 export default function LandingPage({ onNavigate }) {
@@ -16,6 +16,13 @@ export default function LandingPage({ onNavigate }) {
   });
   const [otpSent, setOtpSent] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
+
+  // FAQ Accordion State
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
 
   const handleSendOtp = (e) => {
     e.preventDefault();
@@ -37,13 +44,6 @@ export default function LandingPage({ onNavigate }) {
       onNavigate('appointments');
     }, 1500);
   };
-
-  const departments = [
-    { name: "Cardiology", desc: "Heart & Vascular Care", icon: Heart, doctors: 18, color: "text-rose-500 bg-rose-50 dark:bg-rose-950/40" },
-    { name: "Neurology", desc: "Brain & Spine Specialists", icon: Stethoscope, doctors: 14, color: "text-purple-500 bg-purple-50 dark:bg-purple-950/40" },
-    { name: "Pediatrics", desc: "Child & Infant Care", icon: UserCheck, doctors: 12, color: "text-amber-500 bg-amber-50 dark:bg-amber-950/40" },
-    { name: "Orthopedics", desc: "Bone & Joint Surgery", icon: Zap, doctors: 16, color: "text-teal-500 bg-teal-50 dark:bg-teal-950/40" },
-  ];
 
   const featuredDoctors = [
     {
@@ -84,6 +84,29 @@ export default function LandingPage({ onNavigate }) {
     { name: "Emergency Triage Agent", role: "24/7 ER Dispatch & First Aid" },
     { name: "Symptom Checker Agent", role: "Condition Diagnosis & Specialist Match" },
     { name: "Hospital FAQ Agent", role: "Timings, Doctors & Facilities Info" }
+  ];
+
+  const faqList = [
+    {
+      q: "1. Are same day or emergency consultations available?",
+      a: "Yes, SmartHospital AI provides same-day outpatient consultations across 15+ specialty departments as well as 24/7 round-the-clock emergency triage support."
+    },
+    {
+      q: "2. Does SmartHospital AI Bangalore offer advanced diagnostic services?",
+      a: "Yes, we house state-of-the-art MRI (3T), 128-slice CT Scanning, High-resolution Ultrasound, Automated Pathology Labs, and Robotic Surgical suites."
+    },
+    {
+      q: "3. Is cashless treatment available at SmartHospital AI Bangalore?",
+      a: "Yes, we partner with 40+ leading health insurance providers (Star Health, Apollo Munich, Max Bupa, ICICI Lombard) for instant cashless claim settlement."
+    },
+    {
+      q: "4. Is financial counselling available?",
+      a: "Yes, our dedicated billing and financial counseling office assists with treatment cost estimations, insurance co-pay calculations, and zero-cost EMI plans."
+    },
+    {
+      q: "5. Are minimally invasive and robotic surgeries available?",
+      a: "Yes, our senior surgeons specialize in minimally invasive laparoscopic and da Vinci robotic procedures for faster recovery and minimal scarring."
+    }
   ];
 
   return (
@@ -238,142 +261,143 @@ export default function LandingPage({ onNavigate }) {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-              Complete Hospital Portal Services
-            </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Seamlessly manage your healthcare journey from booking to discharge.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div onClick={() => onNavigate('appointments')} className="medical-card p-5 cursor-pointer group hover:border-apolloBlue transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-apolloBlue flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Calendar className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-base text-slate-800 dark:text-slate-100">Book Doctor Appointment</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Find top specialists, view available time slots, and schedule instant consultations.
-            </p>
-          </div>
-
-          <div onClick={() => onNavigate('medical-records')} className="medical-card p-5 cursor-pointer group hover:border-teal-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <FileText className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-base text-slate-800 dark:text-slate-100">Medical Records & OCR</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Upload lab reports, extract medical findings, and generate instant AI report summaries.
-            </p>
-          </div>
-
-          <div onClick={() => onNavigate('prescriptions')} className="medical-card p-5 cursor-pointer group hover:border-purple-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Pill className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-base text-slate-800 dark:text-slate-100">Prescriptions & Safety</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Track medication dosages, receive intake reminders, and run AI drug interaction checks.
-            </p>
-          </div>
-
-          <div onClick={() => onNavigate('emergency')} className="medical-card p-5 cursor-pointer group hover:border-rose-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <AlertTriangle className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-base text-slate-800 dark:text-slate-100">24/7 Emergency Triage</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Urgent first aid instructions, 1-click ambulance hotline, and nearest ER map locator.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Doctors Section */}
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-              Top Specialist Doctors
-            </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Consult with SmartHospital AI's leading senior consultants and medical practitioners.
-            </p>
-          </div>
-          <button 
-            onClick={() => onNavigate('appointments')}
-            className="text-xs font-bold text-apolloBlue hover:underline flex items-center gap-1"
-          >
-            <span>View All Doctors</span>
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {featuredDoctors.map(doc => (
-            <div key={doc.id} className="medical-card p-5 flex flex-col justify-between">
-              <div className="flex gap-4">
-                <img 
-                  src={doc.image} 
-                  alt={doc.name} 
-                  className="w-16 h-16 rounded-2xl object-cover border border-slate-200 dark:border-slate-700 shadow-sm"
-                />
-                <div>
-                  <h4 className="font-bold text-base text-slate-800 dark:text-slate-100">{doc.name}</h4>
-                  <p className="text-xs font-semibold text-apolloBlue mt-0.5">{doc.spec}</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">{doc.exp} • {doc.hospital}</p>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
-                  <Star className="w-4 h-4 fill-amber-400" />
-                  <span>{doc.rating} Rating</span>
-                </div>
-                <button 
-                  onClick={() => onNavigate('appointments')}
-                  className="px-3.5 py-1.5 rounded-xl bg-apolloSky hover:bg-apolloBlue hover:text-white text-apolloBlue font-bold text-xs transition-colors"
-                >
-                  Book Slot
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Swarm Multi-Agent Network Architecture Showcase */}
-      <section className="medical-card p-8 space-y-6 bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-900 dark:to-slate-800/80 border-blue-100 dark:border-slate-700">
-        <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-apolloBlue dark:text-blue-300 text-xs font-bold mb-3">
-            <Bot className="w-3.5 h-3.5" />
-            <span>OpenAI Swarm Framework</span>
-          </div>
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-            8 Specialized AI Swarm Agents Working Together
+      {/* SECTION: How to Skip the Wait Time at SmartHospital AI */}
+      <section className="space-y-8 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md">
+        <div className="text-center space-y-2">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-100">
+            How to Skip the Wait Time at <span className="text-[#007A99]">SmartHospital AI Bangalore</span>
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Our multi-agent system detects intent and transfers control dynamically between specialized domain agents.
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
+            Finding the right care is easy at SmartHospital AI Bangalore. From booking an appointment to meeting the right doctor, our team guides you at every step.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {swarmAgents.map((agent, idx) => (
-            <div key={idx} className="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm">
-              <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-apolloSky dark:bg-blue-900/40 text-apolloBlue dark:text-blue-300">
-                Agent #{idx + 1}
-              </span>
-              <h4 className="font-bold text-xs text-slate-800 dark:text-slate-100 mt-2">{agent.name}</h4>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">{agent.role}</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          
+          {/* Card 01 */}
+          <div className="medical-card p-6 space-y-4 relative border border-slate-200/80 dark:border-slate-800">
+            <span className="absolute top-4 right-6 text-slate-300 dark:text-slate-600 font-mono text-xs font-bold">01</span>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-600/30">
+                <PhoneCall className="w-6 h-6" />
+              </div>
+              <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+                Share your details or Give us Call
+              </h3>
             </div>
-          ))}
+          </div>
+
+          {/* Card 02 */}
+          <div className="medical-card p-6 space-y-2 relative border border-slate-200/80 dark:border-slate-800">
+            <span className="absolute top-4 right-6 text-slate-300 dark:text-slate-600 font-mono text-xs font-bold">02</span>
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-teal-600/30">
+                <Headphones className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+                  Our healthcare team will connect with you instantly
+                </h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  Get personalized assistance from our dedicated healthcare experts
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="medical-card p-6 space-y-2 relative border border-slate-200/80 dark:border-slate-800">
+            <span className="absolute top-4 right-6 text-slate-300 dark:text-slate-600 font-mono text-xs font-bold">03</span>
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-500/30">
+                <Clock className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+                  Choose the doctor and appointment time that works for you
+                </h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  Select from available slots that fit your schedule
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 04 */}
+          <div className="medical-card p-6 space-y-2 relative border border-slate-200/80 dark:border-slate-800">
+            <span className="absolute top-4 right-6 text-slate-300 dark:text-slate-600 font-mono text-xs font-bold">04</span>
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-purple-600/30">
+                <Calendar className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+                  Reach the hospital just 10 minutes before your appointment slot
+                </h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  No more long waiting times - we value your time
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* CTA Button */}
+        <div className="text-center pt-2">
+          <button 
+            onClick={() => onNavigate('appointments')}
+            className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00A896] hover:opacity-95 text-white font-extrabold text-xs shadow-xl shadow-blue-500/20 inline-flex items-center gap-2 transition-all"
+          >
+            <span>Start Your Recovery Journey</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
+
+      {/* SECTION: Frequently Asked Questions (Accordion) */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-black text-center text-slate-900 dark:text-slate-100">
+          Frequently Asked Questions
+        </h2>
+
+        <div className="space-y-3 max-w-4xl mx-auto">
+          {faqList.map((faq, idx) => {
+            const isOpen = openFaqIndex === idx;
+            return (
+              <div 
+                key={idx}
+                className="medical-card overflow-hidden transition-all border border-slate-200/80 dark:border-slate-800"
+              >
+                <button
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full p-4 sm:p-5 text-left font-extrabold text-xs sm:text-sm text-slate-800 dark:text-slate-100 flex items-center justify-between gap-4"
+                >
+                  <span>{faq.q}</span>
+                  <div className={`w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 transition-transform ${isOpen ? 'rotate-180 bg-apolloSky text-apolloBlue' : 'text-slate-500'}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="px-5 pb-5 pt-1 text-xs text-slate-600 dark:text-slate-300 border-t border-slate-100 dark:border-slate-800 leading-relaxed animate-in fade-in">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Footer Bar */}
+      <footer className="py-4 px-6 bg-[#005B73] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between text-xs gap-3">
+        <div>© 2026 SmartHospital AI. All rights reserved.</div>
+        <div className="flex gap-4 text-teal-200 font-semibold">
+          <span className="hover:underline cursor-pointer">Terms of Service</span>
+          <span className="hover:underline cursor-pointer">Privacy Policy</span>
+        </div>
+      </footer>
 
     </div>
   );
