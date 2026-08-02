@@ -6,9 +6,32 @@ import {
 } from 'lucide-react';
 import { apiService } from '../api/client';
 
+const FALLBACK_DOCTORS = [
+  { id: 101, full_name: "Dr. Rajesh Kumar", official_email: "dr.rajesh@mediconnect.ai", department: "Cardiology", qualification: "MBBS, MD, DM Cardiology", consultation_fee: "$50 / ₹1500", room_number: "Room 201, OPD Wing A", status: "Available", professional_photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" },
+  { id: 102, full_name: "Dr. Priya Sharma", official_email: "dr.priya@mediconnect.ai", department: "Neurology", qualification: "MBBS, MD, DM Neurology", consultation_fee: "$55 / ₹1600", room_number: "Room 304, Neuro Tower B", status: "Available", professional_photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" },
+  { id: 103, full_name: "Dr. Anil Verma", official_email: "dr.anil@mediconnect.ai", department: "Orthopedics", qualification: "MBBS, MS Orthopedics", consultation_fee: "$60 / ₹1800", room_number: "Room 108, Bone & Joint Wing", status: "Available", professional_photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" },
+  { id: 104, full_name: "Dr. Kavitha Reddy", official_email: "dr.kavitha@mediconnect.ai", department: "Dermatology", qualification: "MBBS, MD Dermatology", consultation_fee: "$45 / ₹1200", room_number: "Room 104, Skin Clinic", status: "Available", professional_photo: "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80" },
+  { id: 105, full_name: "Dr. Rohit Mehta", official_email: "dr.rohit@mediconnect.ai", department: "Pediatrics", qualification: "MBBS, MD Pediatrics", consultation_fee: "$40 / ₹1100", room_number: "Room 102, Child OPD", status: "Available", professional_photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" },
+  { id: 106, full_name: "Dr. Sneha Patel", official_email: "dr.sneha@mediconnect.ai", department: "Gynecology", qualification: "MBBS, MS Gynecology", consultation_fee: "$50 / ₹1400", room_number: "Room 205, Maternity Wing", status: "Available", professional_photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" },
+  { id: 107, full_name: "Dr. Arjun Nair", official_email: "dr.arjun@mediconnect.ai", department: "ENT Specialist", qualification: "MBBS, MS ENT", consultation_fee: "$45 / ₹1300", room_number: "Room 112, ENT Wing", status: "Available", professional_photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" },
+  { id: 108, full_name: "Dr. Meera Iyer", official_email: "dr.meera@mediconnect.ai", department: "Ophthalmologist", qualification: "MBBS, MS Ophthalmology", consultation_fee: "$45 / ₹1250", room_number: "Room 101, Eye Clinic", status: "Available", professional_photo: "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80" },
+  { id: 109, full_name: "Dr. Vikram Singh", official_email: "dr.vikram@mediconnect.ai", department: "Psychiatrist", qualification: "MBBS, MD Psychiatry", consultation_fee: "$60 / ₹1700", room_number: "Room 402, Wellness Wing", status: "Available", professional_photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" },
+  { id: 110, full_name: "Dr. Pooja Desai", official_email: "dr.pooja@mediconnect.ai", department: "General Medicine", qualification: "MBBS, MD Internal Medicine", consultation_fee: "$40 / ₹1200", room_number: "Room 105, General OPD", status: "Available", professional_photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" },
+  { id: 111, full_name: "Dr. Kiran Rao", official_email: "dr.kiran@mediconnect.ai", department: "Nephrology", qualification: "MBBS, DM Nephrology", consultation_fee: "$60 / ₹1800", room_number: "Room 401, Kidney Unit", status: "Available", professional_photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" },
+  { id: 112, full_name: "Dr. Deepak Joshi", official_email: "dr.deepak@mediconnect.ai", department: "Gastroenterology", qualification: "MBBS, DM Gastroenterology", consultation_fee: "$65 / ₹2000", room_number: "Room 302, Gastro Wing", status: "Available", professional_photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" },
+  { id: 113, full_name: "Dr. Nisha Gupta", official_email: "dr.nisha@mediconnect.ai", department: "Endocrinology", qualification: "MBBS, DM Endocrinology", consultation_fee: "$50 / ₹1500", room_number: "Room 208, Hormone OPD", status: "Available", professional_photo: "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80" },
+  { id: 114, full_name: "Dr. Sanjay Kulkarni", official_email: "dr.sanjay@mediconnect.ai", department: "Pulmonology", qualification: "MBBS, DM Pulmonology", consultation_fee: "$50 / ₹1500", room_number: "Room 106, Lung Care OPD", status: "Available", professional_photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" },
+  { id: 115, full_name: "Dr. Lakshmi Devi", official_email: "dr.lakshmi@mediconnect.ai", department: "Oncology", qualification: "MBBS, DM Medical Oncology", consultation_fee: "$75 / ₹2200", room_number: "Room 501, Oncology Wing", status: "Available", professional_photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" },
+  { id: 116, full_name: "Dr. Amit Agarwal", official_email: "dr.amit@mediconnect.ai", department: "Urology", qualification: "MBBS, MCh Urology", consultation_fee: "$60 / ₹1800", room_number: "Room 305, Urology OPD", status: "Available", professional_photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" },
+  { id: 117, full_name: "Dr. Harish Babu", official_email: "dr.harish@mediconnect.ai", department: "Radiology", qualification: "MBBS, MD Radiology", consultation_fee: "$45 / ₹1300", room_number: "Room 102, Imaging Center", status: "Available", professional_photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" },
+  { id: 118, full_name: "Dr. Swathi Krishna", official_email: "dr.swathi@mediconnect.ai", department: "Anesthesiology", qualification: "MBBS, MD Anesthesiology", consultation_fee: "$50 / ₹1500", room_number: "Room 201, OT Block", status: "Available", professional_photo: "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=400&q=80" },
+  { id: 119, full_name: "Dr. Naveen Reddy", official_email: "dr.naveen@mediconnect.ai", department: "Emergency Medicine", qualification: "MBBS, MEM Emergency Medicine", consultation_fee: "$55 / ₹1600", room_number: "Trauma Care ER 1", status: "Available", professional_photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" },
+  { id: 120, full_name: "Dr. Divya Menon", official_email: "dr.divya@mediconnect.ai", department: "Rheumatology", qualification: "MBBS, DM Rheumatology", consultation_fee: "$50 / ₹1500", room_number: "Room 206, Joint Clinic", status: "Available", professional_photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" }
+];
+
 export default function AdminDashboard({ currentUser }) {
-  const [activeTab, setActiveTab] = useState('analytics'); // 'analytics', 'doctors', 'patients', 'appointments'
-  const [doctorsList, setDoctorsList] = useState([]);
+  const [activeTab, setActiveTab] = useState('doctors'); // default to doctors tab as requested
+  const [doctorsList, setDoctorsList] = useState(FALLBACK_DOCTORS);
   const [patientsList, setPatientsList] = useState([]);
   const [appointmentsList, setAppointmentsList] = useState([]);
 
@@ -34,9 +57,13 @@ export default function AdminDashboard({ currentUser }) {
   const loadAdminData = async () => {
     try {
       const docRes = await apiService.getDoctors();
-      if (docRes.data?.doctors) setDoctorsList(docRes.data.doctors);
+      if (docRes.data?.doctors && docRes.data.doctors.length > 0) {
+        setDoctorsList(docRes.data.doctors);
+      } else {
+        setDoctorsList(FALLBACK_DOCTORS);
+      }
     } catch (e) {
-      console.log('Admin doctors fallback');
+      setDoctorsList(FALLBACK_DOCTORS);
     }
 
     setPatientsList([
