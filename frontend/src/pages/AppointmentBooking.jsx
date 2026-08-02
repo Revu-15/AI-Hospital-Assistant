@@ -268,9 +268,13 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
         doctor_id: bookingDoctor.id,
         doctor_name: bookingDoctor.full_name,
         department: bookingDoctor.department,
+        date: bookingDate,
+        slot: targetSlot,
         appointment_date: bookingDate,
         time_slot: targetSlot,
-        notes: notes
+        symptoms_summary: notes,
+        notes: notes,
+        urgency: "ROUTINE"
       });
 
       setConfirmation({

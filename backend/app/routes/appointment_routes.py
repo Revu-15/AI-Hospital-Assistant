@@ -37,9 +37,28 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
     now = datetime.now()
     today = now.date()
 
+    target_date_str = payload.date or payload.appointment_date
+    target_slot_str = payload.slot or payload.time_slot
+
+    if not target_date_str or not target_slot_str:
+        raise HTTPException(
+            status_code=400,
+            detail="Appointment date and time slot are required."
+        )
+
+    target_date_clean = target_date_str.strip()
+    target_slot_clean = target_slot_str.strip()
+
     # Rule 1: Validate date and time against current server datetime
     try:
-        appt_date = datetime.strptime(payload.date.strip(), "%Y-%m-%d").date()
+        if "-" in target_date_clean:
+            parts = [int(p) for p in target_date_clean.split("-")]
+            if parts[0] > 1000:
+                appt_date = date(parts[0], parts[1], parts[2])
+            else:
+                appt_date = date(parts[2], parts[1], parts[0])
+        else:
+            appt_date = datetime.strptime(target_date_clean, "%Y-%m-%d").date()
     except Exception:
         raise HTTPException(
             status_code=400,
@@ -51,10 +70,10 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
     if not valid_slots:
         raise HTTPException(
             status_code=400,
-            detail=f"Doctor is not available on {appt_date.strftime('%A')} ({payload.date}). Please select a working day."
+            detail=f"Doctor is not available on {appt_date.strftime('%A')} ({target_date_clean}). Please select a working day."
         )
 
-    appt_time = parse_slot_time(payload.slot)
+    appt_time = parse_slot_time(target_slot_clean)
     appt_datetime = datetime.combine(appt_date, appt_time)
 
     # Rule 2: Check if selected slot has already passed
@@ -65,10 +84,11 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
         )
 
     # Prevent duplicate active bookings for the same doctor, date, and time slot
+    formatted_date_db = appt_date.strftime("%Y-%m-%d")
     existing_booking = db.query(AppointmentModel).filter(
         AppointmentModel.doctor_id == payload.doctor_id,
-        AppointmentModel.appointment_date == payload.date,
-        AppointmentModel.appointment_time == payload.slot,
+        AppointmentModel.appointment_date == formatted_date_db,
+        AppointmentModel.appointment_time == target_slot_clean,
         AppointmentModel.status.notin_(["Cancelled", "Cancelled by Doctor"])
     ).first()
 
@@ -81,14 +101,15 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
     # All validations passed -> Save to database
     token = f"TK-CARD-{random.randint(100, 999)}"
     initial_status = "Upcoming" if appt_date == today else "Confirmed"
+    symptoms = payload.symptoms_summary or payload.notes or "General Consultation"
     
     appointment = AppointmentModel(
         patient_id=1,
         doctor_id=payload.doctor_id,
-        appointment_date=payload.date,
-        appointment_time=payload.slot,
-        symptoms_summary=payload.symptoms_summary,
-        triage_urgency=payload.urgency,
+        appointment_date=formatted_date_db,
+        appointment_time=target_slot_clean,
+        symptoms_summary=symptoms,
+        triage_urgency=payload.urgency or "ROUTINE",
         token_number=token,
         status=initial_status
     )

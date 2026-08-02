@@ -163,9 +163,12 @@ class TriageRequestSchema(BaseModel):
 
 class BookAppointmentSchema(BaseModel):
     doctor_id: int
-    date: str
-    slot: str
+    date: Optional[str] = None
+    slot: Optional[str] = None
+    appointment_date: Optional[str] = None
+    time_slot: Optional[str] = None
     symptoms_summary: Optional[str] = None
+    notes: Optional[str] = None
     urgency: Optional[str] = "ROUTINE"
 
 class RAGQuerySchema(BaseModel):
