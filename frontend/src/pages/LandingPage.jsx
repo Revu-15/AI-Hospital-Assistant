@@ -390,15 +390,6 @@ export default function LandingPage({ onNavigate }) {
         </div>
       </section>
 
-      {/* Footer Bar */}
-      <footer className="py-4 px-6 bg-[#005B73] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between text-xs gap-3">
-        <div>© 2026 SmartHospital AI. All rights reserved.</div>
-        <div className="flex gap-4 text-teal-200 font-semibold">
-          <span className="hover:underline cursor-pointer">Terms of Service</span>
-          <span className="hover:underline cursor-pointer">Privacy Policy</span>
-        </div>
-      </footer>
-
     </div>
   );
 }

@@ -252,8 +252,19 @@ export default function AppLayout({ children, activeRoute, onNavigate, currentUs
         </aside>
 
         {/* Main Content Workspace */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
-          {children}
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full flex flex-col justify-between">
+          <div className="space-y-6">
+            {children}
+          </div>
+
+          {/* Universal Blue Footer Bar on Every Page */}
+          <footer className="mt-12 py-3.5 px-6 bg-[#005B73] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between text-xs gap-3 shadow-lg shrink-0">
+            <div className="font-medium">© 2026 SmartHospital AI. All rights reserved.</div>
+            <div className="flex gap-4 text-teal-200 font-semibold">
+              <span className="hover:underline cursor-pointer">Terms of Service</span>
+              <span className="hover:underline cursor-pointer">Privacy Policy</span>
+            </div>
+          </footer>
         </main>
       </div>
 
