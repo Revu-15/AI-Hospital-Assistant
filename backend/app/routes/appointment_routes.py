@@ -29,6 +29,42 @@ class ScheduleConfigSchema(BaseModel):
     lunch_end: str
     sun_holiday: bool
 
+def parse_incoming_date(date_str: str) -> date:
+    if not date_str:
+        return datetime.now().date()
+    clean = date_str.strip()
+
+    # Format 1: ISO format YYYY-MM-DD (e.g. 2026-08-03)
+    try:
+        return datetime.strptime(clean, "%Y-%m-%d").date()
+    except Exception:
+        pass
+
+    # Format 2: European/Indian format DD-MM-YYYY (e.g. 03-08-2026)
+    try:
+        return datetime.strptime(clean, "%d-%m-%Y").date()
+    except Exception:
+        pass
+
+    # Format 3: Slash format DD/MM/YYYY or YYYY/MM/DD
+    try:
+        return datetime.strptime(clean, "%d/%m/%Y").date()
+    except Exception:
+        pass
+
+    # Fallback to manual integer parsing
+    try:
+        sep = "-" if "-" in clean else ("/" if "/" in clean else ".")
+        parts = [int(p) for p in clean.split(sep)]
+        if parts[0] > 1000:
+            return date(parts[0], parts[1], parts[2])
+        elif parts[2] > 1000:
+            return date(parts[2], parts[1], parts[0])
+    except Exception:
+        pass
+
+    return datetime.now().date()
+
 @router.post("/appointments/book")
 @router.post("/api/v1/appointments/book")
 @router.post("/appointments")
@@ -51,14 +87,7 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
 
     # Rule 1: Validate date and time against current server datetime
     try:
-        if "-" in target_date_clean:
-            parts = [int(p) for p in target_date_clean.split("-")]
-            if parts[0] > 1000:
-                appt_date = date(parts[0], parts[1], parts[2])
-            else:
-                appt_date = date(parts[2], parts[1], parts[0])
-        else:
-            appt_date = datetime.strptime(target_date_clean, "%Y-%m-%d").date()
+        appt_date = parse_incoming_date(target_date_clean)
     except Exception:
         raise HTTPException(
             status_code=400,
@@ -244,22 +273,19 @@ def check_availability(
     db: Session = Depends(get_db)
 ):
     now = datetime.now()
-    today_str = now.strftime("%Y-%m-%d")
-    target_date_str = date_str or today_str
+    today_date = now.date()
 
-    try:
-        target_date_obj = datetime.strptime(target_date_str.strip(), "%Y-%m-%d").date()
-    except Exception:
-        target_date_obj = now.date()
+    target_date_obj = parse_incoming_date(date_str)
+    iso_date_str = target_date_obj.strftime("%Y-%m-%d")
 
     # Generate dynamic slots based on doctor's schedule configuration
     all_generated_slots = generate_slots_for_date(target_date_obj, GLOBAL_SCHEDULE_CONFIG)
 
     booked_slots = set()
-    if doctor_id and target_date_str:
+    if doctor_id:
         db_appts = db.query(AppointmentModel).filter(
             AppointmentModel.doctor_id == doctor_id,
-            AppointmentModel.appointment_date == target_date_str,
+            AppointmentModel.appointment_date == iso_date_str,
             AppointmentModel.status.notin_(["Cancelled", "Cancelled by Doctor"])
         ).all()
         booked_slots = {a.appointment_time for a in db_appts}
@@ -270,14 +296,14 @@ def check_availability(
         reason = "available"
         label = "Available"
 
-        # Check if slot passed
-        if target_date_str < today_str:
+        # Check if slot passed using exact Date object comparison
+        if target_date_obj < today_date:
             is_available = False
             reason = "passed"
             label = "Expired"
-        elif target_date_str == today_str:
+        elif target_date_obj == today_date:
             slot_time = parse_slot_time(slot)
-            slot_datetime = datetime.combine(now.date(), slot_time)
+            slot_datetime = datetime.combine(today_date, slot_time)
             if slot_datetime <= now:
                 is_available = False
                 reason = "passed"
@@ -300,7 +326,7 @@ def check_availability(
 
     return {
         "status": "success",
-        "date": target_date_str,
+        "date": iso_date_str,
         "is_holiday": len(all_generated_slots) == 0,
         "available_slots": available_only,
         "slots_detail": slots_info
