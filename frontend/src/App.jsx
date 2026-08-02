@@ -21,6 +21,20 @@ export default function App() {
     return saved ? JSON.parse(saved) : null;
   });
 
+  const GUEST_PATIENT = {
+    id: 9042,
+    full_name: 'John Doe',
+    email: 'john.doe@example.com',
+    role: 'Patient'
+  };
+
+  const GUEST_ADMIN = {
+    id: 1,
+    full_name: 'System Administrator',
+    email: 'admin@smarthospital.ai',
+    role: 'Admin'
+  };
+
   const renderActivePage = () => {
     switch (activeRoute) {
       case 'home':
@@ -28,11 +42,11 @@ export default function App() {
       case 'auth':
         return <AuthPage onNavigate={setActiveRoute} setCurrentUser={setCurrentUser} />;
       case 'patient':
-        return <PatientDashboard onNavigate={setActiveRoute} currentUser={currentUser} />;
+        return <PatientDashboard onNavigate={setActiveRoute} currentUser={currentUser || GUEST_PATIENT} />;
       case 'doctor':
         return <DoctorDashboard />;
       case 'admin':
-        return <AdminDashboard currentUser={currentUser} />;
+        return <AdminDashboard currentUser={currentUser || GUEST_ADMIN} />;
       case 'appointments':
         return <AppointmentBooking onNavigate={setActiveRoute} />;
       case 'medical-records':
