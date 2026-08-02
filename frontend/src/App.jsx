@@ -46,7 +46,9 @@ export default function App() {
       case 'doctor':
         return <DoctorDashboard />;
       case 'admin':
-        return <AdminDashboard currentUser={currentUser || GUEST_ADMIN} />;
+        return currentUser?.role === 'Admin' 
+          ? <AdminDashboard currentUser={currentUser} /> 
+          : <AuthPage onNavigate={setActiveRoute} setCurrentUser={setCurrentUser} initialRole="Admin" />;
       case 'appointments':
         return <AppointmentBooking onNavigate={setActiveRoute} />;
       case 'medical-records':

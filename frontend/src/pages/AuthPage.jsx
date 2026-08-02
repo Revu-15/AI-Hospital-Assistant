@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Heart, User, Lock, Mail, Phone, ArrowRight, CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react';
 import { apiService } from '../api/client';
 
-export default function AuthPage({ onNavigate, setCurrentUser }) {
+export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
   const [isLogin, setIsLogin] = useState(true);
-  const [role, setRole] = useState('Patient'); // Patient, Doctor, Admin
+  const [role, setRole] = useState(initialRole || 'Patient'); // Patient, Doctor, Admin
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
 
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: (initialRole === 'Admin') ? 'admin@smarthospital.ai' : '',
+    password: (initialRole === 'Admin') ? 'Revu@2005_15' : '',
     full_name: '',
     phone: ''
   });
@@ -28,7 +28,7 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
       setIsLogin(true);
       setFormData({
         email: 'admin@smarthospital.ai',
-        password: 'Revu@2005',
+        password: 'Revu@2005_15',
         full_name: '',
         phone: ''
       });
@@ -108,8 +108,8 @@ export default function AuthPage({ onNavigate, setCurrentUser }) {
         setLoading(false);
         return;
       }
-      if (formData.password !== 'Revu@2005') {
-        setErrorMsg('❌ Invalid Admin Password.');
+      if (formData.password !== 'Revu@2005_15' && formData.password !== 'Revu@2005') {
+        setErrorMsg('❌ Invalid Admin Password. (Required password: Revu@2005_15)');
         setLoading(false);
         return;
       }
