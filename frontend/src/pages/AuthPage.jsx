@@ -85,7 +85,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
         full_name: '',
         phone: ''
       });
-      setErrorMsg('Please enter your Admin password (e.g. Revu@2005_15) to proceed.');
+      setErrorMsg('Please enter your Admin password (e.g. 123456) to proceed.');
       return;
     } else if (demoRole === 'Doctor') {
       setRole('Doctor');
@@ -95,7 +95,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
         full_name: '',
         phone: ''
       });
-      setErrorMsg('Please enter doctor password (e.g. Revu@2005) to proceed.');
+      setErrorMsg('Please enter doctor password (e.g. 123456) to proceed.');
       return;
     } else {
       const demoUser = {
