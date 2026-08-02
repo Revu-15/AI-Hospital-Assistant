@@ -27,8 +27,11 @@ export const apiService = {
   register: (patientData) => apiClient.post('/auth/register', patientData),
 
   // Doctors API
-  getDoctors: () => apiClient.get('/doctors'),
+  getDoctors: (query = '', department = '', disease = '') => 
+    apiClient.get('/doctors', { params: { query, department, disease } }),
   getDoctorById: (id) => apiClient.get(`/doctors/${id}`),
+  matchDoctorsBySymptoms: (symptomDescription) => 
+    apiClient.post('/doctors/match-symptoms', { symptom_description: symptomDescription }),
   getDoctorQueue: () => apiClient.get('/doctors/queue/patient-queue'),
 
   // Appointments API

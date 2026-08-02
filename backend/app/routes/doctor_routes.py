@@ -1,75 +1,122 @@
+import os
 import json
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
+from typing import Optional
+from pydantic import BaseModel
+
 from app.database import get_db
 from app.models.schemas import CompleteConsultationSchema, AppointmentModel, DoctorModel
-from app.agents.llm_factory import HospitalLLMFactory
 
-router = APIRouter(tags=["Doctor EHR & Consultation"])
+router = APIRouter(tags=["Doctor EHR & Management"])
 
-DOCTORS_DIRECTORY = [
-    {
-        "id": 101,
-        "full_name": "Dr. Sarah Jenkins",
-        "department": "Cardiology",
-        "specialization": "Interventional Cardiology",
-        "experience_years": 15,
-        "rating": 4.95,
-        "available_slots": ["09:00 AM", "10:30 AM", "02:00 PM"],
-        "hospital": "SmartHospital Central Hospital",
-        "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
-    },
-    {
-        "id": 102,
-        "full_name": "Dr. Rajesh Sharma",
-        "department": "Internal Medicine",
-        "specialization": "General Physician & Diabetologist",
-        "experience_years": 18,
-        "rating": 4.90,
-        "available_slots": ["09:30 AM", "11:30 AM", "03:30 PM"],
-        "hospital": "SmartHospital Central Hospital",
-        "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
-    },
-    {
-        "id": 103,
-        "full_name": "Dr. Emily Chen",
-        "department": "Pediatrics",
-        "specialization": "Pediatric Care & Immunology",
-        "experience_years": 10,
-        "rating": 4.88,
-        "available_slots": ["10:00 AM", "01:00 PM", "04:00 PM"],
-        "hospital": "SmartHospital Women & Child Care",
-        "image": "https://images.unsplash.com/photo-1594824813566-7885a65c192d?auto=format&fit=crop&w=300&q=80"
-    },
-    {
-        "id": 104,
-        "full_name": "Dr. Marcus Vance",
-        "department": "Neurology",
-        "specialization": "Neuro-Physiology & Spine Care",
-        "experience_years": 14,
-        "rating": 4.92,
-        "available_slots": ["11:00 AM", "02:30 PM", "05:00 PM"],
-        "hospital": "SmartHospital Neuro Institute",
-        "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
-    }
-]
+DOCTORS_JSON_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "doctors_database.json")
+
+def load_doctors():
+    if not os.path.exists(DOCTORS_JSON_PATH):
+        return []
+    try:
+        with open(DOCTORS_JSON_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print("Error loading doctors JSON:", e)
+        return []
+
+class SymptomMatchSchema(BaseModel):
+    symptom_description: str
 
 @router.get("/doctors")
 @router.get("/api/v1/doctors")
-def get_doctors():
+def get_doctors(
+    query: Optional[str] = Query(None, description="Search by doctor name, specialization, or disease"),
+    department: Optional[str] = Query(None, description="Filter by department"),
+    disease: Optional[str] = Query(None, description="Filter by disease treated")
+):
+    all_doctors = load_doctors()
+    filtered = all_doctors
+
+    if department:
+        dept_lower = department.strip().lower()
+        filtered = [d for d in filtered if dept_lower in d.get("department", "").lower()]
+
+    if disease:
+        dis_lower = disease.strip().lower()
+        filtered = [
+            d for d in filtered if any(dis_lower in dis.lower() for dis in d.get("diseases_treated", []))
+        ]
+
+    if query:
+        q = query.strip().lower()
+        filtered = [
+            d for d in filtered if (
+                q in d.get("full_name", "").lower() or
+                q in d.get("department", "").lower() or
+                q in d.get("specialization", "").lower() or
+                q in d.get("hospital_name", "").lower() or
+                any(q in dis.lower() for dis in d.get("diseases_treated", []))
+            )
+        ]
+
     return {
         "status": "success",
-        "total": len(DOCTORS_DIRECTORY),
-        "doctors": DOCTORS_DIRECTORY
+        "total": len(filtered),
+        "doctors": filtered
     }
 
 @router.get("/doctors/{doctor_id}")
 @router.get("/api/v1/doctors/{doctor_id}")
 def get_doctor_details(doctor_id: int):
-    doctor = next((d for d in DOCTORS_DIRECTORY if d["id"] == doctor_id), None)
+    all_doctors = load_doctors()
+    doctor = next((d for d in all_doctors if d["id"] == doctor_id), None)
     if not doctor:
         raise HTTPException(status_code=404, detail="Doctor not found")
     return {"status": "success", "doctor": doctor}
+
+@router.post("/doctors/match-symptoms")
+@router.post("/api/v1/doctors/match-symptoms")
+def match_symptoms_with_doctors(payload: SymptomMatchSchema):
+    symptoms_lower = payload.symptom_description.lower()
+    all_doctors = load_doctors()
+
+    # Department mapping keyword rules
+    dept_keywords = {
+        "Cardiology": ["chest pain", "heart", "blood pressure", "breath", "cardiac", "palpitation", "cholesterol", "arm pain"],
+        "Neurology": ["headache", "migraine", "stroke", "numbness", "seizure", "epilepsy", "parkinson", "dizziness", "nerve", "paralysis"],
+        "Orthopedics": ["fracture", "bone", "knee", "joint", "arthritis", "back pain", "spine", "sciatica", "shoulder"],
+        "Dermatology": ["skin", "acne", "rash", "itching", "eczema", "psoriasis", "hair loss", "allergy"],
+        "Gynecology": ["pregnancy", "pcos", "period", "menstrual", "cramps", "ovary", "uterus", "fertility"],
+        "Pediatrics": ["child", "baby", "infant", "fever", "vaccine", "growth", "teething"],
+        "ENT Specialist": ["ear", "sinus", "hearing", "throat", "tonsil", "nose", "bleed", "snoring"],
+        "Ophthalmologist": ["eye", "vision", "blur", "cataract", "glaucoma", "redness", "retina"],
+        "Psychiatrist": ["depression", "anxiety", "stress", "sleep", "insomnia", "panic", "mood", "ocd"],
+        "Gastroenterology": ["stomach", "acidity", "ulcer", "reflux", "gerd", "liver", "jaundice", "diarrhea", "ibs"],
+        "Pulmonology": ["cough", "asthma", "wheezing", "lungs", "copd", "bronchitis", "pneumonia"],
+        "Endocrinology": ["diabetes", "thyroid", "sugar", "hormone", "weight gain", "weight loss"]
+    }
+
+    matched_dept = None
+    for dept, keywords in dept_keywords.items():
+        if any(k in symptoms_lower for k in keywords):
+            matched_dept = dept
+            break
+
+    if not matched_dept:
+        matched_dept = "General Medicine"
+
+    matched_doctors = [d for d in all_doctors if d.get("department") == matched_dept]
+    if not matched_doctors:
+        matched_doctors = all_doctors[:3]
+
+    top_doctor = matched_doctors[0]
+    treated = top_doctor.get("diseases_treated", [])
+
+    return {
+        "status": "success",
+        "recommended_department": matched_dept,
+        "recommended_doctor": top_doctor,
+        "match_reason": f"Specializes in {', '.join(treated[:5])} and {top_doctor.get('specialization')}.",
+        "available_today": top_doctor.get("available_time_slots", ["10:30 AM", "02:30 PM", "04:00 PM"])
+    }
 
 @router.get("/doctors/queue/patient-queue")
 @router.get("/api/v1/doctor/queue")

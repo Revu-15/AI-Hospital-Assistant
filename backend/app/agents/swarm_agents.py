@@ -74,6 +74,25 @@ def get_hospital_info_tool(query: str) -> str:
     """Search hospital directory, timings, and department info."""
     return "SmartHospital Central Hospital: Open 24/7. OPD Hours: 08:00 AM - 08:00 PM. Emergency & ICU: 24 Hours. Location: 4th Block Main Road."
 
+def match_doctor_by_symptoms_tool(symptom_description: str) -> str:
+    """Match patient symptoms to the most relevant doctor based on diseases treated and specialization."""
+    from app.routes.doctor_routes import match_symptoms_with_doctors, SymptomMatchSchema
+    res = match_symptoms_with_doctors(SymptomMatchSchema(symptom_description=symptom_description))
+    dept = res.get("recommended_department")
+    doc = res.get("recommended_doctor", {})
+    reason = res.get("match_reason")
+    slots = res.get("available_today", [])
+
+    slots_str = "\n".join(slots)
+    return (
+        f"Recommended Department:\n{dept}\n\n"
+        f"Recommended Doctor:\n{doc.get('full_name')} ({doc.get('qualification')})\n\n"
+        f"Reason:\n{reason}\n\n"
+        f"Available Today:\n{slots_str}\n\n"
+        f"Hospital: {doc.get('hospital_name')}\n"
+        f"Fee: {doc.get('consultation_fee')}"
+    )
+
 
 # ================= Agent Instances =================
 
@@ -170,10 +189,11 @@ symptom_agent = Agent(
     name="Symptom Checker Agent",
     instructions=(
         "You are the Symptom Checker & Clinical Triage Agent. "
-        "You collect patient symptoms, evaluate potential medical conditions, recommend appropriate hospital departments and specialists, and offer safe home-care advice. "
-        "Always include a medical disclaimer that AI triage does not replace professional medical evaluation."
+        "You collect patient symptoms, evaluate potential medical conditions, recommend appropriate hospital departments and specialists based on diseases treated, and offer doctor matching. "
+        "Always use match_doctor_by_symptoms_tool when a patient describes symptoms to recommend the best matched doctor."
     ),
     functions=[
+        match_doctor_by_symptoms_tool,
         check_doctor_availability_tool,
         transfer_to_appointment_agent,
         transfer_to_emergency_agent,
