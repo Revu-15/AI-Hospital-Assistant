@@ -119,7 +119,7 @@
   },
   {
     "id": 103,
-    "full_name": "Dr. Anil Mehta",
+    "full_name": "Dr. Anil Verma",
     "official_email": "dr.anil@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283902",
     "phone": "+91 98765 43203",
@@ -177,7 +177,7 @@
   },
   {
     "id": 104,
-    "full_name": "Dr. Kavitha Nair",
+    "full_name": "Dr. Kavitha Reddy",
     "official_email": "dr.kavitha@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283903",
     "phone": "+91 98765 43204",
@@ -235,8 +235,8 @@
   },
   {
     "id": 105,
-    "full_name": "Dr. Sunita Deshmukh",
-    "official_email": "dr.sunita@mediconnect.ai",
+    "full_name": "Dr. Rohit Mehta",
+    "official_email": "dr.rohit@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283904",
     "phone": "+91 98765 43205",
     "gender": "Male",
@@ -244,7 +244,7 @@
     "qualification": "MBBS, MCh Orthopedics",
     "experience_years": 9,
     "hospital_name": "SmartHospital Eye Institute",
-    "department": "Gynecology",
+    "department": "Pediatrics",
     "specialization": "Gynecologist & Clinical Care",
     "registration_number": "MCI-749588",
     "languages_spoken": [
@@ -292,8 +292,8 @@
   },
   {
     "id": 106,
-    "full_name": "Dr. Vikram Joshi",
-    "official_email": "dr.vikram@mediconnect.ai",
+    "full_name": "Dr. Sneha Patel",
+    "official_email": "dr.sneha@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283905",
     "phone": "+91 98765 43206",
     "gender": "Female",
@@ -301,7 +301,7 @@
     "qualification": "MBBS, MD Dermatology",
     "experience_years": 10,
     "hospital_name": "SmartHospital Mind & Wellness",
-    "department": "Pediatrics",
+    "department": "Gynecology",
     "specialization": "Pediatrician & Clinical Care",
     "registration_number": "MCI-749735",
     "languages_spoken": [
@@ -349,8 +349,8 @@
   },
   {
     "id": 107,
-    "full_name": "Dr. Ramesh Iyer",
-    "official_email": "dr.ramesh@mediconnect.ai",
+    "full_name": "Dr. Arjun Nair",
+    "official_email": "dr.arjun@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283906",
     "phone": "+91 98765 43207",
     "gender": "Male",
@@ -358,7 +358,7 @@
     "qualification": "MBBS, MS Obstetrics & Gynecology",
     "experience_years": 11,
     "hospital_name": "SmartHospital Digestive Care Center",
-    "department": "ENT Specialist",
+    "department": "ENT",
     "specialization": "ENT Specialist & Clinical Care",
     "registration_number": "MCI-749882",
     "languages_spoken": [
@@ -406,8 +406,8 @@
   },
   {
     "id": 108,
-    "full_name": "Dr. Ananya Roy",
-    "official_email": "dr.ananya@mediconnect.ai",
+    "full_name": "Dr. Meera Iyer",
+    "official_email": "dr.meera@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283907",
     "phone": "+91 98765 43208",
     "gender": "Female",
@@ -415,7 +415,7 @@
     "qualification": "MBBS, MD Pediatrics",
     "experience_years": 12,
     "hospital_name": "SmartHospital Diabetes & Hormone Institute",
-    "department": "Ophthalmologist",
+    "department": "Ophthalmology",
     "specialization": "Ophthalmologist & Clinical Care",
     "registration_number": "MCI-750029",
     "languages_spoken": [
@@ -463,8 +463,8 @@
   },
   {
     "id": 109,
-    "full_name": "Dr. Arvind Swamy",
-    "official_email": "dr.arvind@mediconnect.ai",
+    "full_name": "Dr. Vikram Singh",
+    "official_email": "dr.vikram@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283908",
     "phone": "+91 98765 43209",
     "gender": "Male",
@@ -521,8 +521,8 @@
   },
   {
     "id": 110,
-    "full_name": "Dr. Shalini Gupta",
-    "official_email": "dr.shalini@mediconnect.ai",
+    "full_name": "Dr. Pooja Desai",
+    "official_email": "dr.pooja@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283909",
     "phone": "+91 98765 43210",
     "gender": "Female",
@@ -579,8 +579,8 @@
   },
   {
     "id": 111,
-    "full_name": "Dr. Pradeep Nambiar",
-    "official_email": "dr.pradeep@mediconnect.ai",
+    "full_name": "Dr. Kiran Rao",
+    "official_email": "dr.kiran@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283910",
     "phone": "+91 98765 43211",
     "gender": "Male",
@@ -588,7 +588,7 @@
     "qualification": "MBBS, MD Psychiatry",
     "experience_years": 15,
     "hospital_name": "SmartHospital Cancer Institute",
-    "department": "Gastroenterology",
+    "department": "Nephrology",
     "specialization": "Gastroenterologist & Clinical Care",
     "registration_number": "MCI-750470",
     "languages_spoken": [
@@ -637,8 +637,8 @@
   },
   {
     "id": 112,
-    "full_name": "Dr. Neha Verma",
-    "official_email": "dr.neha@mediconnect.ai",
+    "full_name": "Dr. Deepak Joshi",
+    "official_email": "dr.deepak@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283911",
     "phone": "+91 98765 43212",
     "gender": "Female",
@@ -646,7 +646,7 @@
     "qualification": "MBBS, MD Internal Medicine",
     "experience_years": 16,
     "hospital_name": "SmartHospital Heart & Vascular Institute",
-    "department": "Endocrinology",
+    "department": "Gastroenterology",
     "specialization": "Endocrinologist & Clinical Care",
     "registration_number": "MCI-750617",
     "languages_spoken": [
@@ -695,8 +695,8 @@
   },
   {
     "id": 113,
-    "full_name": "Dr. Sanjay Bhattacharya",
-    "official_email": "dr.sanjay@mediconnect.ai",
+    "full_name": "Dr. Nisha Gupta",
+    "official_email": "dr.nisha@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283912",
     "phone": "+91 98765 43213",
     "gender": "Male",
@@ -704,7 +704,7 @@
     "qualification": "MBBS, DM Gastroenterology",
     "experience_years": 17,
     "hospital_name": "SmartHospital Central Hospital",
-    "department": "Nephrology",
+    "department": "Endocrinology",
     "specialization": "Nephrologist & Clinical Care",
     "registration_number": "MCI-750764",
     "languages_spoken": [
@@ -753,8 +753,8 @@
   },
   {
     "id": 114,
-    "full_name": "Dr. Meenakshi Sundaram",
-    "official_email": "dr.meenakshi@mediconnect.ai",
+    "full_name": "Dr. Sanjay Kulkarni",
+    "official_email": "dr.sanjay@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283913",
     "phone": "+91 98765 43214",
     "gender": "Female",
@@ -812,8 +812,8 @@
   },
   {
     "id": 115,
-    "full_name": "Dr. Alok Kulkarni",
-    "official_email": "dr.alok@mediconnect.ai",
+    "full_name": "Dr. Lakshmi Devi",
+    "official_email": "dr.lakshmi@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283914",
     "phone": "+91 98765 43215",
     "gender": "Male",
@@ -870,8 +870,8 @@
   },
   {
     "id": 116,
-    "full_name": "Dr. Deepa Sengupta",
-    "official_email": "dr.deepa@mediconnect.ai",
+    "full_name": "Dr. Amit Agarwal",
+    "official_email": "dr.amit@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283915",
     "phone": "+91 98765 43216",
     "gender": "Female",
@@ -879,7 +879,7 @@
     "qualification": "MBBS, DM Pulmonology",
     "experience_years": 20,
     "hospital_name": "SmartHospital Women & Child Care",
-    "department": "Cardiology",
+    "department": "Urology",
     "specialization": "Cardiologist & Clinical Care",
     "registration_number": "MCI-751205",
     "languages_spoken": [
@@ -929,8 +929,8 @@
   },
   {
     "id": 117,
-    "full_name": "Dr. Tushar Chawla",
-    "official_email": "dr.tushar@mediconnect.ai",
+    "full_name": "Dr. Harish Babu",
+    "official_email": "dr.harish@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283916",
     "phone": "+91 98765 43217",
     "gender": "Male",
@@ -938,7 +938,7 @@
     "qualification": "MBBS, DM Medical Oncology",
     "experience_years": 21,
     "hospital_name": "SmartHospital Eye Institute",
-    "department": "Neurology",
+    "department": "Radiology",
     "specialization": "Neurologist & Clinical Care",
     "registration_number": "MCI-751352",
     "languages_spoken": [
@@ -988,8 +988,8 @@
   },
   {
     "id": 118,
-    "full_name": "Dr. Anushree Khan",
-    "official_email": "dr.anushree@mediconnect.ai",
+    "full_name": "Dr. Swathi Krishna",
+    "official_email": "dr.swathi@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283917",
     "phone": "+91 98765 43218",
     "gender": "Female",
@@ -997,7 +997,7 @@
     "qualification": "MBBS, MD",
     "experience_years": 22,
     "hospital_name": "SmartHospital Mind & Wellness",
-    "department": "Orthopedics",
+    "department": "Anesthesiology",
     "specialization": "Orthopedic Surgeon & Clinical Care",
     "registration_number": "MCI-751499",
     "languages_spoken": [
@@ -1046,8 +1046,8 @@
   },
   {
     "id": 119,
-    "full_name": "Dr. Vivek Sundar",
-    "official_email": "dr.vivek@mediconnect.ai",
+    "full_name": "Dr. Naveen Reddy",
+    "official_email": "dr.naveen@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283918",
     "phone": "+91 98765 43219",
     "gender": "Male",
@@ -1055,7 +1055,7 @@
     "qualification": "MBBS, MS",
     "experience_years": 23,
     "hospital_name": "SmartHospital Digestive Care Center",
-    "department": "Dermatology",
+    "department": "Emergency Medicine",
     "specialization": "Dermatologist & Clinical Care",
     "registration_number": "MCI-751646",
     "languages_spoken": [
@@ -1104,8 +1104,8 @@
   },
   {
     "id": 120,
-    "full_name": "Dr. Farida Pillai",
-    "official_email": "dr.farida@mediconnect.ai",
+    "full_name": "Dr. Divya Menon",
+    "official_email": "dr.divya@mediconnect.ai",
     "password_hash": "$2b$12$K8920194819284910283910283910283919",
     "phone": "+91 98765 43220",
     "gender": "Female",
@@ -1113,7 +1113,7 @@
     "qualification": "MBBS, DM Cardiology",
     "experience_years": 24,
     "hospital_name": "SmartHospital Diabetes & Hormone Institute",
-    "department": "Gynecology",
+    "department": "Rheumatology",
     "specialization": "Gynecologist & Clinical Care",
     "registration_number": "MCI-751793",
     "languages_spoken": [
