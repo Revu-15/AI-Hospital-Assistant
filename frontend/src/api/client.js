@@ -36,6 +36,7 @@ export const apiService = {
 
   // Appointments API
   getAppointments: () => apiClient.get('/appointments'),
+  checkAvailability: (doctorId, dateStr) => apiClient.get('/appointments/availability', { params: { doctor_id: doctorId, date_str: dateStr } }),
   bookAppointment: (payload) => apiClient.post('/appointments/book', payload),
   cancelAppointment: (id) => apiClient.post(`/appointments/cancel/${id}`),
   rescheduleAppointment: (payload) => apiClient.post('/appointments/reschedule', payload),

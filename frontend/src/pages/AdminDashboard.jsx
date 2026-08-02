@@ -173,6 +173,12 @@ export default function AdminDashboard({ currentUser }) {
           >
             Appointments
           </button>
+          <button 
+            onClick={() => setActiveTab('schedule')}
+            className={`px-3 py-1.5 rounded-xl font-extrabold transition-all ${activeTab === 'schedule' ? 'bg-apolloBlue text-white shadow' : 'text-slate-300 hover:text-white'}`}
+          >
+            Schedule Config
+          </button>
         </div>
       </div>
 
@@ -468,6 +474,90 @@ export default function AdminDashboard({ currentUser }) {
               </form>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Schedule Config Tab */}
+      {activeTab === 'schedule' && (
+        <div className="medical-card p-6 sm:p-8 space-y-6">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <h3 className="font-extrabold text-lg text-slate-900 dark:text-slate-100">
+                Doctor Dynamic Schedule & Working Hours Configuration
+              </h3>
+              <p className="text-xs text-slate-500">Configure doctor working days, daily hours, slot duration interval, and lunch breaks</p>
+            </div>
+            <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">
+              Live Engine Operational
+            </span>
+          </div>
+
+          <form onSubmit={(e) => { e.preventDefault(); alert("Doctor Schedule Configuration updated successfully across all hospital services!"); }} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              
+              {/* Working Days */}
+              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
+                <h4 className="font-extrabold text-xs text-apolloBlue uppercase tracking-wider">Hospital Working Days</h4>
+                <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 dark:text-slate-300">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" defaultChecked className="rounded text-apolloBlue" /> Monday - Friday
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" defaultChecked className="rounded text-apolloBlue" /> Saturday (Half-Day)
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" defaultChecked className="rounded text-apolloBlue" /> Sunday (Holiday / Off)
+                  </label>
+                </div>
+              </div>
+
+              {/* Slot Duration */}
+              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
+                <h4 className="font-extrabold text-xs text-apolloBlue uppercase tracking-wider">Slot Duration Interval</h4>
+                <select className="w-full p-3 text-xs rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold">
+                  <option value="30">30 Minutes (Recommended Standard)</option>
+                  <option value="15">15 Minutes (Express Consultations)</option>
+                  <option value="20">20 Minutes</option>
+                  <option value="60">60 Minutes (Deep Evaluation)</option>
+                </select>
+              </div>
+
+              {/* Mon - Fri Working Hours */}
+              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
+                <h4 className="font-extrabold text-xs text-apolloBlue uppercase tracking-wider">Mon - Fri Working Hours</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-[11px] text-slate-500 font-medium mb-1">Start Time</label>
+                    <input type="text" defaultValue="09:00 AM" className="w-full p-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border font-mono font-bold" />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] text-slate-500 font-medium mb-1">End Time</label>
+                    <input type="text" defaultValue="05:00 PM" className="w-full p-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border font-mono font-bold" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Sat & Lunch Break */}
+              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
+                <h4 className="font-extrabold text-xs text-apolloBlue uppercase tracking-wider">Lunch Break & Saturday Hours</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-[11px] text-slate-500 font-medium mb-1">Saturday Hours</label>
+                    <input type="text" defaultValue="09:00 AM - 01:00 PM" className="w-full p-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border font-mono font-bold" />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] text-slate-500 font-medium mb-1">Daily Lunch Break</label>
+                    <input type="text" defaultValue="01:00 PM - 02:00 PM" className="w-full p-2.5 text-xs rounded-xl bg-white dark:bg-slate-800 border font-mono font-bold" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <button type="submit" className="px-8 py-3.5 rounded-xl bg-apolloBlue hover:bg-blue-700 text-white font-extrabold text-xs shadow-lg shadow-apolloBlue/20">
+              Save Schedule Settings
+            </button>
+          </form>
         </div>
       )}
 

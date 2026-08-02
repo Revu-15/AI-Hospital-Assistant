@@ -4,16 +4,30 @@ from datetime import datetime
 from app.database import get_db
 from app.models.schemas import AppointmentModel, BookAppointmentSchema, DoctorModel
 from app.utils.status_evaluator import evaluate_status, sync_appointments_in_db, parse_slot_time
+from app.utils.schedule_generator import generate_slots_for_date, DEFAULT_SCHEDULE_CONFIG
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 import random
 
-router = APIRouter(tags=["Appointments"])
+router = APIRouter(tags=["Appointments & Dynamic Scheduling"])
+
+GLOBAL_SCHEDULE_CONFIG = dict(DEFAULT_SCHEDULE_CONFIG)
 
 class RescheduleSchema(BaseModel):
     appointment_id: int
     new_date: str
     new_slot: str
+
+class ScheduleConfigSchema(BaseModel):
+    work_days: List[str]
+    slot_duration_minutes: int
+    mon_fri_start: str
+    mon_fri_end: str
+    sat_start: str
+    sat_end: str
+    lunch_start: str
+    lunch_end: str
+    sun_holiday: bool
 
 @router.post("/appointments/book")
 @router.post("/api/v1/appointments/book")
@@ -32,17 +46,25 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
             detail="Invalid date format. Please select a valid appointment date."
         )
 
+    # Validate working days / holidays for doctor
+    valid_slots = generate_slots_for_date(appt_date, GLOBAL_SCHEDULE_CONFIG)
+    if not valid_slots:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Doctor is not available on {appt_date.strftime('%A')} ({payload.date}). Please select a working day."
+        )
+
     appt_time = parse_slot_time(payload.slot)
     appt_datetime = datetime.combine(appt_date, appt_time)
 
-    # Rule 2 & 3: Check if selected slot has already passed
+    # Rule 2: Check if selected slot has already passed
     if appt_datetime <= now:
         raise HTTPException(
             status_code=400,
             detail="The selected appointment slot has already passed. Please choose another available time."
         )
 
-    # Rule 8 & 9: Prevent duplicate active bookings for the same doctor, date, and time slot
+    # Prevent duplicate active bookings for the same doctor, date, and time slot
     existing_booking = db.query(AppointmentModel).filter(
         AppointmentModel.doctor_id == payload.doctor_id,
         AppointmentModel.appointment_date == payload.date,
@@ -93,7 +115,6 @@ def list_appointments(db: Session = Depends(get_db)):
     sync_appointments_in_db(db)
     appointments = db.query(AppointmentModel).all()
     
-    # Initial sample appointments evaluated with real-time status rules
     raw_samples = [
         {
             "id": 1,
@@ -205,11 +226,13 @@ def check_availability(
     today_str = now.strftime("%Y-%m-%d")
     target_date_str = date_str or today_str
 
-    default_slots = [
-        "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", 
-        "11:00 AM", "11:30 AM", "12:00 PM", "01:30 PM", 
-        "02:00 PM", "03:00 PM", "04:00 PM", "04:30 PM", "05:00 PM"
-    ]
+    try:
+        target_date_obj = datetime.strptime(target_date_str.strip(), "%Y-%m-%d").date()
+    except Exception:
+        target_date_obj = now.date()
+
+    # Generate dynamic slots based on doctor's schedule configuration
+    all_generated_slots = generate_slots_for_date(target_date_obj, GLOBAL_SCHEDULE_CONFIG)
 
     booked_slots = set()
     if doctor_id and target_date_str:
@@ -221,30 +244,35 @@ def check_availability(
         booked_slots = {a.appointment_time for a in db_appts}
 
     slots_info = []
-    for slot in default_slots:
+    for slot in all_generated_slots:
         is_available = True
         reason = "available"
+        label = "Available"
 
-        # Check if slot passed (if target date is today or earlier)
+        # Check if slot passed
         if target_date_str < today_str:
             is_available = False
             reason = "passed"
+            label = "Expired"
         elif target_date_str == today_str:
             slot_time = parse_slot_time(slot)
             slot_datetime = datetime.combine(now.date(), slot_time)
             if slot_datetime <= now:
                 is_available = False
                 reason = "passed"
+                label = "Expired"
 
         # Check if slot already booked
         if is_available and slot in booked_slots:
             is_available = False
             reason = "booked"
+            label = "Booked"
 
         slots_info.append({
             "slot": slot,
             "available": is_available,
-            "reason": reason
+            "reason": reason,
+            "label": label
         })
 
     available_only = [s["slot"] for s in slots_info if s["available"]]
@@ -252,6 +280,32 @@ def check_availability(
     return {
         "status": "success",
         "date": target_date_str,
+        "is_holiday": len(all_generated_slots) == 0,
         "available_slots": available_only,
         "slots_detail": slots_info
+    }
+
+# Admin API to view & update dynamic scheduling rules
+@router.get("/admin/schedule-config")
+@router.get("/api/v1/admin/schedule-config")
+def get_schedule_config():
+    return {
+        "status": "success",
+        "config": GLOBAL_SCHEDULE_CONFIG
+    }
+
+@router.post("/admin/schedule-config")
+@router.post("/api/v1/admin/schedule-config")
+def update_schedule_config(payload: ScheduleConfigSchema):
+    GLOBAL_SCHEDULE_CONFIG["work_days"] = payload.work_days
+    GLOBAL_SCHEDULE_CONFIG["slot_duration_minutes"] = payload.slot_duration_minutes
+    GLOBAL_SCHEDULE_CONFIG["mon_fri_hours"] = {"start": payload.mon_fri_start, "end": payload.mon_fri_end}
+    GLOBAL_SCHEDULE_CONFIG["sat_hours"] = {"start": payload.sat_start, "end": payload.sat_end}
+    GLOBAL_SCHEDULE_CONFIG["lunch_break"] = {"start": payload.lunch_start, "end": payload.lunch_end}
+    GLOBAL_SCHEDULE_CONFIG["sun_holiday"] = payload.sun_holiday
+
+    return {
+        "status": "success",
+        "message": "Doctor schedule configuration updated successfully!",
+        "config": GLOBAL_SCHEDULE_CONFIG
     }
