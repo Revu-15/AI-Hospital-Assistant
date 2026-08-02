@@ -11,7 +11,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
 
   const [formData, setFormData] = useState({
     email: (initialRole === 'Admin') ? 'admin@smarthospital.ai' : '',
-    password: (initialRole === 'Admin') ? 'Revu@2005_15' : '',
+    password: '',
     full_name: '',
     phone: ''
   });
@@ -28,21 +28,21 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
       setIsLogin(true);
       setFormData({
         email: 'admin@smarthospital.ai',
-        password: 'Revu@2005_15',
+        password: '',
         full_name: '',
         phone: ''
       });
     } else if (selectedRole === 'Doctor') {
       setFormData({
         email: 'dr.jenkins@smarthospital.ai',
-        password: 'doctor123',
+        password: '',
         full_name: '',
         phone: ''
       });
     } else {
       setFormData({
         email: 'john.doe@example.com',
-        password: 'patient123',
+        password: '',
         full_name: '',
         phone: ''
       });
@@ -50,25 +50,21 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
   };
 
   const handleQuickLogin = (demoRole) => {
-    setLoading(true);
     setErrorMsg('');
     setSuccessMsg('');
 
-    let demoUser;
     if (demoRole === 'Admin') {
-      demoUser = {
-        id: 1,
-        full_name: 'System Administrator',
+      setRole('Admin');
+      setFormData({
         email: 'admin@smarthospital.ai',
-        role: 'Admin'
-      };
-      localStorage.setItem('access_token', 'admin-super-jwt-token-99882');
-      localStorage.setItem('user', JSON.stringify(demoUser));
-      setCurrentUser(demoUser);
-      setSuccessMsg('Logged in as System Admin! Redirecting to Admin Dashboard...');
-      setTimeout(() => onNavigate('admin'), 600);
+        password: '',
+        full_name: '',
+        phone: ''
+      });
+      setErrorMsg('Please enter your Admin password to proceed.');
+      return;
     } else if (demoRole === 'Doctor') {
-      demoUser = {
+      const demoUser = {
         id: 101,
         full_name: 'Dr. Sarah Jenkins',
         email: 'dr.jenkins@smarthospital.ai',
@@ -80,7 +76,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
       setSuccessMsg('Logged in as Dr. Sarah Jenkins! Redirecting to Doctor Portal...');
       setTimeout(() => onNavigate('doctor'), 600);
     } else {
-      demoUser = {
+      const demoUser = {
         id: 9042,
         full_name: 'John Doe',
         email: 'john.doe@example.com',
@@ -109,7 +105,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
         return;
       }
       if (formData.password !== 'Revu@2005_15' && formData.password !== 'Revu@2005') {
-        setErrorMsg('❌ Invalid Admin Password. (Required password: Revu@2005_15)');
+        setErrorMsg('❌ Invalid Admin Password.');
         setLoading(false);
         return;
       }
@@ -299,7 +295,7 @@ export default function AuthPage({ onNavigate, setCurrentUser, initialRole }) {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="••••••••"
+                placeholder="•••••••• (e.g. 123456)"
                 className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-apolloBlue/40 outline-none text-slate-800 dark:text-slate-100"
               />
             </div>
