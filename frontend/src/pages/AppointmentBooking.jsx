@@ -30,7 +30,7 @@ const DEFAULT_DOCTORS = [
   { id: 120, full_name: "Dr. Divya Menon", official_email: "dr.divya@mediconnect.ai", department: "Rheumatology", qualification: "MBBS, DM Rheumatology", experience_years: 13, consultation_fee: "$50 / ₹1500", hospital_name: "SmartHospital Joint & Autoimmune Clinic", specialization: "Autoimmune Joint Disorders", diseases_treated: ["Rheumatoid Arthritis", "Lupus / SLE", "Ankylosing Spondylitis"], patient_rating: 4.90, available_time_slots: ["10:30 AM", "01:30 PM", "04:30 PM"], professional_photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" }
 ];
 
-export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
+export default function AppointmentBooking({ onNavigate, onChatWithDoctor, currentUser }) {
   const [doctors, setDoctors] = useState(DEFAULT_DOCTORS);
   const [selectedDept, setSelectedDept] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -143,7 +143,7 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     }
   };
 
-  const [patientName, setPatientName] = useState(currentUser?.full_name || 'Rahul Verma');
+  const [patientName, setPatientName] = useState(() => (typeof currentUser !== 'undefined' && currentUser?.full_name) ? currentUser.full_name : 'Rahul Verma');
   const [bookingError, setBookingError] = useState('');
   const [dynamicSlots, setDynamicSlots] = useState([]);
   const [isHoliday, setIsHoliday] = useState(false);

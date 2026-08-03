@@ -90,7 +90,7 @@ export default function App() {
           ? <AdminDashboard currentUser={currentUser} /> 
           : <AuthPage onNavigate={setActiveRoute} setCurrentUser={setCurrentUser} initialRole="Admin" />;
       case 'appointments':
-        return <AppointmentBooking onNavigate={setActiveRoute} />;
+        return <AppointmentBooking onNavigate={setActiveRoute} currentUser={currentUser} />;
       case 'medical-records':
         return <MedicalRecords />;
       case 'prescriptions':
