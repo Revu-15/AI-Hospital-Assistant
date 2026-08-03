@@ -56,11 +56,19 @@ export default function AdminDashboard({ currentUser }) {
 
   const loadAdminData = async () => {
     try {
-      const docRes = await apiService.getDoctors();
-      if (docRes.data?.doctors && docRes.data.doctors.length > 0) {
-        setDoctorsList(docRes.data.doctors);
+      const [docRes, apptRes] = await Promise.allSettled([
+        apiService.getDoctors(),
+        apiService.getAppointments()
+      ]);
+
+      if (docRes.status === 'fulfilled' && docRes.value.data?.doctors?.length > 0) {
+        setDoctorsList(docRes.value.data.doctors);
       } else {
         setDoctorsList(FALLBACK_DOCTORS);
+      }
+
+      if (apptRes.status === 'fulfilled' && apptRes.value.data?.appointments?.length > 0) {
+        setAppointmentsList(apptRes.value.data.appointments);
       }
     } catch (e) {
       setDoctorsList(FALLBACK_DOCTORS);
@@ -70,12 +78,6 @@ export default function AdminDashboard({ currentUser }) {
       { id: 1, full_name: "Rahul Verma", email: "rahul.verma@example.com", phone: "+91 98765 11001", insurance: "Star Health", appointments_cnt: 3, total_billed: "$450" },
       { id: 2, full_name: "Sarah Connor", email: "sarah.c@example.com", phone: "+91 98765 11002", insurance: "Apollo Munich", appointments_cnt: 2, total_billed: "$300" },
       { id: 3, full_name: "Vikram Singh", email: "vikram.s@example.com", phone: "+91 98765 11003", insurance: "Max Bupa", appointments_cnt: 5, total_billed: "$920" }
-    ]);
-
-    setAppointmentsList([
-      { id: "APT-9041", patient_name: "Rahul Verma", doctor_name: "Dr. Rajesh Kumar", department: "Cardiology", date: "2026-08-02", time: "10:30 AM", status: "Completed", diagnosis: "Mild Angina", payment_status: "Paid" },
-      { id: "APT-9042", patient_name: "Sarah Connor", doctor_name: "Dr. Priya Sharma", department: "Neurology", date: "2026-08-02", time: "11:30 AM", status: "In Progress", diagnosis: "Migraine Evaluation", payment_status: "Paid" },
-      { id: "APT-9043", patient_name: "Vikram Singh", doctor_name: "Dr. Anil Mehta", department: "Orthopedics", date: "2026-08-02", time: "02:00 PM", status: "Scheduled", diagnosis: "Knee Pain Check", payment_status: "Pending" }
     ]);
   };
 

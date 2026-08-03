@@ -143,6 +143,7 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     }
   };
 
+  const [patientName, setPatientName] = useState(currentUser?.full_name || 'Rahul Verma');
   const [bookingError, setBookingError] = useState('');
   const [dynamicSlots, setDynamicSlots] = useState([]);
   const [isHoliday, setIsHoliday] = useState(false);
@@ -218,35 +219,49 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
   const fetchSlots = async (docId, dateStr) => {
     if (!docId || !dateStr) return;
 
+    let slots = [];
+    let holiday = false;
+
     try {
       const res = await apiService.checkAvailability(docId, dateStr);
       if (res.data?.slots_detail && Array.isArray(res.data.slots_detail)) {
-        setDynamicSlots(res.data.slots_detail);
-        setIsHoliday(res.data.is_holiday || false);
-        return;
+        slots = res.data.slots_detail;
+        holiday = res.data.is_holiday || false;
       }
     } catch (e) {
       console.log('Availability fetch fallback');
     }
 
-    const baseSlots = [
-      "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-      "12:00 PM", "12:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM",
-      "04:00 PM", "04:30 PM", "05:00 PM"
-    ];
+    if (!slots || slots.length === 0) {
+      const baseSlots = [
+        "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+        "12:00 PM", "12:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM",
+        "04:00 PM", "04:30 PM", "05:00 PM"
+      ];
 
-    const mapped = baseSlots.map(s => {
-      const expired = isSlotExpired(s, dateStr);
-      return {
-        slot: s,
-        available: !expired,
-        reason: expired ? 'passed' : 'available',
-        label: expired ? 'Expired' : 'Available'
-      };
+      slots = baseSlots.map(s => {
+        const expired = isSlotExpired(s, dateStr);
+        return {
+          slot: s,
+          available: !expired,
+          reason: expired ? 'passed' : 'available',
+          label: expired ? 'Expired' : 'Available'
+        };
+      });
+    }
+
+    setDynamicSlots(slots);
+    setIsHoliday(holiday);
+
+    // Auto-select valid slot if current selectedSlot is invalid, expired, or booked
+    const availableSlots = slots.filter(s => s && s.available && s.reason !== 'passed' && s.reason !== 'booked' && !isSlotExpired(s.slot, dateStr));
+    
+    setSelectedSlot(prevSlot => {
+      if (prevSlot && availableSlots.some(s => s.slot === prevSlot)) {
+        return prevSlot;
+      }
+      return availableSlots.length > 0 ? availableSlots[0].slot : '';
     });
-
-    setDynamicSlots(mapped);
-    setIsHoliday(false);
   };
 
   const handleBookSubmit = async (e) => {
@@ -254,9 +269,12 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     if (!bookingDoctor) return;
     setBookingError('');
 
-    const targetSlot = selectedSlot || dynamicSlots.find(s => s.available)?.slot || '10:00 AM';
+    if (!selectedSlot) {
+      setBookingError("No available time slot is selected. Please choose a valid available time slot.");
+      return;
+    }
 
-    if (isSlotExpired(targetSlot, bookingDate)) {
+    if (isSlotExpired(selectedSlot, bookingDate)) {
       setBookingError("The selected appointment slot has already passed. Please choose another available time.");
       return;
     }
@@ -264,25 +282,49 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
     setBookingLoading(true);
 
     try {
+      const pName = patientName.trim() || currentUser?.full_name || 'John Doe';
       const res = await apiService.bookAppointment({
         doctor_id: bookingDoctor.id,
         doctor_name: bookingDoctor.full_name,
+        patient_name: pName,
         department: bookingDoctor.department,
         date: bookingDate,
-        slot: targetSlot,
+        slot: selectedSlot,
         appointment_date: bookingDate,
-        time_slot: targetSlot,
+        time_slot: selectedSlot,
         symptoms_summary: notes,
         notes: notes,
         urgency: "ROUTINE"
       });
 
-      setConfirmation({
-        token_number: res.data?.token_number || `TK-${bookingDoctor.department.substring(0,4).toUpperCase()}-${Math.floor(100 + Math.random() * 900)}`,
+      const newAppt = {
+        id: `APT-${Math.floor(1000 + Math.random() * 9000)}`,
+        patient_id: "PAT-1008",
+        patient_name: pName,
+        doctor_id: bookingDoctor.id,
         doctor_name: bookingDoctor.full_name,
         department: bookingDoctor.department,
         date: bookingDate,
-        time: targetSlot,
+        time: selectedSlot,
+        symptoms: notes || "Routine consultation & symptom review",
+        status: "Upcoming",
+        payment_status: "Paid",
+        medical_report: "Appointment Confirmed & Patient History Attached"
+      };
+
+      try {
+        const saved = JSON.parse(localStorage.getItem('user_appointments') || '[]');
+        saved.unshift(newAppt);
+        localStorage.setItem('user_appointments', JSON.stringify(saved));
+      } catch (e) {}
+
+      setConfirmation({
+        token_number: res.data?.token_number || `TK-${bookingDoctor.department.substring(0,4).toUpperCase()}-${Math.floor(100 + Math.random() * 900)}`,
+        patient_name: pName,
+        doctor_name: bookingDoctor.full_name,
+        department: bookingDoctor.department,
+        date: bookingDate,
+        time: selectedSlot,
         room: bookingDoctor.room_number || 'OPD Wing A'
       });
       setBookingDoctor(null);
@@ -307,8 +349,11 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
         doctor={activeDoctorDetail} 
         onBack={() => setActiveDoctorDetail(null)}
         onBookAppointment={(doc, slot) => {
+          setActiveDoctorDetail(null);
           setBookingDoctor(doc);
-          setSelectedSlot(slot);
+          setSelectedSlot(slot || '');
+          setBookingError('');
+          setBookingDate(getTodayLocalDateStr());
         }}
         onChatWithAI={(doc) => {
           if (onChatWithDoctor) onChatWithDoctor(doc);
@@ -694,6 +739,18 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
               </div>
 
               <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Patient Full Name</label>
+                <input 
+                  type="text"
+                  placeholder="e.g. Rahul Verma, John Doe..."
+                  value={patientName}
+                  onChange={e => setPatientName(e.target.value)}
+                  className="w-full p-3 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none text-slate-800 dark:text-slate-100 font-semibold"
+                  required
+                />
+              </div>
+
+              <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Visit Reason / Symptoms</label>
                 <textarea 
                   rows={2}
@@ -729,6 +786,7 @@ export default function AppointmentBooking({ onNavigate, onChatWithDoctor }) {
 
             <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-left space-y-1 text-xs">
               <p className="text-slate-700 dark:text-slate-300"><strong>Token Number:</strong> <span className="text-apolloBlue font-extrabold">{confirmation.token_number}</span></p>
+              <p className="text-slate-700 dark:text-slate-300"><strong>Patient Name:</strong> <span className="font-extrabold text-slate-900 dark:text-slate-100">{confirmation.patient_name}</span></p>
               <p className="text-slate-700 dark:text-slate-300"><strong>Doctor:</strong> {confirmation.doctor_name}</p>
               <p className="text-slate-700 dark:text-slate-300"><strong>Department:</strong> {confirmation.department}</p>
               <p className="text-slate-700 dark:text-slate-300"><strong>Date & Time:</strong> {confirmation.date} at {confirmation.time}</p>

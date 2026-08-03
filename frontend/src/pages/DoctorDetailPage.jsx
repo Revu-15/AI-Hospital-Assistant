@@ -13,25 +13,9 @@ export default function DoctorDetailPage({ doctor, onBack, onBookAppointment, on
 
   if (!doctor) return null;
 
-  const handleBook = async () => {
-    setLoading(true);
-    try {
-      await apiService.bookAppointment({
-        doctor_id: doctor.id,
-        doctor_name: doctor.full_name,
-        department: doctor.department,
-        appointment_date: new Date().toISOString().split('T')[0],
-        time_slot: selectedSlot,
-        notes: `Consultation for ${doctor.specialization}`
-      });
-      setBookingSuccess(true);
-      if (onBookAppointment) {
-        onBookAppointment(doctor, selectedSlot);
-      }
-    } catch (err) {
-      setBookingSuccess(true); // Fallback confirmation
-    } finally {
-      setLoading(false);
+  const handleBook = () => {
+    if (onBookAppointment) {
+      onBookAppointment(doctor, selectedSlot);
     }
   };
 

@@ -61,6 +61,7 @@ class AppointmentModel(Base):
     id = Column(Integer, primary_key=True, index=True)
     patient_id = Column(Integer, ForeignKey("patients.id"), nullable=False)
     doctor_id = Column(Integer, ForeignKey("doctors.id"), nullable=False)
+    patient_name = Column(String(100), nullable=True, default="John Doe")
     appointment_date = Column(String(20), nullable=False)
     appointment_time = Column(String(20), nullable=False)
     status = Column(String(20), default="Scheduled")
@@ -163,6 +164,7 @@ class TriageRequestSchema(BaseModel):
 
 class BookAppointmentSchema(BaseModel):
     doctor_id: int
+    patient_name: Optional[str] = "John Doe"
     date: Optional[str] = None
     slot: Optional[str] = None
     appointment_date: Optional[str] = None

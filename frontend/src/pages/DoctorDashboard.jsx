@@ -124,6 +124,9 @@ export default function DoctorDashboard({ currentUser }) {
 
   useEffect(() => {
     loadDoctors();
+    loadAppointments();
+    const interval = setInterval(loadAppointments, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const loadDoctors = async () => {
@@ -135,6 +138,43 @@ export default function DoctorDashboard({ currentUser }) {
     } catch (e) {
       setDoctorsList(MASTER_DOCTORS);
     }
+  };
+
+  const loadAppointments = async () => {
+    let combined = [];
+
+    // 1. Load local appointments stored during booking
+    try {
+      const saved = JSON.parse(localStorage.getItem('user_appointments') || '[]');
+      if (Array.isArray(saved)) {
+        combined = [...saved];
+      }
+    } catch (e) {}
+
+    // 2. Load backend appointments
+    try {
+      const res = await apiService.getAppointments();
+      if (res.data?.appointments && Array.isArray(res.data.appointments)) {
+        const existingIds = new Set(combined.map(a => String(a.id)));
+        res.data.appointments.forEach(a => {
+          if (!existingIds.has(String(a.id))) {
+            combined.push(a);
+          }
+        });
+      }
+    } catch (e) {
+      console.log('Appointments fetch fallback');
+    }
+
+    // 3. Fallback to master mock appointments
+    const existingIds = new Set(combined.map(a => String(a.id)));
+    MASTER_APPOINTMENTS_STORE.forEach(a => {
+      if (!existingIds.has(String(a.id))) {
+        combined.push(a);
+      }
+    });
+
+    setAppointments(combined);
   };
 
   const departments = [
@@ -413,35 +453,19 @@ export default function DoctorDashboard({ currentUser }) {
                 a.doctor_id === selectedDoctor.id || a.doctor_name?.toLowerCase() === selectedDoctor.full_name?.toLowerCase()
               );
 
-              // Fallback sample appointments if empty
-              const displayAppts = docAppts.length > 0 ? docAppts : [
-                {
-                  id: "APT-901",
-                  patient_id: "PAT-1001",
-                  patient_name: "Rahul Verma",
-                  doctor_id: selectedDoctor.id,
-                  doctor_name: selectedDoctor.full_name,
-                  date: "2026-08-02",
-                  time: "10:30 AM",
-                  symptoms: "Chest tightness, exertion fatigue & dizziness",
-                  status: "Upcoming",
-                  payment_status: "Paid",
-                  medical_report: "ECG Baseline & Blood Pressure Summary"
-                },
-                {
-                  id: "APT-902",
-                  patient_id: "PAT-1002",
-                  patient_name: "Sarah Connor",
-                  doctor_id: selectedDoctor.id,
-                  doctor_name: selectedDoctor.full_name,
-                  date: "2026-08-02",
-                  time: "02:00 PM",
-                  symptoms: "Persistent headache & routine specialist review",
-                  status: "Confirmed",
-                  payment_status: "Paid",
-                  medical_report: "OCR Pathology Report & Diagnostics"
-                }
-              ];
+              const todayStr = new Date().toISOString().split('T')[0];
+
+              // Categorize doctor appointments
+              const displayAppts = docAppts.length > 0 ? docAppts : [];
+
+              if (displayAppts.length === 0) {
+                return (
+                  <div className="p-8 text-center bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-bold">No active appointments found for {selectedDoctor.full_name}.</p>
+                    <p className="text-[11px] text-slate-400 mt-1">Appointments booked for this doctor will appear here in real-time.</p>
+                  </div>
+                );
+              }
 
               return (
                 <div className="overflow-x-auto">

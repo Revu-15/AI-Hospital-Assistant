@@ -11,6 +11,7 @@ export default function PatientDashboard({ onNavigate, currentUser }) {
   const [timeline, setTimeline] = useState([]);
   const [prescriptions, setPrescriptions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [apptTab, setApptTab] = useState('upcoming');
 
   useEffect(() => {
     async function fetchData() {
@@ -94,53 +95,108 @@ export default function PatientDashboard({ onNavigate, currentUser }) {
       {/* Main Grid: Appointments & Prescriptions */}
       <div className="grid lg:grid-cols-3 gap-6">
         
-        {/* Upcoming Appointments */}
+        {/* Appointments Section with Category Filters */}
         <div className="lg:col-span-2 medical-card p-6 space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-apolloBlue" />
-              <h3 className="font-bold text-base text-slate-800 dark:text-slate-100">Upcoming Appointments</h3>
+              <h3 className="font-bold text-base text-slate-800 dark:text-slate-100">My Appointments Portal</h3>
             </div>
             <button 
               onClick={() => onNavigate('appointments')}
-              className="text-xs font-bold text-apolloBlue hover:underline"
+              className="text-xs font-bold text-apolloBlue hover:underline self-start sm:self-auto"
             >
-              Manage All
+              + Book New
             </button>
           </div>
 
-          <div className="space-y-3">
-            {appointments.length > 0 ? (
-              appointments.slice(0, 2).map((a) => (
-                <div key={a.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950/60 text-apolloBlue font-bold flex flex-col items-center justify-center text-xs">
-                      <span>{a.date ? a.date.split('-')[2] || '01' : '01'}</span>
-                      <span className="text-[9px] uppercase">AUG</span>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-sm text-slate-800 dark:text-slate-100">{a.doctor_name || 'Dr. Sarah Jenkins'}</h4>
-                      <p className="text-xs font-medium text-apolloBlue">{a.department || 'Cardiology Consultation'}</p>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Time: {a.time || '10:30 AM'} • Token: {a.token_number || 'TK-CARD-892'}</p>
-                    </div>
-                  </div>
+          {/* Category Tabs: Upcoming, Past, Cancelled, Completed */}
+          {(() => {
+            const todayStr = new Date().toISOString().split('T')[0];
 
-                  <span className={`self-start sm:self-center text-xs font-bold px-3 py-1 rounded-full border ${
-                    a.status === 'Completed' ? 'bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300' :
-                    a.status === 'Upcoming' ? 'bg-teal-100 text-teal-700 border-teal-300 dark:bg-teal-950/60 dark:text-teal-300' :
-                    a.status === 'Confirmed' ? 'bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-950/60 dark:text-blue-300' :
-                    a.status === 'Missed' ? 'bg-rose-100 text-rose-700 border-rose-300 dark:bg-rose-950/60 dark:text-rose-300' :
-                    a.status === 'Cancelled by Doctor' ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/60 dark:text-amber-300' :
-                    'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300'
-                  }`}>
-                    {a.status || 'Confirmed'}
-                  </span>
+            const upcoming = appointments.filter(a => a.status === 'Upcoming' || a.status === 'Confirmed' || (a.date >= todayStr && a.status !== 'Completed' && !a.status?.includes('Cancel')));
+            const completed = appointments.filter(a => a.status === 'Completed');
+            const cancelled = appointments.filter(a => a.status?.includes('Cancel') || a.status?.includes('Canceled'));
+            const past = appointments.filter(a => a.status === 'Missed' || (a.date < todayStr && a.status !== 'Completed' && !a.status?.includes('Cancel')));
+
+            return (
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 p-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold overflow-x-auto">
+                  <button
+                    type="button"
+                    onClick={() => setApptTab('upcoming')}
+                    className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${apptTab === 'upcoming' ? 'bg-apolloBlue text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'}`}
+                  >
+                    Upcoming ({upcoming.length})
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setApptTab('completed')}
+                    className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${apptTab === 'completed' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'}`}
+                  >
+                    Completed ({completed.length})
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setApptTab('past')}
+                    className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${apptTab === 'past' ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'}`}
+                  >
+                    Past ({past.length})
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setApptTab('cancelled')}
+                    className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${apptTab === 'cancelled' ? 'bg-rose-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'}`}
+                  >
+                    Cancelled ({cancelled.length})
+                  </button>
                 </div>
-              ))
-            ) : (
-              <p className="text-xs text-slate-500 text-center py-6">No scheduled appointments.</p>
-            )}
-          </div>
+
+                <div className="space-y-3">
+                  {(() => {
+                    const currentList = apptTab === 'upcoming' ? upcoming :
+                                        apptTab === 'completed' ? completed :
+                                        apptTab === 'past' ? past : cancelled;
+
+                    if (currentList.length === 0) {
+                      return (
+                        <p className="text-xs text-slate-500 text-center py-6">
+                          No {apptTab} appointments found.
+                        </p>
+                      );
+                    }
+
+                    return currentList.map((a) => (
+                      <div key={a.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div className="flex items-center gap-3.5">
+                          <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950/60 text-apolloBlue font-bold flex flex-col items-center justify-center text-xs">
+                            <span>{a.date ? a.date.split('-')[2] || '01' : '01'}</span>
+                            <span className="text-[9px] uppercase">AUG</span>
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-sm text-slate-800 dark:text-slate-100">{a.doctor_name || 'Dr. Rajesh Kumar'}</h4>
+                            <p className="text-xs font-medium text-apolloBlue">{a.department || 'Cardiology Consultation'}</p>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Date: {a.date} • Time: {a.time} • Token: {a.token_number || 'TK-CARD-884'}</p>
+                          </div>
+                        </div>
+
+                        <span className={`self-start sm:self-center text-xs font-bold px-3 py-1 rounded-full border ${
+                          a.status === 'Completed' ? 'bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300' :
+                          a.status === 'Upcoming' ? 'bg-teal-100 text-teal-700 border-teal-300 dark:bg-teal-950/60 dark:text-teal-300' :
+                          a.status === 'Confirmed' ? 'bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-950/60 dark:text-blue-300' :
+                          a.status === 'Missed' ? 'bg-rose-100 text-rose-700 border-rose-300 dark:bg-rose-950/60 dark:text-rose-300' :
+                          a.status?.includes('Cancel') ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/60 dark:text-amber-300' :
+                          'bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300'
+                        }`}>
+                          {a.status || 'Confirmed'}
+                        </span>
+                      </div>
+                    ));
+                  })()}
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
         {/* Active Medications Quick Card */}

@@ -34,6 +34,12 @@ def parse_incoming_date(date_str: str) -> date:
         return datetime.now().date()
     clean = date_str.strip()
 
+    # Try ISO YYYY-MM-DD format first
+    try:
+        return datetime.strptime(clean, "%Y-%m-%d").date()
+    except Exception:
+        pass
+
     sep = "-" if "-" in clean else ("/" if "/" in clean else ".")
     parts = clean.split(sep)
 
@@ -41,16 +47,19 @@ def parse_incoming_date(date_str: str) -> date:
         try:
             p0, p1, p2 = int(parts[0]), int(parts[1]), int(parts[2])
             if p0 > 1000:
-                # YYYY-MM-DD (e.g. 2026-08-03)
+                # YYYY-MM-DD
                 return date(p0, p1, p2)
             elif p2 > 1000:
-                # DD-MM-YYYY (e.g. 03-08-2026) -> p2 is Year (2026), p1 is Month (8), p0 is Day (3)
+                # If p1 > 12, p1 is day and p0 is month (MM-DD-YYYY)
+                if p1 > 12:
+                    return date(p2, p0, p1)
+                # Standard DD-MM-YYYY
                 return date(p2, p1, p0)
         except Exception:
             pass
 
-    # Standard strptime fallback
-    for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d"):
+    # Fallback to standard strptime formats
+    for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d", "%m-%d-%Y", "%m/%d/%Y"):
         try:
             return datetime.strptime(clean, fmt).date()
         except Exception:
@@ -135,6 +144,7 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
     appointment = AppointmentModel(
         patient_id=1,
         doctor_id=payload.doctor_id,
+        patient_name=payload.patient_name or "John Doe",
         appointment_date=formatted_date_db,
         appointment_time=target_slot_clean,
         symptoms_summary=symptoms,
@@ -157,67 +167,139 @@ def book_appointment(payload: BookAppointmentSchema, db: Session = Depends(get_d
         "message": f"Appointment successfully booked ({appointment.status}) for {appointment.appointment_date} at {appointment.appointment_time}."
     }
 
+DOCTOR_NAMES_MAP = {
+    101: "Dr. Rajesh Kumar",
+    102: "Dr. Priya Sharma",
+    103: "Dr. Anil Verma",
+    104: "Dr. Kavitha Reddy",
+    105: "Dr. Rohit Mehta",
+    106: "Dr. Sneha Patel",
+    107: "Dr. Arjun Nair",
+    108: "Dr. Meera Iyer",
+    109: "Dr. Vikram Singh",
+    110: "Dr. Pooja Desai",
+    111: "Dr. Kiran Rao",
+    112: "Dr. Deepak Joshi",
+    113: "Dr. Nisha Gupta",
+    114: "Dr. Sanjay Kulkarni",
+    115: "Dr. Lakshmi Devi",
+    116: "Dr. Amit Agarwal",
+    117: "Dr. Harish Babu",
+    118: "Dr. Swathi Krishna",
+    119: "Dr. Naveen Reddy",
+    120: "Dr. Divya Menon"
+}
+
+DOCTOR_DEPTS_MAP = {
+    101: "Cardiology",
+    102: "Neurology",
+    103: "Orthopedics",
+    104: "Dermatology",
+    105: "Pediatrics",
+    106: "Gynecology",
+    107: "ENT Specialist",
+    108: "Ophthalmologist",
+    109: "Psychiatrist",
+    110: "General Medicine",
+    111: "Nephrology",
+    112: "Gastroenterology",
+    113: "Endocrinology",
+    114: "Pulmonology",
+    115: "Oncology",
+    116: "Urology",
+    117: "Radiology",
+    118: "Anesthesiology",
+    119: "Emergency Medicine",
+    120: "Rheumatology"
+}
+
 @router.get("/appointments")
 @router.get("/api/v1/appointments")
 @router.get("/appointments/list")
 @router.get("/api/v1/appointments/list")
-def list_appointments(db: Session = Depends(get_db)):
+def list_appointments(
+    doctor_id: Optional[int] = Query(None),
+    patient_id: Optional[int] = Query(None),
+    db: Session = Depends(get_db)
+):
     sync_appointments_in_db(db)
-    appointments = db.query(AppointmentModel).all()
-    
-    raw_samples = [
-        {
-            "id": 1,
-            "token_number": "TK-CARD-892",
-            "doctor_id": 101,
-            "doctor_name": "Dr. Rajesh Kumar",
-            "department": "Cardiology",
-            "date": "2026-08-01",
-            "time": "10:30 AM",
-            "raw_status": "Scheduled",
-            "urgency": "ROUTINE"
-        },
-        {
-            "id": 2,
-            "token_number": "TK-CARD-441",
-            "doctor_id": 104,
-            "doctor_name": "Dr. Anil Verma",
-            "department": "Orthopedics",
-            "date": "2026-08-05",
-            "time": "02:00 PM",
-            "raw_status": "Scheduled",
-            "urgency": "URGENT"
-        }
-    ]
 
-    if not appointments:
-        formatted_samples = []
-        for s in raw_samples:
-            eval_s = evaluate_status(s["date"], s["time"], s["raw_status"])
-            s["status"] = eval_s
-            del s["raw_status"]
-            formatted_samples.append(s)
-        return {
-            "status": "success",
-            "total": len(formatted_samples),
-            "appointments": formatted_samples
-        }
+    # Seed sample appointments if DB is empty
+    if db.query(AppointmentModel).count() == 0:
+        try:
+            seed_appts = [
+                AppointmentModel(
+                    patient_id=1,
+                    doctor_id=101,
+                    patient_name="Rahul Verma",
+                    appointment_date="2026-08-06",
+                    appointment_time="11:00 AM",
+                    status="Confirmed",
+                    symptoms_summary="Chest tightness on physical exertion",
+                    triage_urgency="URGENT",
+                    token_number="TK-CARD-884"
+                ),
+                AppointmentModel(
+                    patient_id=1,
+                    doctor_id=102,
+                    patient_name="Sarah Connor",
+                    appointment_date="2026-08-06",
+                    appointment_time="02:00 PM",
+                    status="Confirmed",
+                    symptoms_summary="Persistent migraine headaches for 3 days",
+                    triage_urgency="ROUTINE",
+                    token_number="TK-NEURO-441"
+                ),
+                AppointmentModel(
+                    patient_id=1,
+                    doctor_id=103,
+                    patient_name="Vikram Singh",
+                    appointment_date="2026-08-06",
+                    appointment_time="03:30 PM",
+                    status="Confirmed",
+                    symptoms_summary="Knee joint stiffness and chronic pain",
+                    triage_urgency="ROUTINE",
+                    token_number="TK-ORTHO-192"
+                )
+            ]
+            db.add_all(seed_appts)
+            db.commit()
+        except Exception:
+            db.rollback()
 
+    query = db.query(AppointmentModel)
+    if doctor_id:
+        query = query.filter(AppointmentModel.doctor_id == doctor_id)
+    if patient_id:
+        query = query.filter(AppointmentModel.patient_id == patient_id)
+
+    appointments = query.all()
     out_appts = []
+
     for a in appointments:
         eval_st = evaluate_status(a.appointment_date, a.appointment_time, a.status)
         if a.status != eval_st:
             a.status = eval_st
             db.commit()
+
+        doc_name = DOCTOR_NAMES_MAP.get(a.doctor_id, f"Dr. Specialist #{a.doctor_id}")
+        dept_name = DOCTOR_DEPTS_MAP.get(a.doctor_id, "General OPD")
+
         out_appts.append({
             "id": a.id,
-            "token_number": a.token_number,
+            "token_number": a.token_number or f"TK-APT-{a.id}",
+            "patient_id": a.patient_id,
+            "patient_name": a.patient_name or "Rahul Verma",
             "doctor_id": a.doctor_id,
-            "doctor_name": f"Dr. Specialist #{a.doctor_id}",
+            "doctor_name": doc_name,
+            "department": dept_name,
             "date": a.appointment_date,
             "time": a.appointment_time,
+            "appointment_date": a.appointment_date,
+            "appointment_time": a.appointment_time,
             "status": eval_st,
-            "urgency": a.triage_urgency
+            "symptoms": a.symptoms_summary or "General Consultation",
+            "urgency": a.triage_urgency or "ROUTINE"
         })
 
     return {
